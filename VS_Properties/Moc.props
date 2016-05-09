@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <SourceDir>src/</SourceDir>
+    <CppDir>$(SourceDir)main</CppDir>
+    <GenDir>$(SourceDir)gen/cpp</GenDir>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <QTDIR>C:\tool\RemotePkg\Qt\Qt5.6.0\5.6\msvc2013_64\</QTDIR>
+    <HppExt>hpp</HppExt>
+    <MocExt>cpp</MocExt>
+    <Moc>$(QTDIR)\bin\moc.exe</Moc>
+  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include;..\RWPluginInterface;..\OpenVXWrapper;$(IncludePath)</IncludePath>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LibraryPath>$(QTDIR)\lib;..\build\$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
+	<OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)</OutDir>
+  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(QTDIR)\mkspecs\winrt-x64-msvc2013;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include;..\RWPluginInterface;..\OpenVXWrapper;$(IncludePath)</IncludePath>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LibraryPath>$(QTDIR)\lib;..\build\$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
+	<OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)</OutDir>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <MocFlags>-DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -IC:\Projekte\RemoteRepros\RemoteStreamClient\RWPluginInterface -I$(GenDir)/ -I$(QtDir)\include\ -I$(QtDir)\include\Qt -I$(QtDir)\include\QtCore -I$(QtDir)\include\QtDeclarative -I$(QtDir)\include\QtGui</MocFlags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <MocFlags>-DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG=1 -DQT_CORE_LIB -IC:\Projekte\RemoteRepros\RemoteStreamClient\RWPluginInterface -I$(GenDir)/ -I$(QtDir)\include\ -I$(QtDir)\include\Qt -I$(QtDir)\include\QtCore -I$(QtDir)\include\QtDeclarative -I$(QtDir)\include\QtGui </MocFlags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <QtIncludes Include="*.$(HppExt)"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <QtMocs Include="$(GenDir)/*.$(MocExt)"/>
+  </ItemGroup>
+  <Target Inputs="@(QtIncludes)" 
+          Name="Moc" 
+          BeforeTargets="ClCompile"
+          Outputs="@(QtIncludes->'$(GenDir)/moc_%(Filename).cpp')">
+    <Exec Command = "$(Moc) %(QtIncludes.Identity) -nw -o moc_%(Filename).cpp  $(MocFlags) "/>
+
+  </Target>
+  <Target Name="test" BeforeTargets="Moc">
+    <Message Importance="high" Text="$(GenDir)/*.cpp "/>
+  </Target>
+
+  <Target Name="AddtoSolution" AfterTargets="Moc">
+    <ItemGroup>
+      <ClCompile Include="$(GenDir)/*.cpp"/>
+    </ItemGroup>
+  </Target>
+
+  <Target Name="CreateDirectories" BeforeTargets="Moc">
+    <MakeDir Directories="$(GenDir)"/>
+  </Target>
+
+  <Target Inputs="@(CopyToOutput)"
+          Name="CopytoOut"
+          Outputs="@(CopyToOutput->'%(DestinationFolder)/%(RecursiveDir)%(Filename)%(Extension)')"
+          AfterTargets="Link">
+  </Target>
+  
+</Project>
