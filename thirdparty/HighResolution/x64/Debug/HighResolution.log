@@ -1,4 +1,4 @@
-﻿Build started 10.05.2016 18:03:16.
+﻿Build started 19.05.2016 22:27:11.
      1>Project "C:\Projekte\RemoteUtil\thirdparty\HighResolution\HighResolution.vcxproj" on node 3 (Rebuild target(s)).
      1>Building with tools version "12.0".
      1>Target "_CheckForInvalidConfigurationAndPlatform" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Projekte\RemoteUtil\thirdparty\HighResolution\HighResolution.vcxproj" (entry point):
@@ -303,10 +303,10 @@
        Task "CL"
          Forcing recompile of all source files due to missing PDB "x64\Debug\vc120.pdb".
          Environment Variables passed to tool:
-           VS_UNICODE_OUTPUT=828
+           VS_UNICODE_OUTPUT=780
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt HighResClock.cpp
          Tracking command:
-         C:\Program Files (x86)\MSBuild\12.0\bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\12.0\bin\FileTracker.dll" /i C:\Projekte\RemoteUtil\thirdparty\HighResolution\x64\Debug\HighResolution.tlog /r C:\PROJEKTE\REMOTEUTIL\THIRDPARTY\HIGHRESOLUTION\HIGHRESCLOCK.CPP /b MSBuildConsole_CancelEventc639eeafd3bc4aa2b3c0b5aab0bcf393  /c "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe"  /c /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt HighResClock.cpp
+         C:\Program Files (x86)\MSBuild\12.0\bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\12.0\bin\FileTracker.dll" /i C:\Projekte\RemoteUtil\thirdparty\HighResolution\x64\Debug\HighResolution.tlog /r C:\PROJEKTE\REMOTEUTIL\THIRDPARTY\HIGHRESOLUTION\HIGHRESCLOCK.CPP /b MSBuildConsole_CancelEvent9074cb8581cd4326821f1a7ef2d1ce58  /c "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe"  /c /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt HighResClock.cpp
          HighResClock.cpp
        Done executing task "CL".
      1>Done building target "ClCompile" in project "HighResolution.vcxproj".
@@ -372,7 +372,7 @@
          Forcing rebuild of all source files due to missing command TLog "C:\Projekte\RemoteUtil\thirdparty\HighResolution\x64\Debug\HighResolution.tlog\lib.command.1.tlog".
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\Lib.exe /OUT:"C:\Projekte\TestGit\build\x64\Debug\HighResolution.lib" /NOLOGO /MACHINE:X64 x64\Debug\HighResClock.obj
          Tracking command:
-         C:\Program Files (x86)\MSBuild\12.0\bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\12.0\bin\FileTracker.dll" /i C:\Projekte\RemoteUtil\thirdparty\HighResolution\x64\Debug\HighResolution.tlog /r C:\PROJEKTE\REMOTEUTIL\THIRDPARTY\HIGHRESOLUTION\X64\DEBUG\HIGHRESCLOCK.OBJ /b MSBuildConsole_CancelEvent0fffbd7850e242908b6c1602ea41418f  /c "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\Lib.exe"  /OUT:"C:\Projekte\TestGit\build\x64\Debug\HighResolution.lib" /NOLOGO /MACHINE:X64 x64\Debug\HighResClock.obj
+         C:\Program Files (x86)\MSBuild\12.0\bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\12.0\bin\FileTracker.dll" /i C:\Projekte\RemoteUtil\thirdparty\HighResolution\x64\Debug\HighResolution.tlog /r C:\PROJEKTE\REMOTEUTIL\THIRDPARTY\HIGHRESOLUTION\X64\DEBUG\HIGHRESCLOCK.OBJ /b MSBuildConsole_CancelEvent23a32e54ed03461a87787d0947d49a09  /c "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\Lib.exe"  /OUT:"C:\Projekte\TestGit\build\x64\Debug\HighResolution.lib" /NOLOGO /MACHINE:X64 x64\Debug\HighResClock.obj
        Done executing task "LIB".
        Task "Message"
          HighResolution.vcxproj -> C:\Projekte\TestGit\build\x64\Debug\HighResolution.lib
@@ -521,4 +521,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.89
+Time Elapsed 00:00:01.05

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCase name="RemoteWorkstationTest">
+<Environment>
+    <QtVersion>5.7.0</QtVersion>
+    <QtBuild>Qt 5.7.0 (x86_64&#x002D;little_endian&#x002D;llp64 shared (dynamic) debug build; by MSVC 2013)</QtBuild>
+    <QTestVersion>5.7.0</QTestVersion>
+</Environment>
+<TestFunction name="initTestCase">
+<Incident type="pass" file="" line="0" />
+    <Duration msecs="0.032655"/>
+</TestFunction>
+<TestFunction name="Insert_A717_positiv">
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[Trying to construct an instance of an invalid type, type id: 1024]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="71">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'elementTypeID']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'elementTypeID']]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="74">
+    <Description><![CDATA[QVERIFY(m_Repository->GetRemoteWorkstationByID(1, ret))]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="75">
+    <Description><![CDATA[QVERIFY(ret.Hostname() == "A717")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="76">
+    <Description><![CDATA[QVERIFY(ret.Ip() == "192.168.111.245")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="77">
+    <Description><![CDATA[QVERIFY(ret.Mac() == "00-50-56-C0-00-08")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="78">
+    <Description><![CDATA[QVERIFY(ret.PowerstripeId() == "A213")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="79">
+    <Description><![CDATA[QVERIFY(ret.PowerstripeIp() =="192.168.111.242")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="80">
+    <Description><![CDATA[QVERIFY(ret.RemoteboxComPort() == 16)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="81">
+    <Description><![CDATA[QVERIFY(ret.RemoteboxHwId() == "asfajkaljk")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="82">
+    <Description><![CDATA[QVERIFY(ret.RemoteboxSwVersion() == "asdjhak")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="83">
+    <Description><![CDATA[QVERIFY(ret.CurrentUser() == nullptr)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="86">
+    <Description><![CDATA[QVERIFY(elementConfiguration.Name() == "CAN")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="87">
+    <Description><![CDATA[QVERIFY(elementConfiguration.GroupName() == "Peripherie")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="88">
+    <Description><![CDATA[QVERIFY(elementConfiguration.ToolTip() == "HMI CAN")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="89">
+    <Description><![CDATA[QVERIFY(elementConfiguration.Function() == "CAN")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="90">
+    <Description><![CDATA[QVERIFY(elementConfiguration.DisplayName() == "CAN")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="94">
+    <Description><![CDATA[QVERIFY(elementConfiguration2.Name() == "Kl30")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="95">
+    <Description><![CDATA[QVERIFY(elementConfiguration2.GroupName() == "Peripherie")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="96">
+    <Description><![CDATA[QVERIFY(elementConfiguration2.ToolTip() == "Kl30")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="97">
+    <Description><![CDATA[QVERIFY(elementConfiguration2.Function() == "Kl30")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="98">
+    <Description><![CDATA[QVERIFY(elementConfiguration2.DisplayName() == "Kl30")]]></Description>
+</Message>
+<Incident type="pass" file="" line="0" />
+    <Duration msecs="22.106667"/>
+</TestFunction>
+<TestFunction name="Insert_A684_positive">
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[Trying to construct an instance of an invalid type, type id: 1024]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="139">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'elementTypeID']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'elementTypeID']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'elementTypeID']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'elementTypeID']]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="142">
+    <Description><![CDATA[QVERIFY(m_Repository->GetRemoteWorkstationByID(1, ret))]]></Description>
+</Message>
+<Incident type="pass" file="" line="0" />
+    <Duration msecs="30.172201"/>
+</TestFunction>
+<TestFunction name="FindAllRemortWorkstations_Positiv">
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="149">
+    <Description><![CDATA[QVERIFY(m_Repository->GetAllRemoteWorkstation(ret))]]></Description>
+</Message>
