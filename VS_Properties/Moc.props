@@ -8,26 +8,26 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <QTDIR>C:\tool\RemotePkg\Qt\Qt5.6.0\5.6\msvc2013_64\</QTDIR>
+    <QTDIR>C:\tool\RemotePkg\Qt\Qt5.7.0\5.7\msvc2013_64\</QTDIR>
     <HppExt>hpp</HppExt>
     <MocExt>cpp</MocExt>
     <Moc>$(QTDIR)\bin\moc.exe</Moc>
   </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include;..\RWPluginInterface;..\OpenVXWrapper;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\RemoteUtil\thirdparty;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include;..\RWPluginInterface;..\OpenVXWrapper;$(IncludePath)</IncludePath>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LibraryPath>$(QTDIR)\lib;..\build\$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
 	<OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)</OutDir>
   </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(QTDIR)\mkspecs\winrt-x64-msvc2013;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include;..\RWPluginInterface;..\OpenVXWrapper;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\RemoteUtil\thirdparty;$(QTDIR)\mkspecs\winrt-x64-msvc2013;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include;..\RWPluginInterface;..\OpenVXWrapper;$(IncludePath)</IncludePath>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LibraryPath>$(QTDIR)\lib;..\build\$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
 	<OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)</OutDir>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <MocFlags>-DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -IC:\Projekte\RemoteRepros\RemoteStreamClient\RWPluginInterface -I$(GenDir)/ -I$(QtDir)\include\ -I$(QtDir)\include\Qt -I$(QtDir)\include\QtCore -I$(QtDir)\include\QtDeclarative -I$(QtDir)\include\QtGui</MocFlags>
+    <MocFlags>-DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -I..\RWPluginInterface -I$(GenDir)/ -I$(QtDir)\include\ -I$(QtDir)\include\Qt -I$(QtDir)\include\QtCore -I$(QtDir)\include\QtDeclarative -I$(QtDir)\include\QtGui</MocFlags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -45,7 +45,7 @@
           Name="Moc" 
           BeforeTargets="ClCompile"
           Outputs="@(QtIncludes->'$(GenDir)/moc_%(Filename).cpp')">
-    <Exec Command = "$(Moc) %(QtIncludes.Identity) -nw -o moc_%(Filename).cpp  $(MocFlags) "/>
+    <Exec Command = "$(Moc) %(QtIncludes.Identity) -nw -o %(Filename).moc  $(MocFlags) "/>
 
   </Target>
   <Target Name="test" BeforeTargets="Moc">
