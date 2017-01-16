@@ -23,14 +23,33 @@ namespace RW{
 		}
 
 
-		User::User(const User& other) : d_ptr(const_cast<UserPrivate*>(other.d_ptr))
+		User::User(const User& other)
 		{
-
+			if (&other != nullptr)
+			{
+				d_ptr = new UserPrivate(this);
+				d_ptr->m_Initials = other.d_ptr->m_Initials;
+				d_ptr->m_MKSPassword = other.d_ptr->m_MKSPassword;
+				d_ptr->m_MKSUsername = other.d_ptr->m_MKSUsername;
+				d_ptr->m_NotifiyDesktop = other.d_ptr->m_NotifiyDesktop;
+				d_ptr->m_NotifiyRemoteDesktop = other.d_ptr->m_NotifiyRemoteDesktop;
+				d_ptr->m_Password = other.d_ptr->m_Password;
+				d_ptr->m_UserName = other.d_ptr->m_UserName;
+			}
 		}
 		User& User::operator=(User& other) 
 		{
-			std::swap(d_ptr, const_cast<UserPrivate*>(other.d_ptr));
-			d_ptr->setParent(this);
+			if (&other != nullptr)
+			{
+				d_ptr = new UserPrivate(this);
+				d_ptr->m_Initials = other.d_ptr->m_Initials;
+				d_ptr->m_MKSPassword = other.d_ptr->m_MKSPassword;
+				d_ptr->m_MKSUsername = other.d_ptr->m_MKSUsername;
+				d_ptr->m_NotifiyDesktop = other.d_ptr->m_NotifiyDesktop;
+				d_ptr->m_NotifiyRemoteDesktop = other.d_ptr->m_NotifiyRemoteDesktop;
+				d_ptr->m_Password = other.d_ptr->m_Password;
+				d_ptr->m_UserName = other.d_ptr->m_UserName;
+			}
 			return *this;
 		}
 

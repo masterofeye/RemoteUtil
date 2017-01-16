@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCase name="ProjectTest">
+<Environment>
+    <QtVersion>5.7.0</QtVersion>
+    <QtBuild>Qt 5.7.0 (x86_64&#x002D;little_endian&#x002D;llp64 shared (dynamic) debug build; by MSVC 2013)</QtBuild>
+    <QTestVersion>5.7.0</QTestVersion>
+</Environment>
+<TestFunction name="initTestCase">
+<Incident type="pass" file="" line="0" />
+    <Duration msecs="46.362254"/>
+</TestFunction>
+<TestFunction name="Insert_Unique_ElementType_Positive">
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="44">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(tp))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d5b8)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d6c8)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="47">
+    <Description><![CDATA[QVERIFY(m_Repository->GetProjectByID(1, ret))]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="48">
+    <Description><![CDATA[QVERIFY(ret.Projectname() == BR213IC_HL_MY16)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="52">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(t))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="55">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(t))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="58">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(t))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="61">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(t))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="64">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(t))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="67">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(t))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="70">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(t))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="73">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(t))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="76">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(t))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="79">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(t))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="82">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(t))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="85">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(t))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="88">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(t))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d610)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="91">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertProject(t))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d738)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d780)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d760)]]></Description>
+</Message>
+<Incident type="pass" file="" line="0" />
+    <Duration msecs="1128.595193"/>
+</TestFunction>
+<TestFunction name="GetAllProjects_Positiv">
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x21d748)]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ProjectTest.h" line="97">
+    <Description><![CDATA[QVERIFY(m_Repository->GetAllProject(p))]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA["BR205IC"]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3dc250)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3dbcd0)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3db760)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3db1e0)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3d13e0)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3d0e70)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3d0900)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3d0380)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3cfe00)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3cf880)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3dab30)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3da530)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3d9fb0)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3d9a30)]]></Description>
+</Message>
+<Message type="qdebug" file="" line="0">
+    <Description><![CDATA[Delete  RW::SQL::Project(0x3b0f90)]]></Description>
+</Message>
+<Incident type="pass" file="" line="0" />
+    <Duration msecs="3.132076"/>
+</TestFunction>
+<TestFunction name="Insert_Unique_ElementType_Negative">
+<Incident type="pass" file="" line="0" />
+    <Duration msecs="0.037630"/>
+</TestFunction>
+<TestFunction name="cleanupTestCase">
+<Incident type="pass" file="" line="0" />
+    <Duration msecs="0.030477"/>
+</TestFunction>
+<Duration msecs="1178.440331"/>
+</TestCase>

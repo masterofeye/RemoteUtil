@@ -7,7 +7,7 @@ namespace RW{
 	namespace SQL{
 
 		ElementConfigurationPrivate::ElementConfigurationPrivate(ElementConfiguration* Parent) :
-			//QObject(Parent),
+			QObject(Parent),
 			q_ptr(Parent),
 			m_DisplayName(""),
 			m_Function(""),
@@ -33,15 +33,27 @@ namespace RW{
 		{
 		}
 
-		ElementConfiguration::ElementConfiguration(const ElementConfiguration& other) : d_ptr(other.d_ptr)
+		ElementConfiguration::ElementConfiguration(const ElementConfiguration& other) : d_ptr(new ElementConfigurationPrivate(this))
 		{
-			d_ptr->setParent(this);
+			d_ptr->m_Name = other.d_ptr->m_Name;
+			d_ptr->m_DisplayName = other.d_ptr->m_DisplayName;
+			d_ptr->m_Function = other.d_ptr->m_Function;
+			d_ptr->m_GroupName = other.d_ptr->m_GroupName;
+			d_ptr->m_RemoteWorkstationID = other.d_ptr->m_RemoteWorkstationID;
+			d_ptr->m_ToolTip = other.d_ptr->m_ToolTip;
+			d_ptr->m_Type = other.d_ptr->m_Type;
 		}
 
 		ElementConfiguration& ElementConfiguration::operator=(ElementConfiguration& other)
 		{
-			std::swap(d_ptr, const_cast<ElementConfigurationPrivate*>(other.d_ptr));
-			d_ptr->setParent(this);
+			d_ptr = new ElementConfigurationPrivate(this);
+			d_ptr->m_Name = other.d_ptr->m_Name;
+			d_ptr->m_DisplayName = other.d_ptr->m_DisplayName;
+			d_ptr->m_Function = other.d_ptr->m_Function;
+			d_ptr->m_GroupName = other.d_ptr->m_GroupName;
+			d_ptr->m_RemoteWorkstationID = other.d_ptr->m_RemoteWorkstationID;
+			d_ptr->m_ToolTip = other.d_ptr->m_ToolTip;
+			d_ptr->m_Type = other.d_ptr->m_Type;
 			return *this;
 		}
 

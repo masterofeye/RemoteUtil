@@ -24,4 +24,14 @@ namespace RW{
 		MOCK
 	};
 	//Q_ENUM(SourceType);
-}
+
+
+	enum class RemoteWorkstationState
+	{
+		ON,
+		OFF,
+		RESERVE,
+		DEFECT
+	};
+}	
+Q_DECLARE_METATYPE(RW::RemoteWorkstationState)

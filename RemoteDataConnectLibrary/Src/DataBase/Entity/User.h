@@ -57,3 +57,4 @@ namespace RW{
 		};
 	}
 }
+Q_DECLARE_METATYPE(RW::SQL::User)

@@ -7,7 +7,7 @@ namespace RW{
 	namespace SQL{
 
 		ElementTypePrivate::ElementTypePrivate(ElementType *Parent) :
-			//QObject(Parent),
+			QObject(Parent),
 			m_Type(RW::TypeOfElement::INVALID),
 			q_ptr(Parent)
 		{
@@ -26,9 +26,9 @@ namespace RW{
 		{
 		}
 
-		ElementType::ElementType(const ElementType& other) : d_ptr(other.d_ptr)
+		ElementType::ElementType(const ElementType& other) : d_ptr(new ElementTypePrivate(this))
 		{
-			d_ptr->setParent(this);
+			d_ptr->m_Type = other.d_ptr->m_Type;
 
 		}
 

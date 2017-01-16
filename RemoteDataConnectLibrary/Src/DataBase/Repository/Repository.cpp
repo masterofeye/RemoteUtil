@@ -105,6 +105,16 @@ namespace RW{
 			return res;
 		}
 
+		bool Repository::InsertProject(Project &P)
+		{
+			bool res = false;
+			DataFactory d(m_logger);
+			DataMapper<Project> *dm = d.GetMapper<Project>(m_Source);
+			res = dm->Insert(P);
+			delete dm;
+			return res;
+		}
+
 		bool Repository::GetRemoteWorkstationByID(quint64 ID, RemoteWorkstation& R)
 		{
 			try{
@@ -228,6 +238,22 @@ namespace RW{
 			catch (...)
 			{
 				m_logger->error("GetLogEntryByID throwed a exception");
+				return false;
+			}
+			return true;
+		}
+
+		bool Repository::GetProjectByID(quint64 ID, Project& P)
+		{
+			try{
+				DataFactory d(m_logger);
+				DataMapper<Project> *dm = d.GetMapper<Project>(m_Source);
+				P = dm->FindByID(ID, false);
+				delete dm;
+			}
+			catch (...)
+			{
+				m_logger->error("GetProjectByID throwed a exception");
 				return false;
 			}
 			return true;
@@ -362,6 +388,23 @@ namespace RW{
 			return true;
 		}
 
+		bool Repository::GetAllProject(QList<Project> & AllR)
+		{
+			try{
+				DataFactory d(m_logger);
+				DataMapper<Project> *dm = d.GetMapper<Project>(m_Source);
+				AllR = dm->FindAll();
+				delete dm;
+			}
+			catch (...)
+			{
+				m_logger->error("GetAllProject throwed a exception");
+				return false;
+			}
+			return true;
+		}
+
+
 		bool Repository::GetUserByName(QString Name, User& U)
 		{
 			QList<User> list;
@@ -379,10 +422,12 @@ namespace RW{
 			}
 			catch (...)
 			{
-				m_logger->error("GetUserByID throwed a exception");
+				m_logger->error("GetUserByName throwed a exception");
 				return false;
 			}
 			return true;
 		}
+
+
 	}
 }

@@ -17,6 +17,7 @@ namespace RW{
 		ReceptPrivate::~ReceptPrivate()
 		{}
 
+
 		Recept::Recept(QObject *Parent) : Entity(Parent),
 			d_ptr(new ReceptPrivate(this))
 		{

@@ -7,7 +7,7 @@
 </Environment>
 <TestFunction name="initTestCase">
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="0.038564"/>
+    <Duration msecs="0.030788"/>
 </TestFunction>
 <TestFunction name="Insert_Unique_ElementType_Positive">
 <Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ElementConfigurationTest.h" line="45">
@@ -19,27 +19,14 @@
 <Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ElementConfigurationTest.h" line="49">
     <Description><![CDATA[QVERIFY(ret.Type()->Type() == elementType.Type())]]></Description>
 </Message>
-<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ElementConfigurationTest.h" line="50">
-    <Description><![CDATA[QVERIFY(ret.Name() == "CAN")]]></Description>
-</Message>
-<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ElementConfigurationTest.h" line="51">
-    <Description><![CDATA[QVERIFY(ret.GroupName() == "Peripherie")]]></Description>
-</Message>
-<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ElementConfigurationTest.h" line="52">
-    <Description><![CDATA[QVERIFY(ret.ToolTip() == "HMI CAN")]]></Description>
-</Message>
-<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ElementConfigurationTest.h" line="53">
-    <Description><![CDATA[QVERIFY(ret.Function() == "CAN")]]></Description>
-</Message>
-<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ElementConfigurationTest.h" line="54">
-    <Description><![CDATA[QVERIFY(ret.DisplayName() == "CAN")]]></Description>
-</Message>
-<Incident type="pass" file="" line="0" />
-    <Duration msecs="8.356943"/>
+<Incident type="fail" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ElementConfigurationTest.h" line="49">
+    <Description><![CDATA['ret.Type()->Type() == elementType.Type()' returned FALSE. ()]]></Description>
+</Incident>
+    <Duration msecs="6.258865"/>
 </TestFunction>
 <TestFunction name="cleanupTestCase">
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="0.028301"/>
+    <Duration msecs="0.028611"/>
 </TestFunction>
-<Duration msecs="8.585530"/>
+<Duration msecs="6.457905"/>
 </TestCase>

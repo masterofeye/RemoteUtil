@@ -1,13 +1,6 @@
 #pragma once
 #include "DataMapper.h"
-#include "RemoteWorkstation.h"
-#include "ElementConfiguration.h"
-#include "ElementType.h"
-#include "User.h"
-#include "Recept.h"
-#include "Product.h"
-#include "Instruction.h"
-#include "LogEntry.h"
+#include "AllEntities.h"
 #include "qsqlquery.h"
 #include "qvariant.h"
 #include "qdatetime.h"
@@ -19,7 +12,7 @@
 namespace RW{
 	namespace SQL{
 
-		const QString Insert_RemoteWorkstation = "INSERT INTO remoteWorkstation (userID,hostname,mac,ip,powerstripeIp,powerstripeId,remoteboxComPort,remoteboxHwId,remoteboxSwVersion) VALUES (:user,:hostname,:mac,:ip,:powerstripeIp,:powerstripeId,:remoteboxComPort,:remoteboxHwId,:remoteboxSwVersion)";
+		const QString Insert_RemoteWorkstation = "INSERT INTO remoteWorkstation (userID,hostname,mac,ip,powerstripeIp,powerstripeId,remoteboxComPort,remoteboxHwId,remoteboxSwVersion,state,projectID) VALUES (:user,:hostname,:mac,:ip,:powerstripeIp,:powerstripeId,:remoteboxComPort,:remoteboxHwId,:remoteboxSwVersion,:state,( SELECT idProject FROM project WHERE name=:name))";
 		const QString Insert_User = "INSERT INTO user (username,password,mksUsername,mksPassword,initials,notifiyRemoteDesktop,notifiyDesktop ) VALUES (:username,:password,:mksUsername,:mksPassword,:initials,:notifiyRemoteDesktop,:notifiyDesktop)";
 		const QString Insert_ElementConfiguration = "INSERT INTO elementConfiguration (remoteWorkstationID, elementTypeID,displayName,name,groupName, function, tooltip) VALUES (:remoteWorkstationID, (SELECT idElementType FROM elementType WHERE type=:type),:displayName,:name,:groupName,:function,:tooltip)";
 		const QString Insert_ElementType = "INSERT INTO elementType (type) VALUES (:type)";
@@ -27,8 +20,9 @@ namespace RW{
 		const QString Insert_Recept = "INSERT INTO recept (receptName,orderNumber,instructionID) VALUES (:receptName,:orderNumber,:instructionID)";
 		const QString Insert_Product = "INSERT INTO product (productName,part,receptID) VALUES (:productName,:part,:receptID)";
 		const QString Insert_LogEntry = "INSERT INTO log (date,message,loglevel,threadId,errorId,type,computerName) VALUES (:datetime,:message,:loglevel,:threadId,:errorId,:type,:computerName)";
+		const QString Insert_Project = "INSERT INTO project (name) VALUES (:name)";
 
-		const QString Update_RemoteWorkstation = "UPDATE remoteWorkstation SET user=( SELECT idUser FROM user WHERE user=:user),hostname=:hostname,mac=:mac,ip=:ip,powerstripeIp=:powerstripeIp,powerstripeId=:powerstripeId,remoteboxComPort=:remoteboxComPort,remoteboxHwId=:remoteboxHwId,remoteboxSwVersion=:remoteboxSwVersion WHERE idRemoteWorkstation=:id";
+		const QString Update_RemoteWorkstation = "UPDATE remoteWorkstation SET userID=( SELECT idUser FROM user WHERE user=:user),hostname=:hostname,mac=:mac,ip=:ip,powerstripeIp=:powerstripeIp,powerstripeId=:powerstripeId,remoteboxComPort=:remoteboxComPort,remoteboxHwId=:remoteboxHwId,remoteboxSwVersion=:remoteboxSwVersion, state=:state, projectID=( SELECT idProject FROM project WHERE name=:name) WHERE idRemoteWorkstation=:id";
 		const QString Update_User = "UPDATE user SET username=:username,password=:password,mksUsername=:mksUsername,mksPassword=:mksPassword,initials=:intitials,notifiyRemoteDesktop=:notifiyRemoteDesktop,notifiyDesktop=:notifiyDesktop";
 		const QString Update_ElementConfiguration = "UPDATE elementConfiguration SET remoteWorkstationID=:remoteWorkstationID,type=:type,displayName=:displayName,name=:name,groupName=:groupName,function=:function, tooltip=:tooltip";
 		const QString Update_ElementType = "UPDATE elementType SET type=:type";
@@ -36,6 +30,7 @@ namespace RW{
 		const QString Update_Recept = "UPDATE recept SET receptName=:receptName,orderNumber=:orderNumber,instructionID=:instructionID";
 		const QString Update_Product = "UPDATE product SET productName=:productName,part=:part,receptID=:receptID";
 		const QString Update_LogEntry = "UPDATE log SET datetime=:datetime,message=:message,loglevel=:loglevel,threadId=:threadId,errorId=:errorId,type=:type,computerName=:computerName";
+		const QString Update_Project = "UPDATE project SET name=:name";
 
 		const QString Delete_RemoteWorkstattion = "DELETE FROM remoteWorkstation WHERE idRemoteWorkstation=:idRemoteWorkstation";
 		const QString Delete_User = "DELETE FROM user WHERE idUser=:idUser";
@@ -45,6 +40,7 @@ namespace RW{
 		const QString Delete_Recept = "DELETE FROM recept WHERE idRecept=:idRecept";
 		const QString Delete_Product = "DELETE FROM product WHERE idProduct=:idProduct";
 		const QString Delele_LogEntry = "DELETE FROM log WHERE idLogEntry=:idLogEntry";
+		const QString Delele_Project = "DELETE FROM project WHERE idProject=:idProject";
 
 		const QString SelectById_RemoteWorkstation = "SELECT * FROM remoteWorkstation WHERE idRemoteWorkstation = :idRemoteWorkstation";
 		const QString SelectById_User = "SELECT * FROM user WHERE idUser = :idUser";
@@ -54,6 +50,7 @@ namespace RW{
 		const QString SelectById_Recept = "SELECT * FROM recept WHERE idRecept = :idRecept";
 		const QString SelectById_Product = "SELECT * FROM product WHERE idProduct = :idProduct";
 		const QString SelectById_LogEntry = "SELECT * FROM log WHERE idLogEntry=:idLogEntry";
+		const QString SelectById_Project = "SELECT * FROM project WHERE idProject=:idProject";
 
 		const QString SelectAll_RemoteWorkstation = "SELECT * FROM remoteWorkstation";
 		const QString SelectAll_User = "SELECT * FROM user";
@@ -63,9 +60,10 @@ namespace RW{
 		const QString SelectAll_Recept = "SELECT * FROM recept";
 		const QString SelectAll_Product = "SELECT * FROM product";
 		const QString SelectAll_LogEntry = "SELECT * FROM log";
+		const QString SelectAll_Project = "SELECT * FROM project";
 
 		const QString Select_ElementConfigurationByRemoteWorkstationID = "SELECT el.remoteWorkstationID, t.type = type ,el.displayName,el.name,el.groupName, el.function, el.tooltip FROM elementConfiguration el join elementType t on el.elementTypeID = t.idElementType WHERE el.remoteWorkstationID = :remoteWorkstationID";
-		const QString SelectLastID = "SELECT LAST_INSERT_ID()";
+		const QString SelectLastID = "SELECT idRemoteWorkstation from remoteWorkstation ORDER BY idRemoteWorkstation DESC LIMIT 1;";
 		class Entity;
 		template<class T>
 		class MySqlMapper :
@@ -110,9 +108,6 @@ namespace RW{
 
 		};
 
-
-
-
 		template<> bool MySqlMapper<LogEntry>::Insert(const LogEntry &Data)
 		{
 			LogEntry d(Data);
@@ -147,7 +142,7 @@ namespace RW{
 				query.bindValue(":user", QVariant(QVariant::UserType));
 			else
 				query.bindValue(":user", d.CurrentUser()->ID());
-			query.bindValue(":hostname", d.hostname());
+			query.bindValue(":hostname", d.Hostname());
 			query.bindValue(":mac", d.Mac());
 			query.bindValue(":ip", d.Ip());
 			query.bindValue(":powerstripeIp", d.PowerstripeIp());
@@ -155,6 +150,14 @@ namespace RW{
 			query.bindValue(":remoteboxComPort", d.RemoteboxComPort());
 			query.bindValue(":remoteboxHwId", d.RemoteboxHwId());
 			query.bindValue(":remoteboxSwVersion", d.RemoteboxSwVersion());
+			query.bindValue(":state",(int) d.State());
+			if (d.AssignedProject() == nullptr)
+			{
+				m_logger->error("Project entry can't be NULL!");
+				return false;
+			}
+			else
+				query.bindValue(":name", d.AssignedProject()->Projectname());
 
 			bool res = query.exec();
 			if (!res)
@@ -163,7 +166,10 @@ namespace RW{
 			}
 			else
 			{
-				id = query.exec(SelectLastID);
+				bool res = query.exec(SelectLastID);
+				while (query.next()) {
+					id = query.value(0).toInt();
+				}
 				for each (auto var in *d.ElementCfg())
 				{
 					QSqlQuery query;
@@ -300,6 +306,23 @@ namespace RW{
 			return res;
 		}
 
+		template<> bool MySqlMapper<Project>::Insert(const Project &Data)
+		{
+			Project d = Data;
+
+			QSqlQuery query;
+			query.prepare(Insert_Project);
+			query.bindValue(":name", d.Projectname());
+
+			bool res = query.exec();
+			if (!res)
+			{
+				m_logger->error("Tbl Project insert failed. Error: {}", query.lastError().text().toUtf8().constData());
+			}
+			return res;
+		}
+
+
 		template<> bool MySqlMapper<RemoteWorkstation>::Update(const RemoteWorkstation &Data)
 		{
 			RemoteWorkstation d = Data;
@@ -307,7 +330,7 @@ namespace RW{
 			query.prepare(Update_RemoteWorkstation);
 			//query.bindValue(":elementConfiguration", d.ElementCfg()->ID());
 			query.bindValue(":user", d.CurrentUser()->ID());
-			query.bindValue(":hostname", d.hostname());
+			query.bindValue(":hostname", d.Hostname());
 			query.bindValue(":mac", d.Mac());
 			query.bindValue(":ip", d.Ip());
 			query.bindValue(":powerstripeIp", d.PowerstripeId());
@@ -315,6 +338,14 @@ namespace RW{
 			query.bindValue(":remoteboxComPort", d.RemoteboxComPort());
 			query.bindValue(":remoteboxHwId", d.RemoteboxHwId());
 			query.bindValue(":remoteboxSwVersion", d.RemoteboxSwVersion());
+			query.bindValue(":state", (int)d.State());
+			if (d.AssignedProject() == nullptr)
+			{
+				m_logger->error("Project entry can't be NULL!");
+				return false;
+			}
+			else
+				query.bindValue(":name", d.AssignedProject()->Projectname());
 
 			bool res = query.exec();
 			if (!res)
@@ -364,7 +395,7 @@ namespace RW{
 		{
 			Instruction d = Data;
 			QSqlQuery query;
-			query.prepare(Update_ElementType);
+			query.prepare(Update_Instruction);
 			query.bindValue(":step", d.Step());
 
 			bool res = query.exec();
@@ -379,7 +410,7 @@ namespace RW{
 		{
 			Product d = Data;
 			QSqlQuery query;
-			query.prepare(Update_ElementType);
+			query.prepare(Update_Product);
 			query.bindValue(":receptID", d.Recept()->ID());
 			query.bindValue(":productName", d.ProductName());
 			query.bindValue(":part", d.Part());
@@ -392,11 +423,26 @@ namespace RW{
 			return res;
 		}
 
+		template<> bool MySqlMapper<Project>::Update(const Project &Data)
+		{
+			Project d = Data;
+			QSqlQuery query;
+			query.prepare(Update_Project);
+			query.bindValue(":name", d.Projectname());
+
+			bool res = query.exec();
+			if (!res)
+			{
+				m_logger->error("Tbl project update failed. Error:{}", query.lastError().text().toUtf8().constData());
+			}
+			return res;
+		}
+
 		template<> bool MySqlMapper<Recept>::Update(const Recept &Data)
 		{
 			Recept d = Data;
 			QSqlQuery query;
-			query.prepare(Update_ElementType);
+			query.prepare(Update_Recept);
 			query.bindValue(":orderNumber", d.OrderNumber());
 			query.bindValue(":receptName", d.ReceptName());
 			query.bindValue(":instructionID", d.Instruction()->ID());
@@ -425,12 +471,14 @@ namespace RW{
 					d.SetCurrentUser(new User(FindByID<User>(query.value("userID").toInt())));
 				d.SetIp(query.value("ip").toString());
 				d.SetMac(query.value("mac").toString());
-				d.setHostname(query.value("hostname").toString());
+				d.SetHostname(query.value("hostname").toString());
 				d.SetPowerstripeId(query.value("powerstripeId").toString());
 				d.SetPowerstripeIp(query.value("powerstripeIp").toString());
 				d.SetRemoteboxComPort(query.value("remoteboxComPort").toInt());
 				d.SetRemoteboxHwId(query.value("remoteboxHwId").toString());
 				d.SetRemoteboxSwVersion(query.value("remoteboxSwVersion").toString());
+				d.SetState((RW::RemoteWorkstationState)query.value("state").toInt());
+				d.setAssignedProject(new Project(FindByID<Project>(query.value("projectID").toInt())));
 
 				QSqlQuery query;
 				query.prepare(Select_ElementConfigurationByRemoteWorkstationID);
@@ -598,6 +646,27 @@ namespace RW{
 			return d;
 		}
 
+		template<> Project MySqlMapper<Project>::FindByID(const quint64 ID, bool Flag)
+		{
+			Project d;
+			QSqlQuery query;
+			query.prepare(SelectById_Project);
+			query.bindValue(":idProject", ID);
+			bool res = query.exec();
+
+			while (query.next())
+			{
+				// \!todo unschöne Konvertierung
+				d.SetProjectname(query.value("name").toString());
+			}
+
+			if (!res)
+			{
+				m_logger->error("Tbl project FindByID failed. Error:{}", query.lastError().text().toUtf8().constData());
+			}
+			return d;
+		}
+
 		template<> LogEntry MySqlMapper<LogEntry>::FindByID(const quint64 ID, bool Flag)
 		{
 			LogEntry d;
@@ -638,12 +707,14 @@ namespace RW{
 				d.SetCurrentUser(new User(FindByID<User>(query.value("userID").toInt())));
 				d.SetIp(query.value("ip").toString());
 				d.SetMac(query.value("mac").toString());
-				d.setHostname(query.value("hostname").toString());
+				d.SetHostname(query.value("hostname").toString());
 				d.SetPowerstripeId(query.value("powerstripeId").toString());
 				d.SetPowerstripeIp(query.value("powerstripeIp").toString());
 				d.SetRemoteboxComPort(query.value("remoteboxComPort").toInt());
 				d.SetRemoteboxHwId(query.value("remoteboxHwId").toString());
 				d.SetRemoteboxSwVersion(query.value("remoteboxSwVersion").toString());
+				d.SetState((RW::RemoteWorkstationState)query.value("state").toInt());
+				d.setAssignedProject(new Project(FindByID<Project>(query.value("projectID").toInt())));
 
 				QSqlQuery query;
 				query.prepare(Select_ElementConfigurationByRemoteWorkstationID);
@@ -809,6 +880,27 @@ namespace RW{
 			if (!res)
 			{
 				m_logger->error("Tbl product FindAll failed. Error:{}", query.lastError().text().toUtf8().constData());
+			}
+			return list;
+		}
+
+		template<> QList<Project> MySqlMapper<Project>::FindAll()
+		{
+			QList<Project> list;
+			QSqlQuery query;
+			query.prepare(SelectAll_Project);
+			bool res = query.exec();
+			while (query.next())
+			{
+				Project d;
+				// \!todo unschöne Konvertierung
+				d.SetProjectname(query.value("name").toString());
+				list << d;
+			}
+
+			if (!res)
+			{
+				m_logger->error("Tbl project FindAll failed. Error:{}", query.lastError().text().toUtf8().constData());
 			}
 			return list;
 		}

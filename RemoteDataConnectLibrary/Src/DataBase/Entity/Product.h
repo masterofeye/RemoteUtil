@@ -9,9 +9,7 @@ namespace RW{
 			public Entity
 		{
 			Q_OBJECT
-			Q_PROPERTY(QString ProductName READ ProductName WRITE SetProductName NOTIFY ProductNameChanged)
-			Q_PROPERTY(QString Part READ Part WRITE SetPart NOTIFY PartChanged)
-			//Q_PROPERTY(RW::SQL::Recept ReceptInstance READ Recept WRITE SetRecept NOTIFY ReceptChanged)
+			Q_PROPERTY(QString Productname READ ProductName WRITE SetProductName NOTIFY ProductNameChanged)
 			Q_CLASSINFO("Version", "0.0.1")
 
 		private:
@@ -42,3 +40,4 @@ namespace RW{
 		};
 	}
 }
+Q_DECLARE_METATYPE(RW::SQL::Product)

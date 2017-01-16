@@ -56,6 +56,12 @@
     <ClCompile Include="GeneratedFiles\Release\moc_RemoteWorkstationTest.cpp">
       <Filter>Generierte Dateien\Release</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ProjectTest.cpp">
+      <Filter>Generierte Dateien\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ProjectTest.cpp">
+      <Filter>Generierte Dateien\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="TestSuite.hpp">
@@ -70,5 +76,13 @@
     <CustomBuild Include="RemoteWorkstationTest.h">
       <Filter>Header Dateien</Filter>
     </CustomBuild>
+    <CustomBuild Include="ProjectTest.h">
+      <Filter>Header Dateien</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Constants.h">
+      <Filter>Header Dateien</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

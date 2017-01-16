@@ -31,7 +31,7 @@ namespace RW{
 
 		Product::Product(const Product& other) : d_ptr(const_cast<ProductPrivate*>(other.d_ptr))
 		{
-
+			d_ptr->setParent(this);
 		}
 
 		Product& Product::operator=(Product& other)

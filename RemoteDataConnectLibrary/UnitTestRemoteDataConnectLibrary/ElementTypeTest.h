@@ -13,7 +13,7 @@ private:
 	RW::SQL::Repository *m_Repository;
 	std::shared_ptr<spdlog::logger> m_logger;
 public:
-	ElementTypeTest() : TestSuite(NAME,0)
+	ElementTypeTest() : TestSuite(NAME,1)
     {
 		
     }

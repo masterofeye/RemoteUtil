@@ -1,6 +1,8 @@
 #include "RemoteWorkstation.h"
 #include "RemoteWorkstation_p.h"
-
+#include "User.h"
+#include "ElementConfiguration.h"
+#include "Project.h"
 
 namespace RW{
 	namespace SQL{
@@ -17,7 +19,9 @@ namespace RW{
 			m_remoteboxComPort(0),
 			m_remoteboxHwId(""),
 			m_remoteboxSwVersion(""),
-			m_ElementConfiguration(new QList<ElementConfiguration>())
+			m_State(RW::RemoteWorkstationState::OFF),
+			m_ElementConfiguration(new QList<ElementConfiguration>()),
+			m_Project(nullptr)
 		{
 		}
 
@@ -26,7 +30,9 @@ namespace RW{
 			if (m_ElementConfiguration != nullptr)
 			{
 				//qDeleteAll(m_ElementConfiguration);
+				m_ElementConfiguration->clear();
 				delete m_ElementConfiguration;
+				m_ElementConfiguration = nullptr;
 			}
 		}
 
@@ -51,16 +57,63 @@ namespace RW{
 		}
 
 
-		RemoteWorkstation::RemoteWorkstation(const RemoteWorkstation &R) :
-			d_ptr(const_cast<RemoteWorkstationPrivate*>(R.d_ptr))
+		RemoteWorkstation::RemoteWorkstation(const RemoteWorkstation &R)
 		{
-			d_ptr->setParent(this);
+			if (&R != nullptr)
+			{
+				d_ptr = new RemoteWorkstationPrivate(this);
+				d_ptr->m_Hostname = R.d_ptr->m_Hostname;
+				d_ptr->m_Mac = R.d_ptr->m_Mac;
+				d_ptr->m_Ip = R.d_ptr->m_Ip;
+				if (R.d_ptr->m_User != nullptr)
+				{
+					if (d_ptr->m_User == nullptr)
+					{
+						d_ptr->m_User = new User(*R.d_ptr->m_User);
+					}
+					else
+					{
+						*d_ptr->m_User = *R.d_ptr->m_User;
+					}
+				}
+				d_ptr->m_powerstripeIp = R.d_ptr->m_powerstripeIp;
+				d_ptr->m_powerstripeId = R.d_ptr->m_powerstripeId;
+				d_ptr->m_remoteboxComPort = R.d_ptr->m_remoteboxComPort;
+				d_ptr->m_remoteboxHwId = R.d_ptr->m_remoteboxHwId;
+				d_ptr->m_remoteboxSwVersion = R.d_ptr->m_remoteboxSwVersion;
+				d_ptr->m_State = R.d_ptr->m_State;
+				if (R.d_ptr->m_Project != nullptr)
+				{
+					if (d_ptr->m_Project == nullptr)
+					{
+						d_ptr->m_Project = new Project(*R.d_ptr->m_Project);
+					}
+					else
+					{
+						*d_ptr->m_Project = *R.d_ptr->m_Project;
+					}
+				}
+				*d_ptr->m_ElementConfiguration = *R.d_ptr->m_ElementConfiguration;
+			}
 		}
 
 		RemoteWorkstation& RemoteWorkstation::operator=(const RemoteWorkstation &R)
 		{
-			d_ptr->setParent(this);
-			std::swap(d_ptr, const_cast<RemoteWorkstationPrivate*>(R.d_ptr));
+			if (&R != nullptr)
+			{
+				d_ptr = new RemoteWorkstationPrivate(this);
+				d_ptr->m_Hostname = R.d_ptr->m_Hostname;
+				d_ptr->m_Mac = R.d_ptr->m_Mac;
+				d_ptr->m_Ip = R.d_ptr->m_Ip;
+				d_ptr->m_User = R.d_ptr->m_User;
+				d_ptr->m_powerstripeIp = R.d_ptr->m_powerstripeIp;
+				d_ptr->m_powerstripeId = R.d_ptr->m_powerstripeId;
+				d_ptr->m_remoteboxComPort = R.d_ptr->m_remoteboxComPort;
+				d_ptr->m_remoteboxHwId = R.d_ptr->m_remoteboxHwId;
+				d_ptr->m_remoteboxSwVersion = R.d_ptr->m_remoteboxSwVersion;
+				d_ptr->m_State = R.d_ptr->m_State;
+				d_ptr->m_ElementConfiguration = R.d_ptr->m_ElementConfiguration;
+			}
 			return *this;
 		}
 
@@ -106,17 +159,30 @@ namespace RW{
 			}
 		}
 
-		QString RemoteWorkstation::hostname() const
+		Project* RemoteWorkstation::AssignedProject() const
+		{
+			Q_D(const RemoteWorkstation);
+			return d->m_Project ;
+		}
+
+		void RemoteWorkstation::setAssignedProject(Project* Project)
+		{
+			Q_D(RemoteWorkstation);
+			d->m_Project = Project;
+			emit ProjectChanged();
+		}
+
+		QString RemoteWorkstation::Hostname() const
 		{ 
 			Q_D(const RemoteWorkstation);
 			return d->m_Hostname;
 		}
 		
-		void RemoteWorkstation::setHostname(QString Hostname)
+		void RemoteWorkstation::SetHostname(QString Hostname)
 		{ 
 			Q_D(RemoteWorkstation);
 			d->m_Hostname = Hostname;
-			emit hostnameChanged();
+			emit HostnameChanged();
 		}
 
 		QString RemoteWorkstation::Mac() const
@@ -207,7 +273,19 @@ namespace RW{
 			Q_D(RemoteWorkstation);
 			d->m_remoteboxSwVersion = RemoteboxSwVersion;
 			emit RemoteboxSwVersionChanged();
+		}
 
+		RemoteWorkstationState RemoteWorkstation::State() const
+		{
+			Q_D(const RemoteWorkstation);
+			return d->m_State;
+		}
+
+		void RemoteWorkstation::SetState(RemoteWorkstationState State)
+		{
+			Q_D(RemoteWorkstation);
+			d->m_State = State;
+			emit StateChanged();
 		}
 	}
 }

@@ -1,13 +1,16 @@
 #pragma once
 #include <qobject.h>
-#include "User.h"
-#include "ElementConfiguration.h"
+
+#include "SQLGlobal.h"
+#include "Product.h"
 
 namespace RW{
 	namespace SQL{
 
+		class Project;
 		class RemoteWorkstation;
 		class ElementConfiguration;
+		class User;
 		class RemoteWorkstationPrivate : public QObject
 		{
 			Q_OBJECT
@@ -22,6 +25,7 @@ namespace RW{
 
 			QList<ElementConfiguration>* m_ElementConfiguration;
 			User* m_User;
+			Project* m_Project;
 			QString m_Hostname;
 			/*
 			@brief
@@ -39,6 +43,8 @@ namespace RW{
 			quint8  m_remoteboxComPort;
 			QString m_remoteboxHwId;
 			QString m_remoteboxSwVersion;
+
+			RemoteWorkstationState m_State;
 
 		};
 	}
