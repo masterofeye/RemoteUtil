@@ -7,7 +7,7 @@
 </Environment>
 <TestFunction name="initTestCase">
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="0.055668"/>
+    <Duration msecs="0.049449"/>
 </TestFunction>
 <TestFunction name="Insert_Unique_ElementType_Positive">
 <Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ElementTypeTest.h" line="38">
@@ -29,7 +29,7 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertElementType(tSound))]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="15.938725"/>
+    <Duration msecs="11.310221"/>
 </TestFunction>
 <TestFunction name="Insert_Unique_ElementType_Negative">
 <Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ElementTypeTest.h" line="66">
@@ -41,11 +41,11 @@
 <Incident type="fail" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ElementTypeTest.h" line="69">
     <Description><![CDATA['!(m_Repository->GetElementTypeByID(1, ret))' returned FALSE. ()]]></Description>
 </Incident>
-    <Duration msecs="5.674808"/>
+    <Duration msecs="3.802314"/>
 </TestFunction>
 <TestFunction name="cleanupTestCase">
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="0.041362"/>
+    <Duration msecs="0.030167"/>
 </TestFunction>
-<Duration msecs="21.893744"/>
+<Duration msecs="15.386529"/>
 </TestCase>

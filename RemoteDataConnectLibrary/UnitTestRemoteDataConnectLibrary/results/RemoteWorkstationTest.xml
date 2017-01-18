@@ -7,7 +7,7 @@
 </Environment>
 <TestFunction name="initTestCase">
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="0.033898"/>
+    <Duration msecs="0.024880"/>
 </TestFunction>
 <TestFunction name="Insert_A821_positiv">
 <Message type="qwarn" file="" line="0">
@@ -17,7 +17,7 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21cba8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1ccd58)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'elementTypeID']]></Description>
@@ -35,9 +35,9 @@
     <Description><![CDATA['ret.Hostname() == "A717"' returned FALSE. ()]]></Description>
 </Incident>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d510)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd6c0)]]></Description>
 </Message>
-    <Duration msecs="3601.091794"/>
+    <Duration msecs="20.300677"/>
 </TestFunction>
 <TestFunction name="Insert_A684_positive">
 <Message type="qwarn" file="" line="0">
@@ -47,7 +47,7 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21cde8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1ccf98)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'elementTypeID']]></Description>
@@ -59,10 +59,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->GetRemoteWorkstationByID(1, ret))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d838)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd9e8)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="6332.758606"/>
+    <Duration msecs="37.130257"/>
 </TestFunction>
 <TestFunction name="Insert_A843_positive">
 <Message type="qwarn" file="" line="0">
@@ -72,10 +72,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="709.977393"/>
+    <Duration msecs="9.255429"/>
 </TestFunction>
 <TestFunction name="Insert_A717_positive">
 <Message type="qwarn" file="" line="0">
@@ -85,10 +85,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="7.841542"/>
+    <Duration msecs="10.344870"/>
 </TestFunction>
 <TestFunction name="Insert_A823_positive">
 <Message type="qwarn" file="" line="0">
@@ -98,10 +98,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="8.232468"/>
+    <Duration msecs="10.157025"/>
 </TestFunction>
 <TestFunction name="Insert_A795_positive">
 <Message type="qwarn" file="" line="0">
@@ -111,10 +111,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="10.778621"/>
+    <Duration msecs="10.806397"/>
 </TestFunction>
 <TestFunction name="Insert_A822_positive">
 <Message type="qwarn" file="" line="0">
@@ -124,10 +124,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="15.417179"/>
+    <Duration msecs="9.998102"/>
 </TestFunction>
 <TestFunction name="Insert_A856_positive">
 <Message type="qwarn" file="" line="0">
@@ -137,10 +137,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="15.875592"/>
+    <Duration msecs="10.490419"/>
 </TestFunction>
 <TestFunction name="Insert_A864_positive">
 <Message type="qwarn" file="" line="0">
@@ -150,10 +150,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="15.738752"/>
+    <Duration msecs="10.444702"/>
 </TestFunction>
 <TestFunction name="Insert_A860_positive">
 <Message type="qwarn" file="" line="0">
@@ -163,10 +163,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="15.448901"/>
+    <Duration msecs="10.398051"/>
 </TestFunction>
 <TestFunction name="Insert_A859_positive">
 <Message type="qwarn" file="" line="0">
@@ -176,10 +176,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="15.967337"/>
+    <Duration msecs="10.497261"/>
 </TestFunction>
 <TestFunction name="Insert_A911_positive">
 <Message type="qwarn" file="" line="0">
@@ -189,10 +189,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="15.348759"/>
+    <Duration msecs="10.188125"/>
 </TestFunction>
 <TestFunction name="Insert_A798_positive">
 <Message type="qwarn" file="" line="0">
@@ -202,10 +202,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="16.244438"/>
+    <Duration msecs="10.077408"/>
 </TestFunction>
 <TestFunction name="Insert_A841_positive">
 <Message type="qwarn" file="" line="0">
@@ -215,10 +215,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="16.076498"/>
+    <Duration msecs="9.779468"/>
 </TestFunction>
 <TestFunction name="Insert_A772_positive">
 <Message type="qwarn" file="" line="0">
@@ -228,10 +228,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="17.930677"/>
+    <Duration msecs="9.242678"/>
 </TestFunction>
 <TestFunction name="Insert_A796_positive">
 <Message type="qwarn" file="" line="0">
@@ -241,10 +241,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="19.157570"/>
+    <Duration msecs="9.108947"/>
 </TestFunction>
 <TestFunction name="Insert_A855_positive">
 <Message type="qwarn" file="" line="0">
@@ -254,10 +254,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="18.045436"/>
+    <Duration msecs="9.332246"/>
 </TestFunction>
 <TestFunction name="Insert_A799_positive">
 <Message type="qwarn" file="" line="0">
@@ -267,10 +267,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="17.123322"/>
+    <Duration msecs="9.029952"/>
 </TestFunction>
 <TestFunction name="Insert_A842_positive">
 <Message type="qwarn" file="" line="0">
@@ -280,10 +280,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="17.234971"/>
+    <Duration msecs="8.788925"/>
 </TestFunction>
 <TestFunction name="Insert_A865_positive">
 <Message type="qwarn" file="" line="0">
@@ -293,10 +293,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="16.916197"/>
+    <Duration msecs="9.287773"/>
 </TestFunction>
 <TestFunction name="Insert_A857_positive">
 <Message type="qwarn" file="" line="0">
@@ -306,10 +306,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="17.052725"/>
+    <Duration msecs="9.535953"/>
 </TestFunction>
 <TestFunction name="Insert_A797_positive">
 <Message type="qwarn" file="" line="0">
@@ -319,10 +319,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="17.262961"/>
+    <Duration msecs="9.150310"/>
 </TestFunction>
 <TestFunction name="Insert_A910_positive">
 <Message type="qwarn" file="" line="0">
@@ -332,14 +332,14 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d858)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cda08)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="17.161264"/>
+    <Duration msecs="9.238324"/>
 </TestFunction>
 <TestFunction name="FindAllRemortWorkstations_Positiv">
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -348,7 +348,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -357,7 +357,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -366,7 +366,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -375,7 +375,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -384,7 +384,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -393,7 +393,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -402,7 +402,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -411,7 +411,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -420,7 +420,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -429,7 +429,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -438,7 +438,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -447,7 +447,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -456,7 +456,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -465,7 +465,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -474,7 +474,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -483,7 +483,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -492,7 +492,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -501,7 +501,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -510,7 +510,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -519,7 +519,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -528,7 +528,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -537,7 +537,7 @@
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x21d178)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x1cd328)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
@@ -549,11 +549,11 @@
     <Description><![CDATA[QVERIFY(m_Repository->GetAllRemoteWorkstation(ret))]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="76.883747"/>
+    <Duration msecs="81.570623"/>
 </TestFunction>
 <TestFunction name="cleanupTestCase">
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="0.026745"/>
+    <Duration msecs="0.020837"/>
 </TestFunction>
-<Duration msecs="11032.443781"/>
+<Duration msecs="344.931439"/>
 </TestCase>

@@ -195,7 +195,7 @@ private slots :
 		t.SetRemoteboxSwVersion("abcdef");
 		t.SetCurrentUser(nullptr);
 		t.setAssignedProject(&p);
-		t.SetState(RW::RemoteWorkstationState::ON);
+		t.SetState(RW::RemoteWorkstationState::DEFECT);
 
 		QVERIFY(m_Repository->InsertRemoteWorkstation(t));
 
@@ -289,7 +289,7 @@ private slots :
 		t.SetRemoteboxSwVersion("abcdef");
 		t.SetCurrentUser(nullptr);
 		t.setAssignedProject(&p);
-		t.SetState(RW::RemoteWorkstationState::ON);
+		t.SetState(RW::RemoteWorkstationState::RESERVE);
 
 		QVERIFY(m_Repository->InsertRemoteWorkstation(t));
 
@@ -521,7 +521,7 @@ private slots :
 		t.SetRemoteboxSwVersion("abcdef");
 		t.SetCurrentUser(nullptr);
 		t.setAssignedProject(&p);
-		t.SetState(RW::RemoteWorkstationState::OFF);
+		t.SetState(RW::RemoteWorkstationState::ON);
 
 		QVERIFY(m_Repository->InsertRemoteWorkstation(t));
 	}
@@ -567,7 +567,7 @@ private slots :
 		t.SetRemoteboxSwVersion("abcdef");
 		t.SetCurrentUser(nullptr);
 		t.setAssignedProject(&p);
-		t.SetState(RW::RemoteWorkstationState::OFF);
+		t.SetState(RW::RemoteWorkstationState::DEFECT);
 
 		QVERIFY(m_Repository->InsertRemoteWorkstation(t));
 	}
@@ -613,7 +613,7 @@ private slots :
 		t.SetRemoteboxSwVersion("abcdef");
 		t.SetCurrentUser(nullptr);
 		t.setAssignedProject(&p);
-		t.SetState(RW::RemoteWorkstationState::OFF);
+		t.SetState(RW::RemoteWorkstationState::ON);
 
 		QVERIFY(m_Repository->InsertRemoteWorkstation(t));
 	}
@@ -659,7 +659,7 @@ private slots :
 		t.SetRemoteboxSwVersion("abcdef");
 		t.SetCurrentUser(nullptr);
 		t.setAssignedProject(&p);
-		t.SetState(RW::RemoteWorkstationState::OFF);
+		t.SetState(RW::RemoteWorkstationState::RESERVE);
 
 		QVERIFY(m_Repository->InsertRemoteWorkstation(t));
 	}
