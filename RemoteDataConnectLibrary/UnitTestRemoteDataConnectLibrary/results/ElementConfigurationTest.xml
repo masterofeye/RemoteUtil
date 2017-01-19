@@ -7,7 +7,7 @@
 </Environment>
 <TestFunction name="initTestCase">
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="0.027368"/>
+    <Duration msecs="0.030167"/>
 </TestFunction>
 <TestFunction name="Insert_Unique_ElementType_Positive">
 <Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ElementConfigurationTest.h" line="45">
@@ -22,11 +22,11 @@
 <Incident type="fail" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../ElementConfigurationTest.h" line="49">
     <Description><![CDATA['ret.Type()->Type() == elementType.Type()' returned FALSE. ()]]></Description>
 </Incident>
-    <Duration msecs="16.255780"/>
+    <Duration msecs="6.358131"/>
 </TestFunction>
 <TestFunction name="cleanupTestCase">
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="0.021148"/>
+    <Duration msecs="0.028301"/>
 </TestFunction>
-<Duration msecs="16.446425"/>
+<Duration msecs="6.553130"/>
 </TestCase>

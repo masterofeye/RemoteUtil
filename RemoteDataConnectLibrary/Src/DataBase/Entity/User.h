@@ -2,14 +2,23 @@
 #include "Entity.h"
 
 namespace RW{
+	enum class UserRole;
 	namespace SQL{
+
 
 		class UserPrivate;
 		class REMOTE_DATA_CONNECT_API User :
 			public Entity
 		{
 			Q_OBJECT
-			//Q_PROPERTY(TypeOFElement Type READ Type WRITE SetType NOTIFY TypeChanged)
+			Q_PROPERTY(QString UserName READ UserName WRITE SetUserName NOTIFY UserNameChanged)
+			Q_PROPERTY(QString Initials READ Initials WRITE SetInitials NOTIFY InitialsChanged)
+			Q_PROPERTY(QString MKSUsername READ MKSUsername WRITE SetMKSUsername NOTIFY MKSUsernameChanged)
+			Q_PROPERTY(QString MKSPassword READ MKSPassword WRITE SetMKSPassword NOTIFY MKSPasswordChanged)
+			Q_PROPERTY(QString Password READ Password WRITE SetPassword NOTIFY PasswordChanged)
+			Q_PROPERTY(bool NotifiyRemoteDesktop READ NotifiyRemoteDesktop WRITE SetNotifiyRemoteDesktop NOTIFY NotifiyRemoteDesktopChanged)
+			Q_PROPERTY(bool NotifiyDesktop READ NotifiyDesktop WRITE SetNotifiyDesktop NOTIFY NotifiyDesktopChanged)
+			Q_PROPERTY(UserRole Role READ Role WRITE SetRole NOTIFY RoleChanged)
 			Q_CLASSINFO("Version", "0.0.1")
 
 		private:
@@ -46,6 +55,9 @@ namespace RW{
 			bool NotifiyDesktop() const;
 			void SetNotifiyDesktop(bool NotifiyDesktop);
 
+			UserRole Role() const;
+			void SetRole(UserRole Role);
+
 		signals:
 			void UserNameChanged();
 			void PasswordChanged();
@@ -54,6 +66,7 @@ namespace RW{
 			void MKSPasswordChanged();
 			void NotifiyRemoteDesktopChanged();
 			void NotifiyDesktopChanged();
+			void RoleChanged();
 		};
 	}
 }

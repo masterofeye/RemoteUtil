@@ -13,8 +13,8 @@ namespace RW{
 	namespace SQL{
 
 		const QString Insert_RemoteWorkstation = "INSERT INTO remoteWorkstation (userID,hostname,mac,ip,powerstripeIp,powerstripeId,remoteboxComPort,remoteboxHwId,remoteboxSwVersion,state,projectID) VALUES (:user,:hostname,:mac,:ip,:powerstripeIp,:powerstripeId,:remoteboxComPort,:remoteboxHwId,:remoteboxSwVersion,:state,( SELECT idProject FROM project WHERE name=:name))";
-		const QString Insert_User = "INSERT INTO user (username,password,mksUsername,mksPassword,initials,notifiyRemoteDesktop,notifiyDesktop ) VALUES (:username,:password,:mksUsername,:mksPassword,:initials,:notifiyRemoteDesktop,:notifiyDesktop)";
-		const QString Insert_ElementConfiguration = "INSERT INTO elementConfiguration (remoteWorkstationID, elementTypeID,displayName,name,groupName, function, tooltip) VALUES (:remoteWorkstationID, (SELECT idElementType FROM elementType WHERE type=:type),:displayName,:name,:groupName,:function,:tooltip)";
+		const QString Insert_User = "INSERT INTO user (username,password,mksUsername,mksPassword,initials,notifiyRemoteDesktop,notifiyDesktop,role ) VALUES (:username,:password,:mksUsername,:mksPassword,:initials,:notifiyRemoteDesktop,:notifiyDesktop, :role)";
+		const QString Insert_ElementConfiguration = "INSERT INTO elementConfiguration (remoteWorkstationID, elementTypeID,displayName,name,groupName, function, tooltip,remoteViewRelevant) VALUES (:remoteWorkstationID, (SELECT idElementType FROM elementType WHERE type=:type),:displayName,:name,:groupName,:function,:tooltip,:remoteViewRelevant)";
 		const QString Insert_ElementType = "INSERT INTO elementType (type) VALUES (:type)";
 		const QString Insert_Instruction = "INSERT INTO instruction (step) VALUES (:step)";
 		const QString Insert_Recept = "INSERT INTO recept (receptName,orderNumber,instructionID) VALUES (:receptName,:orderNumber,:instructionID)";
@@ -23,8 +23,8 @@ namespace RW{
 		const QString Insert_Project = "INSERT INTO project (name) VALUES (:name)";
 
 		const QString Update_RemoteWorkstation = "UPDATE remoteWorkstation SET userID=( SELECT idUser FROM user WHERE user=:user),hostname=:hostname,mac=:mac,ip=:ip,powerstripeIp=:powerstripeIp,powerstripeId=:powerstripeId,remoteboxComPort=:remoteboxComPort,remoteboxHwId=:remoteboxHwId,remoteboxSwVersion=:remoteboxSwVersion, state=:state, projectID=( SELECT idProject FROM project WHERE name=:name) WHERE idRemoteWorkstation=:id";
-		const QString Update_User = "UPDATE user SET username=:username,password=:password,mksUsername=:mksUsername,mksPassword=:mksPassword,initials=:intitials,notifiyRemoteDesktop=:notifiyRemoteDesktop,notifiyDesktop=:notifiyDesktop";
-		const QString Update_ElementConfiguration = "UPDATE elementConfiguration SET remoteWorkstationID=:remoteWorkstationID,type=:type,displayName=:displayName,name=:name,groupName=:groupName,function=:function, tooltip=:tooltip";
+		const QString Update_User = "UPDATE user SET username=:username,password=:password,mksUsername=:mksUsername,mksPassword=:mksPassword,initials=:intitials,notifiyRemoteDesktop=:notifiyRemoteDesktop,notifiyDesktop=:notifiyDesktop, role=:role";
+		const QString Update_ElementConfiguration = "UPDATE elementConfiguration SET remoteWorkstationID=:remoteWorkstationID,type=:type,displayName=:displayName,name=:name,groupName=:groupName,function=:function, tooltip=:tooltip, remoteViewRelevant=:remoteViewRelevant";
 		const QString Update_ElementType = "UPDATE elementType SET type=:type";
 		const QString Update_Instruction = "UPDATE instruction SET step=:step";
 		const QString Update_Recept = "UPDATE recept SET receptName=:receptName,orderNumber=:orderNumber,instructionID=:instructionID";
@@ -181,6 +181,8 @@ namespace RW{
 					query.bindValue(":groupName", var.GroupName());
 					query.bindValue(":function", var.Function());
 					query.bindValue(":tooltip", var.ToolTip());
+					query.bindValue(":remoteViewRelevant", var.RemoteViewRelevant());
+					
 					res = query.exec();
 					if (!res)
 					{
@@ -196,7 +198,7 @@ namespace RW{
 			User d(Data);
 
 			QSqlQuery query;
-			query.prepare(Insert_ElementConfiguration);
+			query.prepare(Insert_User);
 			query.bindValue(":username", d.UserName());
 			query.bindValue(":password", d.Password());
 			query.bindValue(":mksUsername", d.MKSUsername());
@@ -204,6 +206,7 @@ namespace RW{
 			query.bindValue(":initials", d.Initials());
 			query.bindValue(":notifiyRemoteDesktop", d.NotifiyRemoteDesktop());
 			query.bindValue(":notifiyDesktop", d.NotifiyDesktop());
+			query.bindValue(":role", (int)d.Role());
 
 			bool res = query.exec();
 			if (!res)
@@ -225,8 +228,7 @@ namespace RW{
 			query.bindValue(":name", d.Name());
 			query.bindValue(":groupName", d.GroupName());
 			query.bindValue(":function", d.Function());
-			query.bindValue(":tooltip", d.ToolTip());
-
+			query.bindValue(":remoteViewRelevant", d.RemoteViewRelevant());
 			bool res = query.exec();
 			if (!res)
 			{
@@ -367,6 +369,7 @@ namespace RW{
 			query.bindValue(":groupName", d.GroupName());
 			query.bindValue(":function", d.Function());
 			query.bindValue(":tooltip", d.ToolTip());
+			query.bindValue(":remoteViewRelevant", d.RemoteViewRelevant());
 
 			bool res = query.exec();
 			if (!res)
@@ -406,23 +409,6 @@ namespace RW{
 			return res;
 		}
 
-		template<> bool MySqlMapper<Product>::Update(const Product &Data)
-		{
-			Product d = Data;
-			QSqlQuery query;
-			query.prepare(Update_Product);
-			query.bindValue(":receptID", d.Recept()->ID());
-			query.bindValue(":productName", d.ProductName());
-			query.bindValue(":part", d.Part());
-
-			bool res = query.exec();
-			if (!res)
-			{
-				m_logger->error("Tbl instruction update failed. Error:{}", query.lastError().text().toUtf8().constData());
-			}
-			return res;
-		}
-
 		template<> bool MySqlMapper<Project>::Update(const Project &Data)
 		{
 			Project d = Data;
@@ -446,6 +432,29 @@ namespace RW{
 			query.bindValue(":orderNumber", d.OrderNumber());
 			query.bindValue(":receptName", d.ReceptName());
 			query.bindValue(":instructionID", d.Instruction()->ID());
+
+			bool res = query.exec();
+			if (!res)
+			{
+				m_logger->error("Tbl instruction update failed. Error:{}", query.lastError().text().toUtf8().constData());
+			}
+			return res;
+		}
+
+		template<> bool MySqlMapper<User>::Update(const User &Data)
+		{
+			User d = Data;
+			QSqlQuery query;
+			query.prepare(Update_User);
+			query.bindValue(":username", d.UserName());
+			query.bindValue(":password", d.Password());
+			query.bindValue(":mksUsername", d.MKSUsername());
+			query.bindValue(":mksPassword", d.MKSPassword());
+			query.bindValue(":initials", d.Initials());
+			query.bindValue(":notifiyRemoteDesktop", d.NotifiyRemoteDesktop());
+			query.bindValue(":notifiyDesktop", d.NotifiyDesktop());
+			//@todo unschöner cast
+			query.bindValue(":role", (int)d.Role());
 
 			bool res = query.exec();
 			if (!res)
@@ -493,6 +502,7 @@ namespace RW{
 					el.SetGroupName(query.value("groupName").toString());
 					el.SetFunction(query.value("function").toString());
 					el.SetToolTip(query.value("tooltip").toString());
+					el.SetRemoteViewRelevant(query.value("remoteViewRelevant").toBool());
 					d.AddElementCfg(el);
 				}
 				if (!res)
@@ -524,6 +534,8 @@ namespace RW{
 				d.SetInitials(query.value("initials").toString());
 				d.SetNotifiyRemoteDesktop(query.value("notifiyRemoteDesktop").toBool());
 				d.SetNotifiyDesktop(query.value("notifiyDesktop").toBool());
+				//@todo unschöner cast hier
+				d.SetRole((RW::UserRole)query.value("role").toInt());
 			}
 
 			if (!res)
@@ -549,6 +561,7 @@ namespace RW{
 				d.SetGroupName(query.value("groupName").toString());
 				d.SetFunction(query.value("function").toString());
 				d.SetToolTip(query.value("tooltip").toString());
+				d.SetRemoteViewRelevant(query.value("remoteViewRelevant").toBool());
 			}
 
 			if (!res)
@@ -731,6 +744,7 @@ namespace RW{
 					el.SetGroupName(query.value("groupName").toString());
 					el.SetFunction(query.value("function").toString());
 					el.SetToolTip(query.value("tooltip").toString());
+					el.SetRemoteViewRelevant(query.value("remoteViewRelevant").toBool());
 					d.AddElementCfg(el);
 				}
 				list << d;
@@ -759,6 +773,7 @@ namespace RW{
 				d.SetInitials(query.value("initials").toString());
 				d.SetNotifiyRemoteDesktop(query.value("notifiyRemoteDesktop").toBool());
 				d.SetNotifiyDesktop(query.value("notifiyDesktop").toBool());
+				d.SetRole((RW::UserRole)query.value("role").toInt());
 				list << d;
 			}
 
@@ -785,6 +800,7 @@ namespace RW{
 				d.SetGroupName(query.value("groupName").toString());
 				d.SetFunction(query.value("function").toString());
 				d.SetToolTip(query.value("tooltip").toString());
+				d.SetRemoteViewRelevant(query.value("remoteViewRelevant").toBool());
 				list << d;
 			}
 

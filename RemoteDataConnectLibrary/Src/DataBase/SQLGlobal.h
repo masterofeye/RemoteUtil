@@ -33,5 +33,13 @@ namespace RW{
 		RESERVE,
 		DEFECT
 	};
+
+	enum class UserRole
+	{
+		User,
+		Caretaker,
+		Admin, 
+
+	};
 }	
 Q_DECLARE_METATYPE(RW::RemoteWorkstationState)

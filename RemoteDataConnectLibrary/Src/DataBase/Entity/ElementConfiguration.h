@@ -21,6 +21,7 @@ namespace RW{
 			Q_PROPERTY(QString groupName READ GroupName WRITE SetGroupName NOTIFY GroupNameChanged)
 			Q_PROPERTY(QString Function READ Function WRITE SetFunction NOTIFY FunctionChanged)
 			Q_PROPERTY(QString ToolTip READ ToolTip WRITE SetToolTip NOTIFY ToolTipChanged)
+			Q_PROPERTY(bool RemoteViewRelevant READ RemoteViewRelevant WRITE SetRemoteViewRelevant NOTIFY RemoteViewRelevantChanged)
 			Q_CLASSINFO("Version", "0.0.1")
 		private:
 			ElementConfigurationPrivate* d_ptr;
@@ -139,6 +140,19 @@ namespace RW{
 			*/
 			void SetRemoteWorkstationID(quint64 RemoteWorkstationID);
 
+			/*
+			@brief Zeigt an ob die Funktioninalität auf für die RemoteView wichtig ist und auch dort angezeigt werden muss.
+			@return bool
+			*/
+			bool RemoteViewRelevant() const;
+
+			/*
+			@brief
+			@param ToolTip
+			*/
+			void SetRemoteViewRelevant(bool RemoteViewRelevant);
+
+
 		signals:
 			/*
 			@brief Signalisiert wenn sich der Type geändert hat.
@@ -174,6 +188,11 @@ namespace RW{
 			@brief Wird ausgelöst wenn sich der RemoteWorkstationID geändert hat.
 			*/
 			void RemoteWorkstationIDChanged();
+
+			/*
+			@brief Wird ausgelöst wenn sich der RemoteViewRelevant geändert hat.
+			*/
+			void RemoteViewRelevantChanged();
 		};
 	}
 }

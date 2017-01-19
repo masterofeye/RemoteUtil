@@ -14,7 +14,7 @@ private:
 	RW::SQL::Repository *m_Repository;
 	std::shared_ptr<spdlog::logger> m_logger;
 public:
-	RemoteWorkstationTest() : TestSuite(NAME, 3)
+	RemoteWorkstationTest() : TestSuite(NAME, 4)
     {
 		
     }

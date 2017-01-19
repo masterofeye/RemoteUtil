@@ -14,7 +14,8 @@ namespace RW{
 			m_NotifiyDesktop(false),
 			m_NotifiyRemoteDesktop(false),
 			m_UserName(""),
-			m_Password("")
+			m_Password(""),
+			m_Role(UserRole::User)
 		{
 		}
 
@@ -35,6 +36,7 @@ namespace RW{
 				d_ptr->m_NotifiyRemoteDesktop = other.d_ptr->m_NotifiyRemoteDesktop;
 				d_ptr->m_Password = other.d_ptr->m_Password;
 				d_ptr->m_UserName = other.d_ptr->m_UserName;
+				d_ptr->m_Role = other.d_ptr->m_Role;
 			}
 		}
 		User& User::operator=(User& other) 
@@ -49,6 +51,7 @@ namespace RW{
 				d_ptr->m_NotifiyRemoteDesktop = other.d_ptr->m_NotifiyRemoteDesktop;
 				d_ptr->m_Password = other.d_ptr->m_Password;
 				d_ptr->m_UserName = other.d_ptr->m_UserName;
+				d_ptr->m_Role = other.d_ptr->m_Role;
 			}
 			return *this;
 		}
@@ -163,11 +166,26 @@ namespace RW{
 			Q_D(const User);
 			return d->m_NotifiyDesktop;
 		}
+
 		void User::SetNotifiyDesktop(bool NotifiyDesktop)
 		{
 			Q_D(User);
 			d->m_NotifiyDesktop = NotifiyDesktop;
 			emit NotifiyDesktopChanged();
+		}
+
+
+		UserRole User::Role() const
+		{
+			Q_D(const User);
+			return d->m_Role;
+		}
+
+		void User::SetRole(UserRole Role)
+		{
+			Q_D(User);
+			d->m_Role = Role;
+			emit RoleChanged();
 		}
 	}
 }

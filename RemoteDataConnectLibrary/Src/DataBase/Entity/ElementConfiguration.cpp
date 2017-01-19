@@ -15,7 +15,8 @@ namespace RW{
 			m_Type(nullptr),
 			m_Name(""),
 			m_ToolTip(""),
-			m_RemoteWorkstationID(0)
+			m_RemoteWorkstationID(0), 
+			m_RemoteViewRelevant(false)
 		{
 		}
 
@@ -42,6 +43,7 @@ namespace RW{
 			d_ptr->m_RemoteWorkstationID = other.d_ptr->m_RemoteWorkstationID;
 			d_ptr->m_ToolTip = other.d_ptr->m_ToolTip;
 			d_ptr->m_Type = other.d_ptr->m_Type;
+			d_ptr->m_RemoteViewRelevant = other.d_ptr->m_RemoteViewRelevant;
 		}
 
 		ElementConfiguration& ElementConfiguration::operator=(ElementConfiguration& other)
@@ -54,6 +56,7 @@ namespace RW{
 			d_ptr->m_RemoteWorkstationID = other.d_ptr->m_RemoteWorkstationID;
 			d_ptr->m_ToolTip = other.d_ptr->m_ToolTip;
 			d_ptr->m_Type = other.d_ptr->m_Type;
+			d_ptr->m_RemoteViewRelevant = other.d_ptr->m_RemoteViewRelevant;
 			return *this;
 		}
 
@@ -161,6 +164,19 @@ namespace RW{
 			Q_D(ElementConfiguration);
 			d->m_RemoteWorkstationID = RemoteWorkstationID;
 			emit ToolTipChanged();
+		}
+
+		bool ElementConfiguration::RemoteViewRelevant() const
+		{
+			Q_D(const ElementConfiguration);
+			return d->m_RemoteViewRelevant;
+		}
+
+		void ElementConfiguration::SetRemoteViewRelevant(bool RemoteViewRelevant)
+		{
+			Q_D(ElementConfiguration);
+			d->m_RemoteViewRelevant = RemoteViewRelevant;
+			emit RemoteViewRelevantChanged();
 		}
 		
 	}

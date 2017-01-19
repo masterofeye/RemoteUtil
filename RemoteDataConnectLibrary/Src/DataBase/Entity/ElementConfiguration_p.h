@@ -23,6 +23,7 @@ namespace RW{
 			QString m_GroupName;
 			QString m_Function;
 			QString m_ToolTip;
+			bool m_RemoteViewRelevant;
 		public:
 			ElementConfigurationPrivate(ElementConfiguration* QPointer);
 			~ElementConfigurationPrivate();

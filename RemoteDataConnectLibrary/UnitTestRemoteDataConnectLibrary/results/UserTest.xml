@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCase name="UserTest">
+<Environment>
+    <QtVersion>5.7.0</QtVersion>
+    <QtBuild>Qt 5.7.0 (x86_64&#x002D;little_endian&#x002D;llp64 shared (dynamic) debug build; by MSVC 2013)</QtBuild>
+    <QTestVersion>5.7.0</QTestVersion>
+</Environment>
+<TestFunction name="initTestCase">
+<Incident type="pass" file="" line="0" />
+    <Duration msecs="0.054114"/>
+</TestFunction>
+<TestFunction name="Insert_IvoKunadt">
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../UserTest.h" line="46">
+    <Description><![CDATA[QVERIFY(m_Repository->InsertUser(u))]]></Description>
+</Message>
