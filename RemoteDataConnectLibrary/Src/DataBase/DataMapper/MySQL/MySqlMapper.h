@@ -761,7 +761,7 @@ namespace RW{
 		{
 			QList<User> list;
 			QSqlQuery query;
-			query.prepare(SelectAll_ElementConfiguration);
+			query.prepare(SelectAll_User);
 			bool res = query.exec();
 			while (query.next())
 			{

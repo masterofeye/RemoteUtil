@@ -33,15 +33,34 @@ namespace RW{
 		{
 		}
 
-		LogEntry::LogEntry(const LogEntry& other) : d_ptr(const_cast<LogEntryPrivate*>(other.d_ptr))
+		LogEntry::LogEntry(const LogEntry& other)
 		{
-
+			if (&other != nullptr)
+			{
+				d_ptr = new LogEntryPrivate(this);
+				d_ptr->m_Date = other.d_ptr->m_Date;
+				d_ptr->m_ThreadID = other.d_ptr->m_ThreadID;
+				d_ptr->m_ErrorID = other.d_ptr->m_ErrorID;
+				d_ptr->m_LogLevel = other.d_ptr->m_LogLevel;
+				d_ptr->m_ComputerName = other.d_ptr->m_ComputerName;
+				d_ptr->m_Message = other.d_ptr->m_Message;
+				d_ptr->m_Type = other.d_ptr->m_Type;
+			}
 		}
 
 		LogEntry& LogEntry::operator=(LogEntry& other)
 		{
-			std::swap(d_ptr, const_cast<LogEntryPrivate*>(other.d_ptr));
-			d_ptr->setParent(this);
+			if (&other != nullptr)
+			{
+				d_ptr = new LogEntryPrivate(this);
+				d_ptr->m_Date = other.d_ptr->m_Date;
+				d_ptr->m_ThreadID = other.d_ptr->m_ThreadID;
+				d_ptr->m_ErrorID = other.d_ptr->m_ErrorID;
+				d_ptr->m_LogLevel = other.d_ptr->m_LogLevel;
+				d_ptr->m_ComputerName = other.d_ptr->m_ComputerName;
+				d_ptr->m_Message = other.d_ptr->m_Message;
+				d_ptr->m_Type = other.d_ptr->m_Type;
+			}
 			return *this;
 		}
 

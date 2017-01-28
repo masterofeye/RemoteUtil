@@ -21,6 +21,7 @@ namespace RW{
 
 		UserPrivate::~UserPrivate()
 		{
+			qDebug() << "Delete " << this;
 		}
 
 
@@ -59,16 +60,23 @@ namespace RW{
 
 		User::User(User&& other) : d_ptr(other.d_ptr)
 		{
-			d_ptr->setParent(this);
-			other.d_ptr = nullptr;
+			if (&other != nullptr)
+			{
+				d_ptr->setParent(this);
+				other.d_ptr = nullptr;
+			}
 		}
 
 		User& User::operator=(User&& other)
 		{
-			std::swap(d_ptr, other.d_ptr);
-			d_ptr->setParent(this);
-			delete other.d_ptr;
-			other.d_ptr = nullptr;
+			if (&other != nullptr)
+			{
+				std::swap(d_ptr, other.d_ptr);
+				d_ptr->setParent(this);
+				delete other.d_ptr;
+				other.d_ptr = nullptr;
+				
+			}
 			return *this;
 		}
 

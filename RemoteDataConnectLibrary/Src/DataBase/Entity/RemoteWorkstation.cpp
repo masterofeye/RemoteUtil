@@ -119,6 +119,7 @@ namespace RW{
 
 		RemoteWorkstation::~RemoteWorkstation()
 		{
+			qDebug() << "Delete " << this;
 		}
 
 		QList<ElementConfiguration> *RemoteWorkstation::ElementCfg() const

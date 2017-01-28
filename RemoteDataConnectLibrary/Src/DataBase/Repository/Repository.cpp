@@ -414,7 +414,7 @@ namespace RW{
 				list = dm->FindAll();
 				for each (auto var in list)
 				{
-					if (var.UserName() == Name)
+					if (var.UserName().compare(Name), Qt::CaseInsensitive)
 						U = var;
 				}
 
