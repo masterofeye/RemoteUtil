@@ -7,7 +7,7 @@
 </Environment>
 <TestFunction name="initTestCase">
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="0.031100"/>
+    <Duration msecs="0.027057"/>
 </TestFunction>
 <TestFunction name="Insert_A821_positiv">
 <Message type="qwarn" file="" line="0">
@@ -17,13 +17,19 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26cce8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dceb8)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'elementTypeID']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'elementTypeID']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="80">
     <Description><![CDATA[QVERIFY(m_Repository->GetRemoteWorkstationByID(1, ret))]]></Description>
@@ -35,9 +41,9 @@
     <Description><![CDATA['ret.Hostname() == "A717"' returned FALSE. ()]]></Description>
 </Incident>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d650)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd850)]]></Description>
 </Message>
-    <Duration msecs="17.501967"/>
+    <Duration msecs="27.907629"/>
 </TestFunction>
 <TestFunction name="Insert_A684_positive">
 <Message type="qwarn" file="" line="0">
@@ -47,22 +53,28 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26cf28)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd0f8)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'elementTypeID']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'elementTypeID']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="153">
     <Description><![CDATA[QVERIFY(m_Repository->GetRemoteWorkstationByID(1, ret))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d978)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb78)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="19.759221"/>
+    <Duration msecs="14.304778"/>
 </TestFunction>
 <TestFunction name="Insert_A843_positive">
 <Message type="qwarn" file="" line="0">
@@ -72,10 +84,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="9.542484"/>
+    <Duration msecs="8.981694"/>
 </TestFunction>
 <TestFunction name="Insert_A717_positive">
 <Message type="qwarn" file="" line="0">
@@ -85,10 +97,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="9.387294"/>
+    <Duration msecs="9.237647"/>
 </TestFunction>
 <TestFunction name="Insert_A823_positive">
 <Message type="qwarn" file="" line="0">
@@ -98,10 +110,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="11.740026"/>
+    <Duration msecs="8.067974"/>
 </TestFunction>
 <TestFunction name="Insert_A795_positive">
 <Message type="qwarn" file="" line="0">
@@ -111,10 +123,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="13.259584"/>
+    <Duration msecs="6.266659"/>
 </TestFunction>
 <TestFunction name="Insert_A822_positive">
 <Message type="qwarn" file="" line="0">
@@ -124,10 +136,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="13.428769"/>
+    <Duration msecs="7.084902"/>
 </TestFunction>
 <TestFunction name="Insert_A856_positive">
 <Message type="qwarn" file="" line="0">
@@ -137,10 +149,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="13.302502"/>
+    <Duration msecs="6.869378"/>
 </TestFunction>
 <TestFunction name="Insert_A864_positive">
 <Message type="qwarn" file="" line="0">
@@ -150,10 +162,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="13.165039"/>
+    <Duration msecs="7.729295"/>
 </TestFunction>
 <TestFunction name="Insert_A860_positive">
 <Message type="qwarn" file="" line="0">
@@ -163,10 +175,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="13.176546"/>
+    <Duration msecs="7.074017"/>
 </TestFunction>
 <TestFunction name="Insert_A859_positive">
 <Message type="qwarn" file="" line="0">
@@ -176,10 +188,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="11.125486"/>
+    <Duration msecs="6.519814"/>
 </TestFunction>
 <TestFunction name="Insert_A911_positive">
 <Message type="qwarn" file="" line="0">
@@ -189,10 +201,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="10.932664"/>
+    <Duration msecs="6.578593"/>
 </TestFunction>
 <TestFunction name="Insert_A798_positive">
 <Message type="qwarn" file="" line="0">
@@ -202,10 +214,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="10.700968"/>
+    <Duration msecs="6.782920"/>
 </TestFunction>
 <TestFunction name="Insert_A841_positive">
 <Message type="qwarn" file="" line="0">
@@ -215,10 +227,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="10.781206"/>
+    <Duration msecs="6.488714"/>
 </TestFunction>
 <TestFunction name="Insert_A772_positive">
 <Message type="qwarn" file="" line="0">
@@ -228,10 +240,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="10.743575"/>
+    <Duration msecs="6.605339"/>
 </TestFunction>
 <TestFunction name="Insert_A796_positive">
 <Message type="qwarn" file="" line="0">
@@ -241,10 +253,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="10.038844"/>
+    <Duration msecs="6.432423"/>
 </TestFunction>
 <TestFunction name="Insert_A855_positive">
 <Message type="qwarn" file="" line="0">
@@ -254,10 +266,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="9.877122"/>
+    <Duration msecs="6.698950"/>
 </TestFunction>
 <TestFunction name="Insert_A799_positive">
 <Message type="qwarn" file="" line="0">
@@ -267,10 +279,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="9.273778"/>
+    <Duration msecs="6.932822"/>
 </TestFunction>
 <TestFunction name="Insert_A842_positive">
 <Message type="qwarn" file="" line="0">
@@ -280,10 +292,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="9.683990"/>
+    <Duration msecs="8.111825"/>
 </TestFunction>
 <TestFunction name="Insert_A865_positive">
 <Message type="qwarn" file="" line="0">
@@ -293,10 +305,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="9.390404"/>
+    <Duration msecs="11.530965"/>
 </TestFunction>
 <TestFunction name="Insert_A857_positive">
 <Message type="qwarn" file="" line="0">
@@ -306,10 +318,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="9.541240"/>
+    <Duration msecs="10.375909"/>
 </TestFunction>
 <TestFunction name="Insert_A797_positive">
 <Message type="qwarn" file="" line="0">
@@ -319,10 +331,10 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="9.554613"/>
+    <Duration msecs="10.724229"/>
 </TestFunction>
 <TestFunction name="Insert_A910_positive">
 <Message type="qwarn" file="" line="0">
@@ -332,228 +344,366 @@
     <Description><![CDATA[QVERIFY(m_Repository->InsertRemoteWorkstation(t))]]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d998)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2ddb98)]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="9.639517"/>
+    <Duration msecs="11.901988"/>
 </TestFunction>
 <TestFunction name="FindAllRemortWorkstations_Positiv">
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="qdebug" file="" line="0">
-    <Description><![CDATA[Delete  RW::SQL::Project(0x26d2b8)]]></Description>
+    <Description><![CDATA[Delete  RW::SQL::Project(0x2dd488)]]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
 </Message>
 <Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
     <Description><![CDATA[QSqlQuery::value: unknown field name 'type']]></Description>
+</Message>
+<Message type="qwarn" file="" line="0">
+    <Description><![CDATA[QSqlQuery::value: unknown field name 'remoteViewRelevant']]></Description>
 </Message>
 <Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../RemoteWorkstationTest.h" line="1131">
     <Description><![CDATA[QVERIFY(m_Repository->GetAllRemoteWorkstation(ret))]]></Description>
 </Message>
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="82.236168"/>
+    <Duration msecs="85.504298"/>
 </TestFunction>
 <TestFunction name="cleanupTestCase">
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="0.023014"/>
+    <Duration msecs="0.025191"/>
 </TestFunction>
-<Duration msecs="348.554616"/>
+<Duration msecs="295.481256"/>
 </TestCase>

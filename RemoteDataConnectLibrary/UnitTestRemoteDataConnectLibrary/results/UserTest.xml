@@ -7,9 +7,33 @@
 </Environment>
 <TestFunction name="initTestCase">
 <Incident type="pass" file="" line="0" />
-    <Duration msecs="0.054114"/>
+    <Duration msecs="0.052248"/>
 </TestFunction>
-<TestFunction name="Insert_IvoKunadt">
-<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../UserTest.h" line="46">
+<TestFunction name="Insert_IvoKunadt_Positiv">
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../UserTest.h" line="47">
     <Description><![CDATA[QVERIFY(m_Repository->InsertUser(u))]]></Description>
 </Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../UserTest.h" line="50">
+    <Description><![CDATA[QVERIFY(m_Repository->GetUserByID(1,ret))]]></Description>
+</Message>
+<Incident type="pass" file="" line="0" />
+    <Duration msecs="507.367757"/>
+</TestFunction>
+<TestFunction name="GetUserByName_Positiv">
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../UserTest.h" line="59">
+    <Description><![CDATA[QVERIFY(u.UserName() == "Kunadt")]]></Description>
+</Message>
+<Message type="info" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../UserTest.h" line="60">
+    <Description><![CDATA[QVERIFY(u.Password() == "Password")]]></Description>
+</Message>
+<Incident type="fail" file="c:\projekte\remoterepros\remoteutil\remotedataconnectlibrary\unittestremotedataconnectlibrary\generatedfiles\debug\../../UserTest.h" line="60">
+    <Description><![CDATA['u.Password() == "Password"' returned FALSE. ()]]></Description>
+</Incident>
+    <Duration msecs="555.230110"/>
+</TestFunction>
+<TestFunction name="cleanupTestCase">
+<Incident type="pass" file="" line="0" />
+    <Duration msecs="0.028301"/>
+</TestFunction>
+<Duration msecs="1062.860663"/>
+</TestCase>

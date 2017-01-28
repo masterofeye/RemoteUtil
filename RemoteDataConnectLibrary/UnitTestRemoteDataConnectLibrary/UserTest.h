@@ -33,7 +33,7 @@ private slots :
 	{
     }
 
-	void Insert_IvoKunadt()
+	void Insert_IvoKunadt_Positiv()
     {
 		RW::SQL::User u;
 		u.SetUserName("Kunadt");
@@ -51,6 +51,20 @@ private slots :
 
 
     }
+
+	void GetUserByName_Positiv()
+	{
+		RW::SQL::User u;
+		m_Repository->GetUserByName("Kunadt", u);
+		QVERIFY(u.UserName() == "Kunadt");
+		QVERIFY(u.Password() == "Password");
+		QVERIFY(u.Role() == RW::UserRole::Admin);
+		QVERIFY(u.NotifiyDesktop() == true);
+		QVERIFY(u.NotifiyRemoteDesktop() == true);
+		QVERIFY(u.MKSUsername() == "uidw5301");
+		QVERIFY(u.MKSPassword() == "Windows2002");
+		QVERIFY(u.Initials() == "IvKu");
+	}
 
     void cleanupTestCase()
     {
