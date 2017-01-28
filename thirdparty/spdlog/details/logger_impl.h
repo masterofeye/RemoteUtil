@@ -100,6 +100,31 @@ inline void spdlog::logger::log(level::level_enum lvl, const char* msg)
 
 }
 
+
+template <typename... Args>
+inline void spdlog::logger::log(level::level_enum lvl, const char* msg, int type)
+{
+	if (!should_log(lvl)) return;
+	try
+	{
+		details::log_msg log_msg(&_name, lvl);
+		log_msg.type = type;
+		log_msg.raw << msg;
+		_sink_it(log_msg);
+	}
+	catch (const std::exception &ex)
+	{
+		_err_handler(ex.what());
+	}
+	catch (...)
+	{
+		_err_handler("Unknown exception");
+	}
+
+}
+
+
+
 template<typename T>
 inline void spdlog::logger::log(level::level_enum lvl, const T& msg)
 {
@@ -157,6 +182,48 @@ inline void spdlog::logger::critical(const char* fmt, const Args&... args)
 {
     log(level::critical, fmt, args...);
 }
+
+template <typename... Args>
+inline void spdlog::logger::trace(const char* fmt, int type, const Args&... args)
+{
+    log(level::trace, fmt,type,  args...);
+}
+
+template <typename... Args>
+inline void spdlog::logger::debug(const char* fmt,int type,  const Args&... args)
+{
+    log(level::debug, fmt,type,  args...);
+}
+
+template <typename... Args>
+inline void spdlog::logger::info(const char* fmt,int type,  const Args&... args)
+{
+    log(level::info, fmt,type,  args...);
+}
+
+
+template <typename... Args>
+inline void spdlog::logger::warn(const char* fmt,int type,  const Args&... args)
+{
+    log(level::warn, fmt,type,  args...);
+}
+
+template <typename... Args>
+inline void spdlog::logger::error(const char* fmt,int type,  const Args&... args)
+{
+    log(level::err, fmt,type,  args...);
+}
+
+template <typename... Args>
+inline void spdlog::logger::critical(const char* fmt,int type,  const Args&... args)
+{
+    log(level::critical, fmt,type, args...);
+}
+
+
+
+
+
 
 
 template<typename T>

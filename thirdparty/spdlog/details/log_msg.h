@@ -19,7 +19,8 @@ namespace details
 struct log_msg
 {
     log_msg() = default;
-    log_msg(const std::string *loggers_name, level::level_enum lvl) : logger_name(loggers_name), level(lvl)
+    log_msg(const std::string *loggers_name, level::level_enum lvl) : logger_name(loggers_name), level(lvl),
+		type(0)
     {
 #ifndef SPDLOG_NO_DATETIME
         time = os::now();
@@ -41,6 +42,7 @@ struct log_msg
     size_t thread_id;
     fmt::MemoryWriter raw;
     fmt::MemoryWriter formatted;
+	int type;
 };
 }
 }

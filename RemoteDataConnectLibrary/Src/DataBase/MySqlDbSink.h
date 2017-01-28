@@ -54,7 +54,6 @@ namespace spdlog
  			*/
 			void log(const details::log_msg& msg) override
 			{
-				
 				RW::SQL::LogEntry obj;
 				//std::time_t t = std::chrono::system_clock::to_time_t();
 				//
@@ -75,6 +74,7 @@ namespace spdlog
 				obj.SetThreadID((quint16)msg.thread_id);
 				obj.SetErrorID(0);
 				obj.SetComputerName_(qtComputerName);
+				obj.Type = msg.type;
 				m_Buffer.append(obj);
 
 				if (msg.level == level::err ||
