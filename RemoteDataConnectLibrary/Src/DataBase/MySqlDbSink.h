@@ -74,7 +74,23 @@ namespace spdlog
 				obj.SetThreadID((quint16)msg.thread_id);
 				obj.SetErrorID(0);
 				obj.SetComputerName_(qtComputerName);
-				obj.Type = msg.type;
+
+				//Todo hier die Magic numbers ersetzen
+				switch (msg.type)
+				{
+				case 1:
+					obj.SetType("RemoteService");
+					break;
+				case 2:
+					obj.SetType("RemoteApp");
+					break;
+				case 3:
+					obj.SetType("RemoteView");
+					break;
+				default:
+					break;
+				}
+
 				m_Buffer.append(obj);
 
 				if (msg.level == level::err ||

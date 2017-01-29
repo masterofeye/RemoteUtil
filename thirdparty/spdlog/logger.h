@@ -25,10 +25,10 @@ namespace spdlog
 class logger
 {
 public:
-    logger(const std::string& logger_name, sink_ptr single_sink);
+	logger(const std::string& logger_name, sink_ptr single_sink);
     logger(const std::string& name, sinks_init_list);
     template<class It>
-    logger(const std::string& name, const It& begin, const It& end);
+	logger(const std::string& name, const It& begin, const It& end);
 
     virtual ~logger();
     logger(const logger&) = delete;
@@ -36,7 +36,6 @@ public:
 
 
     template <typename... Args> void log(level::level_enum lvl, const char* fmt, const Args&... args);
-	template <typename... Args> void log(level::level_enum lvl, const char* msg, int type);
 	template <typename... Args> void log(level::level_enum lvl, const char* msg);
 	template <typename... Args> void trace(const char* fmt, const Args&... args);
 	template <typename... Args> void debug(const char* fmt, const Args&... args);
@@ -44,12 +43,7 @@ public:
 	template <typename... Args> void warn(const char* fmt,const Args&... args);
 	template <typename... Args> void error(const char* fmt, const Args&... args);
 	template <typename... Args> void critical(const char* fmt, const Args&... args);
-	template <typename... Args> void critical(const char* fmt, int type, const Args&... args);
-	template <typename... Args> void trace(const char* fmt, int type, const Args&... args);
-	template <typename... Args> void debug(const char* fmt, int type, const Args&... args);
-	template <typename... Args> void info(const char* fmt, int type, const Args&... args);
-	template <typename... Args> void warn(const char* fmt, int type, const Args&... args);
-	template <typename... Args> void error(const char* fmt, int type, const Args&... args);
+
 
 
 
@@ -68,6 +62,7 @@ public:
     const std::string& name() const;
     void set_pattern(const std::string&);
     void set_formatter(formatter_ptr);
+	void set_type(int Type){ _type = Type; }
 
     // error handler
     void set_error_handler(log_err_handler);
@@ -98,6 +93,7 @@ protected:
     spdlog::level_t _flush_level;
     log_err_handler _err_handler;
     std::atomic<time_t> _last_err_time;
+	int _type;
 };
 }
 
