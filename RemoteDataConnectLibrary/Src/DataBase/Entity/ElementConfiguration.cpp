@@ -16,7 +16,9 @@ namespace RW{
 			m_Name(""),
 			m_ToolTip(""),
 			m_RemoteWorkstationID(0), 
-			m_RemoteViewRelevant(false)
+			m_RemoteViewRelevant(false),
+			m_Pin(255),
+			m_IsFeature(false)
 		{
 		}
 
@@ -44,10 +46,13 @@ namespace RW{
 			d_ptr->m_ToolTip = other.d_ptr->m_ToolTip;
 			d_ptr->m_Type = other.d_ptr->m_Type;
 			d_ptr->m_RemoteViewRelevant = other.d_ptr->m_RemoteViewRelevant;
+			d_ptr->m_IsFeature = other.d_ptr->m_IsFeature;
+			d_ptr->m_Pin = other.d_ptr->m_Pin;
 		}
 
 		ElementConfiguration& ElementConfiguration::operator=(ElementConfiguration& other)
 		{
+			//todo Duplicate code here. see copy constructor
 			d_ptr = new ElementConfigurationPrivate(this);
 			d_ptr->m_Name = other.d_ptr->m_Name;
 			d_ptr->m_DisplayName = other.d_ptr->m_DisplayName;
@@ -57,6 +62,8 @@ namespace RW{
 			d_ptr->m_ToolTip = other.d_ptr->m_ToolTip;
 			d_ptr->m_Type = other.d_ptr->m_Type;
 			d_ptr->m_RemoteViewRelevant = other.d_ptr->m_RemoteViewRelevant;
+			d_ptr->m_IsFeature = other.d_ptr->m_IsFeature;
+			d_ptr->m_Pin = other.d_ptr->m_Pin;
 			return *this;
 		}
 
@@ -177,6 +184,32 @@ namespace RW{
 			Q_D(ElementConfiguration);
 			d->m_RemoteViewRelevant = RemoteViewRelevant;
 			emit RemoteViewRelevantChanged();
+		}
+
+		bool ElementConfiguration::IsFeature() const
+		{
+			Q_D(const ElementConfiguration);
+			return d->m_IsFeature;
+		}
+
+		void ElementConfiguration::SetIsFeature(bool Feature)
+		{
+			Q_D(ElementConfiguration);
+			d->m_IsFeature = Feature;
+			emit IsFeatureChanged();
+		}
+
+		quint8 ElementConfiguration::Pin() const
+		{
+			Q_D(const ElementConfiguration);
+			return d->m_Pin;
+		}
+
+		void ElementConfiguration::SetPin(quint8 Pin)
+		{
+			Q_D(ElementConfiguration);
+			d->m_Pin = Pin;
+			emit PinChanged();
 		}
 		
 	}

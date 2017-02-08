@@ -18,9 +18,11 @@ namespace RW{
 			Q_PROPERTY(ElementType* Type READ Type WRITE SetType NOTIFY TypeChanged)
 			Q_PROPERTY(QString DisplayName  READ DisplayName WRITE SetDisplayName NOTIFY DisplayNameChanged)
 			Q_PROPERTY(QString Name READ Name WRITE SetName NOTIFY NameChanged)
-			Q_PROPERTY(QString groupName READ GroupName WRITE SetGroupName NOTIFY GroupNameChanged)
+			Q_PROPERTY(QString GroupName READ GroupName WRITE SetGroupName NOTIFY GroupNameChanged)
 			Q_PROPERTY(QString Function READ Function WRITE SetFunction NOTIFY FunctionChanged)
 			Q_PROPERTY(QString ToolTip READ ToolTip WRITE SetToolTip NOTIFY ToolTipChanged)
+			Q_PROPERTY(quint8 Pin READ Pin WRITE SetPin NOTIFY PinChanged)
+			Q_PROPERTY(bool IsFeature READ IsFeature WRITE SetIsFeature NOTIFY IsFeatureChanged)
 			Q_PROPERTY(bool RemoteViewRelevant READ RemoteViewRelevant WRITE SetRemoteViewRelevant NOTIFY RemoteViewRelevantChanged)
 			Q_CLASSINFO("Version", "0.0.1")
 		private:
@@ -152,6 +154,29 @@ namespace RW{
 			*/
 			void SetRemoteViewRelevant(bool RemoteViewRelevant);
 
+			/*
+			@brief 
+			@return bool
+			*/
+			bool IsFeature() const;
+
+			/*
+			@brief
+			@param 
+			*/
+			void SetIsFeature(bool Feature);
+
+			/*
+			@brief
+			@return bool
+			*/
+			quint8 Pin() const;
+
+			/*
+			@brief
+			@param
+			*/
+			void SetPin(quint8 Pin);
 
 		signals:
 			/*
@@ -193,6 +218,16 @@ namespace RW{
 			@brief Wird ausgelöst wenn sich der RemoteViewRelevant geändert hat.
 			*/
 			void RemoteViewRelevantChanged();
+
+			/*
+			@brief Wird ausgelöst wenn sich IsFeature geändert hat.
+			*/
+			void IsFeatureChanged();
+
+			/*
+			@brief Wird ausgelöst wenn sich Pin geändert hat.
+			*/
+			void PinChanged();
 		};
 	}
 }

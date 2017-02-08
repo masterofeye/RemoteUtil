@@ -14,7 +14,7 @@ namespace RW{
 
 		const QString Insert_RemoteWorkstation = "INSERT INTO remoteWorkstation (userID,hostname,mac,ip,powerstripeIp,powerstripeId,remoteboxComPort,remoteboxHwId,remoteboxSwVersion,state,projectID) VALUES (:user,:hostname,:mac,:ip,:powerstripeIp,:powerstripeId,:remoteboxComPort,:remoteboxHwId,:remoteboxSwVersion,:state,( SELECT idProject FROM project WHERE name=:name))";
 		const QString Insert_User = "INSERT INTO user (username,password,mksUsername,mksPassword,initials,notifiyRemoteDesktop,notifiyDesktop,role ) VALUES (:username,:password,:mksUsername,:mksPassword,:initials,:notifiyRemoteDesktop,:notifiyDesktop, :role)";
-		const QString Insert_ElementConfiguration = "INSERT INTO elementConfiguration (remoteWorkstationID, elementTypeID,displayName,name,groupName, function, tooltip,remoteViewRelevant) VALUES (:remoteWorkstationID, (SELECT idElementType FROM elementType WHERE type=:type),:displayName,:name,:groupName,:function,:tooltip,:remoteViewRelevant)";
+		const QString Insert_ElementConfiguration = "INSERT INTO elementConfiguration (remoteWorkstationID, elementTypeID, displayName, name, groupName, function, tooltip, remoteViewRelevant, isFeature, pin) VALUES (:remoteWorkstationID, (SELECT idElementType FROM elementType WHERE type=:type),:displayName,:name,:groupName,:function,:tooltip,:remoteViewRelevant, :isFeature, :pin)";
 		const QString Insert_ElementType = "INSERT INTO elementType (type) VALUES (:type)";
 		const QString Insert_Instruction = "INSERT INTO instruction (step) VALUES (:step)";
 		const QString Insert_Recept = "INSERT INTO recept (receptName,orderNumber,instructionID) VALUES (:receptName,:orderNumber,:instructionID)";
@@ -24,7 +24,7 @@ namespace RW{
 
 		const QString Update_RemoteWorkstation = "UPDATE remoteWorkstation SET userID=( SELECT idUser FROM user WHERE user=:user),hostname=:hostname,mac=:mac,ip=:ip,powerstripeIp=:powerstripeIp,powerstripeId=:powerstripeId,remoteboxComPort=:remoteboxComPort,remoteboxHwId=:remoteboxHwId,remoteboxSwVersion=:remoteboxSwVersion, state=:state, projectID=( SELECT idProject FROM project WHERE name=:name) WHERE idRemoteWorkstation=:id";
 		const QString Update_User = "UPDATE user SET username=:username,password=:password,mksUsername=:mksUsername,mksPassword=:mksPassword,initials=:intitials,notifiyRemoteDesktop=:notifiyRemoteDesktop,notifiyDesktop=:notifiyDesktop, role=:role";
-		const QString Update_ElementConfiguration = "UPDATE elementConfiguration SET remoteWorkstationID=:remoteWorkstationID,type=:type,displayName=:displayName,name=:name,groupName=:groupName,function=:function, tooltip=:tooltip, remoteViewRelevant=:remoteViewRelevant";
+		const QString Update_ElementConfiguration = "UPDATE elementConfiguration SET remoteWorkstationID=:remoteWorkstationID,type=:type,displayName=:displayName,name=:name,groupName=:groupName,function=:function, tooltip=:tooltip, remoteViewRelevant=:remoteViewRelevant, isFeature=:isFeature, pin=:pin";
 		const QString Update_ElementType = "UPDATE elementType SET type=:type";
 		const QString Update_Instruction = "UPDATE instruction SET step=:step";
 		const QString Update_Recept = "UPDATE recept SET receptName=:receptName,orderNumber=:orderNumber,instructionID=:instructionID";
@@ -170,19 +170,22 @@ namespace RW{
 				while (query.next()) {
 					id = query.value(0).toInt();
 				}
-				for each (auto var in *d.ElementCfg())
+
+				for each (auto var in d.ElementCfg())
 				{
 					QSqlQuery query;
 					query.prepare(Insert_ElementConfiguration);
 					query.bindValue(":remoteWorkstationID", id);
-					query.bindValue(":type", (int)var.Type()->Type());
-					query.bindValue(":displayName", var.DisplayName());
-					query.bindValue(":name", var.Name());
-					query.bindValue(":groupName", var.GroupName());
-					query.bindValue(":function", var.Function());
-					query.bindValue(":tooltip", var.ToolTip());
-					query.bindValue(":remoteViewRelevant", var.RemoteViewRelevant());
-					
+					query.bindValue(":type", (int)var->Type()->Type());
+					query.bindValue(":displayName", var->DisplayName());
+					query.bindValue(":name", var->Name());
+					query.bindValue(":groupName", var->GroupName());
+					query.bindValue(":function", var->Function());
+					query.bindValue(":tooltip", var->ToolTip());
+					query.bindValue(":remoteViewRelevant", var->RemoteViewRelevant());
+					query.bindValue(":isFeature", var->IsFeature());
+					query.bindValue(":pin", var->Pin());
+
 					res = query.exec();
 					if (!res)
 					{
@@ -229,6 +232,9 @@ namespace RW{
 			query.bindValue(":groupName", d.GroupName());
 			query.bindValue(":function", d.Function());
 			query.bindValue(":remoteViewRelevant", d.RemoteViewRelevant());
+			query.bindValue(":isFeature", d.IsFeature());
+			query.bindValue(":pin", d.Pin());
+
 			bool res = query.exec();
 			if (!res)
 			{
@@ -370,6 +376,8 @@ namespace RW{
 			query.bindValue(":function", d.Function());
 			query.bindValue(":tooltip", d.ToolTip());
 			query.bindValue(":remoteViewRelevant", d.RemoteViewRelevant());
+			query.bindValue(":isFeature", d.IsFeature());
+			query.bindValue(":pin", d.Pin());
 
 			bool res = query.exec();
 			if (!res)
@@ -503,6 +511,8 @@ namespace RW{
 					el.SetFunction(query.value("function").toString());
 					el.SetToolTip(query.value("tooltip").toString());
 					el.SetRemoteViewRelevant(query.value("remoteViewRelevant").toBool());
+					el.SetIsFeature(query.value("isFeature").toBool());
+					el.SetPin(query.value("pin").toInt());
 					d.AddElementCfg(el);
 				}
 				if (!res)
@@ -562,6 +572,8 @@ namespace RW{
 				d.SetFunction(query.value("function").toString());
 				d.SetToolTip(query.value("tooltip").toString());
 				d.SetRemoteViewRelevant(query.value("remoteViewRelevant").toBool());
+				d.SetIsFeature(query.value("isFeature").toBool());
+				d.SetPin(query.value("pin").toInt());
 			}
 
 			if (!res)
@@ -736,6 +748,7 @@ namespace RW{
 				while (query.next())
 				{
 					ElementConfiguration el;
+					//Todo warum wird hier ein Pointer verwendet?!
 					ElementType* elType = new ElementType();
 					elType->SetType((RW::TypeOfElement)query.value("type").toInt());
 					el.SetType(elType);
@@ -745,6 +758,8 @@ namespace RW{
 					el.SetFunction(query.value("function").toString());
 					el.SetToolTip(query.value("tooltip").toString());
 					el.SetRemoteViewRelevant(query.value("remoteViewRelevant").toBool());
+					el.SetIsFeature(query.value("isFeature").toBool());
+					el.SetPin(query.value("pin").toInt());
 					d.AddElementCfg(el);
 				}
 				list << d;
@@ -801,6 +816,8 @@ namespace RW{
 				d.SetFunction(query.value("function").toString());
 				d.SetToolTip(query.value("tooltip").toString());
 				d.SetRemoteViewRelevant(query.value("remoteViewRelevant").toBool());
+				d.SetIsFeature(query.value("isFeature").toBool());
+				d.SetPin(query.value("pin").toInt());
 				list << d;
 			}
 

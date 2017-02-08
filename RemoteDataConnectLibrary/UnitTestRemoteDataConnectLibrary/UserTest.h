@@ -55,7 +55,7 @@ private slots :
 	void GetUserByName_Positiv()
 	{
 		RW::SQL::User u;
-		m_Repository->GetUserByName("Kunadt", u);
+		QVERIFY(m_Repository->GetUserByName("Kunadt", u));
 		QVERIFY(u.UserName() == "Kunadt");
 		QVERIFY(u.Password() == "Password");
 		QVERIFY(u.Role() == RW::UserRole::Admin);
@@ -64,6 +64,12 @@ private slots :
 		QVERIFY(u.MKSUsername() == "uidw5301");
 		QVERIFY(u.MKSPassword() == "Windows2002");
 		QVERIFY(u.Initials() == "IvKu");
+	}
+
+	void GetUserByName_Negativ()
+	{
+		RW::SQL::User u;
+		QVERIFY(!m_Repository->GetUserByName("Blub", u));
 	}
 
     void cleanupTestCase()

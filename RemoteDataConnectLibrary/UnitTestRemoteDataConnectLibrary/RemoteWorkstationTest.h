@@ -35,18 +35,17 @@ private slots :
     {
         bool on = true;
 		RW::SQL::RemoteWorkstation t;
-		RW::SQL::ElementType elementTypeCan;
-		elementTypeCan.SetType(RW::TypeOfElement::USB);
+		RW::SQL::ElementType elementTypeUsb;
+		elementTypeUsb.SetType(RW::TypeOfElement::USB);
 
 		RW::SQL::ElementConfiguration elementConfigurationCAN;
-		elementConfigurationCAN.SetType(&elementTypeCan);
+		elementConfigurationCAN.SetType(&elementTypeUsb);
 		elementConfigurationCAN.SetName("CAN");
 		elementConfigurationCAN.SetGroupName("Peripherie");
 		elementConfigurationCAN.SetToolTip("HMI CAN");
 		elementConfigurationCAN.SetFunction("CAN");
 		elementConfigurationCAN.SetDisplayName("CAN");
 		t.AddElementCfg(elementConfigurationCAN);
-
 
 		RW::SQL::ElementType elementTypeKl30;
 		elementTypeKl30.SetType(RW::TypeOfElement::IO);
@@ -58,6 +57,18 @@ private slots :
 		elementConfigurationKl30.SetFunction("Kl30");
 		elementConfigurationKl30.SetDisplayName("Kl30");
 		t.AddElementCfg(elementConfigurationKl30);
+
+		RW::SQL::ElementConfiguration elementConfigurationMiniCubeDebugger;
+		elementConfigurationMiniCubeDebugger.SetType(&elementTypeUsb);
+		elementConfigurationMiniCubeDebugger.SetName("MiniCube");
+		elementConfigurationMiniCubeDebugger.SetGroupName("Debugger");
+		elementConfigurationMiniCubeDebugger.SetToolTip("AC Debugger (MiniCube)");
+		elementConfigurationMiniCubeDebugger.SetFunction("AC Debugger");
+		elementConfigurationMiniCubeDebugger.SetDisplayName("MiniCube");
+		elementConfigurationMiniCubeDebugger.SetIsFeature(true);
+		elementConfigurationMiniCubeDebugger.SetPin(1);
+		t.AddElementCfg(elementConfigurationMiniCubeDebugger);
+
 
 		RW::SQL::Project p;
 		p.SetProjectname(BR213IC_HL_MY18);
@@ -78,7 +89,7 @@ private slots :
 
 		RW::SQL::RemoteWorkstation ret;
 		QVERIFY(m_Repository->GetRemoteWorkstationByID(1, ret));
-		QVERIFY(ret.Hostname() == "A717");
+		QVERIFY(ret.Hostname() == "A821");
 		QVERIFY(ret.Ip() == "192.168.111.245");
 		QVERIFY(ret.Mac() == "00-50-56-C0-00-08");
 		QVERIFY(ret.PowerstripeId() == "A213");
@@ -88,20 +99,20 @@ private slots :
 		QVERIFY(ret.RemoteboxSwVersion() == "asdjhak");
 		QVERIFY(ret.CurrentUser() == nullptr);
 
-		RW::SQL::ElementConfiguration elementConfiguration = ret.ElementCfg()->at(0);
-		QVERIFY(elementConfiguration.Name() == "CAN");
-		QVERIFY(elementConfiguration.GroupName() == "Peripherie");
-		QVERIFY(elementConfiguration.ToolTip() == "HMI CAN");
-		QVERIFY(elementConfiguration.Function() == "CAN");
-		QVERIFY(elementConfiguration.DisplayName() == "CAN");
+		RW::SQL::ElementConfiguration *elementConfiguration = ret.ElementCfg().at(0);
+		QVERIFY(elementConfiguration->Name() == "CAN");
+		QVERIFY(elementConfiguration->GroupName() == "Peripherie");
+		QVERIFY(elementConfiguration->ToolTip() == "HMI CAN");
+		QVERIFY(elementConfiguration->Function() == "CAN");
+		QVERIFY(elementConfiguration->DisplayName() == "CAN");
 
 
-		RW::SQL::ElementConfiguration elementConfiguration2 = ret.ElementCfg()->at(1);
-		QVERIFY(elementConfiguration2.Name() == "Kl30");
-		QVERIFY(elementConfiguration2.GroupName() == "Peripherie");
-		QVERIFY(elementConfiguration2.ToolTip() == "Kl30");
-		QVERIFY(elementConfiguration2.Function() == "Kl30");
-		QVERIFY(elementConfiguration2.DisplayName() == "Kl30");
+		RW::SQL::ElementConfiguration *elementConfiguration2 = ret.ElementCfg().at(1);
+		QVERIFY(elementConfiguration2->Name() == "Kl30");
+		QVERIFY(elementConfiguration2->GroupName() == "Peripherie");
+		QVERIFY(elementConfiguration2->ToolTip() == "Kl30");
+		QVERIFY(elementConfiguration2->Function() == "Kl30");
+		QVERIFY(elementConfiguration2->DisplayName() == "Kl30");
     }
 
 	void Insert_A684_positive()

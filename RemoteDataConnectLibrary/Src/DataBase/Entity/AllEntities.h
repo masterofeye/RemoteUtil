@@ -20,12 +20,22 @@ namespace RW{
 				qRegisterMetaType<RW::RemoteWorkstationState>("RemoteWorkstationState");
 				qRegisterMetaType<RW::RemoteWorkstationState>("RW::RemoteWorkstationState");
 
+				qRegisterMetaType<RW::UserRole>("RW::UserRole");
+                                qRegisterMetaType<RW::UserRole>("UserRole");
+
 				qRegisterMetaType<RW::SQL::User*>("RW::SQL::User*");
 				qRegisterMetaType<RW::SQL::User*>("User*");
-				qRegisterMetaType<QList<RW::SQL::ElementConfiguration>*>("QList<ElementConfiguration>*");
+
+
+                qRegisterMetaType<RW::SQL::ElementConfiguration*>("RW::SQL::ElementConfiguration*");
+                qRegisterMetaType<RW::SQL::ElementConfiguration*>("ElementConfiguration*");
+                qRegisterMetaType<RW::SQL::ElementConfiguration>("RW::SQL::ElementConfiguration");
+                qRegisterMetaType<RW::SQL::ElementConfiguration>("ElementConfiguration");
 
 				qRegisterMetaType<RW::SQL::Project*>("RW::SQL::Project*");
 				qRegisterMetaType<RW::SQL::Project*>("Project*");
+                qRegisterMetaType<RW::SQL::ElementType*>("RW::SQL::ElementType*");
+				qRegisterMetaType<RW::SQL::ElementType*>("ElementType*");
 			}
 		};
 	}
