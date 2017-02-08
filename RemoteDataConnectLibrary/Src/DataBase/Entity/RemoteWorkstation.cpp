@@ -20,20 +20,26 @@ namespace RW{
 			m_remoteboxHwId(""),
 			m_remoteboxSwVersion(""),
 			m_State(RW::RemoteWorkstationState::OFF),
-			m_ElementConfiguration(new QList<ElementConfiguration>()),
+			m_ElementConfiguration(),
 			m_Project(nullptr)
 		{
 		}
 
 		RemoteWorkstationPrivate::~RemoteWorkstationPrivate()
 		{
-			if (m_ElementConfiguration != nullptr)
+			//Es sollte sichergestellt werden, dass alle Elementconfigurationen gelöscht werden in der Liste, die die RemoteWorkstations pflegt. 
+			//Weiterhin kann es aber vorkommen, dass zwei verschiedene Remoteworkstationobjekte die gleichen Kinder referenzieren. Deswegen 
+			//wird hier überprüft ob die Elementkonfigurationen schon gelöscht wurden und nur noch die Objekte aus der Liste entfernt werden müssen
+			for each (auto var in m_ElementConfiguration)
 			{
-				//qDeleteAll(m_ElementConfiguration);
-				m_ElementConfiguration->clear();
-				delete m_ElementConfiguration;
-				m_ElementConfiguration = nullptr;
+				if (var != nullptr)
+				{
+					delete var;
+					var = nullptr;
+				}
 			}
+		
+			m_ElementConfiguration.clear();
 		}
 
 		RemoteWorkstation::RemoteWorkstation(Entity *Parent) : Entity(Parent),
@@ -93,7 +99,14 @@ namespace RW{
 						*d_ptr->m_Project = *R.d_ptr->m_Project;
 					}
 				}
-				*d_ptr->m_ElementConfiguration = *R.d_ptr->m_ElementConfiguration;
+
+				//Deep Copy of all Elements!
+				for each (auto var in R.d_ptr->m_ElementConfiguration)
+				{
+					ElementConfiguration *el = new ElementConfiguration();
+					*el = *var;
+					d_ptr->m_ElementConfiguration.append(el);
+				}
 			}
 		}
 
@@ -112,7 +125,13 @@ namespace RW{
 				d_ptr->m_remoteboxHwId = R.d_ptr->m_remoteboxHwId;
 				d_ptr->m_remoteboxSwVersion = R.d_ptr->m_remoteboxSwVersion;
 				d_ptr->m_State = R.d_ptr->m_State;
-				d_ptr->m_ElementConfiguration = R.d_ptr->m_ElementConfiguration;
+				//Deep Copy of all Elements!
+				for each (auto var in R.d_ptr->m_ElementConfiguration)
+				{
+					ElementConfiguration *el = new ElementConfiguration();
+					*el = *var;
+					d_ptr->m_ElementConfiguration.append(el);
+				}
 			}
 			return *this;
 		}
@@ -120,25 +139,34 @@ namespace RW{
 		RemoteWorkstation::~RemoteWorkstation()
 		{
 			qDebug() << "Delete " << this;
+        }
+
+		QQmlListProperty<ElementConfiguration>  RemoteWorkstation::ElementCfgQml()
+		{
+			Q_D( RemoteWorkstation);
+				
+			return QQmlListProperty<ElementConfiguration>(this, d->m_ElementConfiguration);
 		}
 
-		QList<ElementConfiguration> *RemoteWorkstation::ElementCfg() const
+		QList<ElementConfiguration*> RemoteWorkstation::ElementCfg() const
 		{ 
 			Q_D(const RemoteWorkstation);
-			return const_cast<QList<ElementConfiguration>*>(d->m_ElementConfiguration);
+			return d->m_ElementConfiguration;
 		}
 
-		void RemoteWorkstation::SetElementCfg(QList<ElementConfiguration> *ElementCfg)
+		void RemoteWorkstation::SetElementCfg(QList<ElementConfiguration*> ElementCfg)
 		{
 			Q_D(RemoteWorkstation);
 			d->m_ElementConfiguration = ElementCfg;
 			emit ElementCfgChanged();
 		}
 
-		void RemoteWorkstation::AddElementCfg(ElementConfiguration& ElementCfg)
+		void RemoteWorkstation::AddElementCfg(ElementConfiguration ElementCfg)
 		{
 			Q_D(RemoteWorkstation);
-			d->m_ElementConfiguration->append(ElementCfg);
+			ElementConfiguration *tempEl = new ElementConfiguration();
+			*tempEl = ElementCfg;
+			d->m_ElementConfiguration.append(tempEl);
 			emit ElementCfgChanged();
 		}
 

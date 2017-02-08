@@ -23,7 +23,7 @@ namespace RW{
 			RemoteWorkstationPrivate(RemoteWorkstation *Parent);
 			~RemoteWorkstationPrivate();
 
-			QList<ElementConfiguration>* m_ElementConfiguration;
+			QList<ElementConfiguration*> m_ElementConfiguration;
 			User* m_User;
 			Project* m_Project;
 			QString m_Hostname;

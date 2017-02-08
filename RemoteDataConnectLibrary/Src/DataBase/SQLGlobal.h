@@ -43,3 +43,4 @@ namespace RW{
 	};
 }	
 Q_DECLARE_METATYPE(RW::RemoteWorkstationState)
+Q_DECLARE_METATYPE(RW::UserRole)

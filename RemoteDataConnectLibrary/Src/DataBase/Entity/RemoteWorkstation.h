@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "qdebug.h"
+#include <QQmlListProperty>
 
 namespace RW{
 	enum class RemoteWorkstationState;
@@ -15,7 +16,7 @@ namespace RW{
 			public Entity
 		{
 			Q_OBJECT
-			Q_PROPERTY(QList<ElementConfiguration>* ElementCfg READ ElementCfg WRITE SetElementCfg NOTIFY ElementCfgChanged)
+			Q_PROPERTY(QQmlListProperty<RW::SQL::ElementConfiguration> ElementCfgQml READ ElementCfgQml NOTIFY ElementCfgChanged)
 			Q_PROPERTY(User* CurrentUser READ CurrentUser WRITE SetCurrentUser NOTIFY CurrentUserChanged)
 			Q_PROPERTY(Project* AssignedProject READ AssignedProject WRITE setAssignedProject NOTIFY ProjectChanged)
 			Q_PROPERTY(QString Hostname READ Hostname WRITE SetHostname NOTIFY HostnameChanged)
@@ -43,9 +44,11 @@ namespace RW{
 			RemoteWorkstation(RemoteWorkstation &&R);
 			RemoteWorkstation& operator=( RemoteWorkstation &&R);
 
-			QList<ElementConfiguration>* ElementCfg() const;
-			void SetElementCfg(QList<ElementConfiguration>* ElementCfg);
-			void AddElementCfg(ElementConfiguration& ElementCfg);
+			QList<ElementConfiguration*> ElementCfg() const;
+			QQmlListProperty<ElementConfiguration> ElementCfgQml();
+
+			void SetElementCfg(QList<ElementConfiguration*> ElementCfg);
+			void AddElementCfg(ElementConfiguration ElementCfg);
 			
 			User* CurrentUser() const;
 			void SetCurrentUser(User *CurrentUser);
@@ -96,4 +99,5 @@ namespace RW{
 	}
 }
 Q_DECLARE_METATYPE(RW::SQL::RemoteWorkstation)
-Q_DECLARE_METATYPE(QList<RW::SQL::ElementConfiguration>*)
+Q_DECLARE_METATYPE(QQmlListProperty<RW::SQL::ElementConfiguration>)
+
