@@ -92,6 +92,7 @@ namespace RW{
 		{
 			Q_D(LogEntry);
 			d->m_Date = Date;
+			emit DateChanged();
 		}
 
 		QString LogEntry::Message()
@@ -104,6 +105,7 @@ namespace RW{
 		{
 			Q_D(LogEntry);
 			d->m_Message = Message;
+			emit MessageChanged();
 		}
 
 
@@ -116,6 +118,7 @@ namespace RW{
 		{
 			Q_D(LogEntry);
 			d->m_LogLevel = Level;
+			emit LogLevelChanged();
 		}
 
 		quint16 LogEntry::ThreadID()
@@ -127,6 +130,7 @@ namespace RW{
 		{
 			Q_D(LogEntry);
 			d->m_ThreadID = ThreadID;
+			emit ThreadIDChanged();
 		}
 
 		quint64 LogEntry::ErrorID()
@@ -138,6 +142,7 @@ namespace RW{
 		{
 			Q_D(LogEntry);
 			d->m_ErrorID;
+			emit ErrorIDChanged();
 		}
 
 		QString LogEntry::Type()
@@ -149,19 +154,21 @@ namespace RW{
 		{
 			Q_D(LogEntry);
 			d->m_Type = Type;
+			emit TypeChanged();
 		}
 
-		QString LogEntry::ComputerName()
+		QString LogEntry::ComputerNameRW()
 		{
 			Q_D(LogEntry);
 			return d->m_ComputerName;
 		}
 
 
-		void LogEntry::SetComputerName_(QString ComputerName)
+		void LogEntry::SetComputerNameRW(QString ComputerName)
 		{
 			Q_D(LogEntry);
 			d->m_ComputerName = ComputerName;
+			emit ComputerNameRWChanged();
 		}
 	}
 }

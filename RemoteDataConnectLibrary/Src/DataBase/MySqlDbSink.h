@@ -73,7 +73,7 @@ namespace spdlog
 				obj.SetLogLevel(toString(msg.level));
 				obj.SetThreadID((quint16)msg.thread_id);
 				obj.SetErrorID(0);
-				obj.SetComputerName_(qtComputerName);
+				obj.SetComputerNameRW(qtComputerName);
 
 				//Todo hier die Magic numbers ersetzen
 				switch (msg.type)

@@ -120,7 +120,7 @@ namespace RW{
 			query.bindValue(":threadId", d.ThreadID());
 			query.bindValue(":errorId", d.ErrorID());
 			query.bindValue(":type", d.Type());
-			query.bindValue(":computerName", d.ComputerName());
+			query.bindValue(":computerName", d.ComputerNameRW());
 
 			bool res = query.exec();
 			if (!res)
@@ -703,7 +703,7 @@ namespace RW{
 			while (query.next())
 			{
 				// \!todo unschöne Konvertierung
-				d.SetComputerName_(query.value("setComputerName").toString());
+				d.SetComputerNameRW(query.value("setComputerName").toString());
 				d.SetType(query.value("type").toString());
 				d.SetDate(query.value("date").toDateTime());
 				d.SetThreadID(query.value("threadId").toInt());
@@ -949,7 +949,7 @@ namespace RW{
 			{
 				LogEntry d;
 				// \!todo unschöne Konvertierung
-				d.SetComputerName_(query.value("setComputerName").toString());
+				d.SetComputerNameRW(query.value("setComputerName").toString());
 				d.SetType(query.value("type").toString());
 				d.SetDate(query.value("date").toDateTime());
 				d.SetThreadID(query.value("threadId").toInt());

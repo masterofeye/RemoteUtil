@@ -53,6 +53,14 @@ private slots :
 		tSound.SetType(RW::TypeOfElement::SOUND);
 		QVERIFY(m_Repository->InsertElementType(tSound));
 
+		RW::SQL::ElementType tLVDS;
+		tLVDS.SetType(RW::TypeOfElement::LVDS);
+		QVERIFY(m_Repository->InsertElementType(tLVDS));
+
+		RW::SQL::ElementType tHUD;
+		tHUD.SetType(RW::TypeOfElement::HUD);
+		QVERIFY(m_Repository->InsertElementType(tHUD));
+
     }
 
 	/**

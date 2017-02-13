@@ -14,9 +14,8 @@ namespace RW{
 		class RemoteWorkstationPrivate : public QObject
 		{
 			Q_OBJECT
-
-				Q_DISABLE_COPY(RemoteWorkstationPrivate)
-				Q_DECLARE_PUBLIC(RemoteWorkstation)
+			Q_DISABLE_COPY(RemoteWorkstationPrivate)
+			Q_DECLARE_PUBLIC(RemoteWorkstation)
 		private:
 			RemoteWorkstation * const q_ptr;
 		public:

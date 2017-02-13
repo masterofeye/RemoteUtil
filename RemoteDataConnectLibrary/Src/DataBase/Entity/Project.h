@@ -9,7 +9,7 @@ namespace RW{
 			public Entity
 		{
 			Q_OBJECT
-				Q_PROPERTY(QString Projectname READ Projectname WRITE SetProjectname NOTIFY ProjectnameChanged)
+			Q_PROPERTY(QString Projectname READ Projectname WRITE SetProjectname NOTIFY ProjectnameChanged)
 			Q_CLASSINFO("Version", "0.0.1")
 
 		private:

@@ -21,10 +21,13 @@ namespace RW{
 				qRegisterMetaType<RW::RemoteWorkstationState>("RW::RemoteWorkstationState");
 
 				qRegisterMetaType<RW::UserRole>("RW::UserRole");
-                                qRegisterMetaType<RW::UserRole>("UserRole");
+				qRegisterMetaType<RW::UserRole>("UserRole");
 
 				qRegisterMetaType<RW::SQL::User*>("RW::SQL::User*");
 				qRegisterMetaType<RW::SQL::User*>("User*");
+
+				qRegisterMetaType<RW::SQL::LogEntry*>("RW::SQL::LogEntry*");
+				qRegisterMetaType<RW::SQL::LogEntry*>("LogEntry*");
 
 
                 qRegisterMetaType<RW::SQL::ElementConfiguration*>("RW::SQL::ElementConfiguration*");

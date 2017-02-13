@@ -69,6 +69,56 @@ private slots :
 		elementConfigurationMiniCubeDebugger.SetPin(1);
 		t.AddElementCfg(elementConfigurationMiniCubeDebugger);
 
+		RW::SQL::ElementConfiguration elementConfigurationLanDebugger;
+		elementConfigurationLanDebugger.SetType(&elementTypeUsb);
+		elementConfigurationLanDebugger.SetName("Lan Debugger");
+		elementConfigurationLanDebugger.SetGroupName("Debugger");
+		elementConfigurationLanDebugger.SetToolTip("Lan Debugger");
+		elementConfigurationLanDebugger.SetFunction("Lan Debugger");
+		elementConfigurationLanDebugger.SetDisplayName("Lan Debugger");
+		elementConfigurationLanDebugger.SetIsFeature(true);
+		elementConfigurationLanDebugger.SetPin(2);
+		t.AddElementCfg(elementConfigurationLanDebugger);
+
+
+		RW::SQL::ElementType elementTypeSound;
+		elementTypeSound.SetType(RW::TypeOfElement::SOUND);
+		RW::SQL::ElementConfiguration elementConfigurationAudio;
+		elementConfigurationAudio.SetType(&elementTypeSound);
+		elementConfigurationAudio.SetName("Sound");
+		elementConfigurationAudio.SetGroupName("Additionals");
+		elementConfigurationAudio.SetToolTip("Sound");
+		elementConfigurationAudio.SetFunction("Sound");
+		elementConfigurationAudio.SetDisplayName("Sound");
+		elementConfigurationAudio.SetIsFeature(true);
+		elementConfigurationAudio.SetPin(2);
+		t.AddElementCfg(elementConfigurationAudio);
+
+		RW::SQL::ElementType elementTypeLvds;
+		elementTypeLvds.SetType(RW::TypeOfElement::LVDS);
+		RW::SQL::ElementConfiguration elementConfigurationLVDS;
+		elementConfigurationLVDS.SetType(&elementTypeLvds);
+		elementConfigurationLVDS.SetName("LVDS");
+		elementConfigurationLVDS.SetGroupName("Additionals");
+		elementConfigurationLVDS.SetToolTip("LVDS");
+		elementConfigurationLVDS.SetFunction("LVDS");
+		elementConfigurationLVDS.SetDisplayName("LVDS");
+		elementConfigurationLVDS.SetIsFeature(true);
+		elementConfigurationLVDS.SetPin(5);
+		t.AddElementCfg(elementConfigurationLVDS);
+
+		RW::SQL::ElementType elementTypeHUD;
+		elementTypeHUD.SetType(RW::TypeOfElement::HUD);
+		RW::SQL::ElementConfiguration elementConfigurationHUD;
+		elementConfigurationHUD.SetType(&elementTypeHUD);
+		elementConfigurationHUD.SetName("HUD");
+		elementConfigurationHUD.SetGroupName("Additionals");
+		elementConfigurationHUD.SetToolTip("HUD");
+		elementConfigurationHUD.SetFunction("HUD");
+		elementConfigurationHUD.SetDisplayName("HUD");
+		elementConfigurationHUD.SetIsFeature(true);
+		elementConfigurationHUD.SetPin(5);
+		t.AddElementCfg(elementConfigurationHUD);
 
 		RW::SQL::Project p;
 		p.SetProjectname(BR213IC_HL_MY18);

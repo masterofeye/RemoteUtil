@@ -14,6 +14,8 @@ namespace RW{
 		IO,
 		RELAY,
 		SOUND,
+		HUD,
+		LVDS,
 		INVALID
 	};
 
