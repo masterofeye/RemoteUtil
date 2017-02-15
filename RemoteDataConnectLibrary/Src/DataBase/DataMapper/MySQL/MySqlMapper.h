@@ -62,7 +62,7 @@ namespace RW{
 		const QString SelectAll_LogEntry = "SELECT * FROM log";
 		const QString SelectAll_Project = "SELECT * FROM project";
 
-		const QString Select_ElementConfigurationByRemoteWorkstationID = "SELECT el.remoteWorkstationID, t.type = type ,el.displayName,el.name,el.groupName, el.function, el.tooltip FROM elementConfiguration el join elementType t on el.elementTypeID = t.idElementType WHERE el.remoteWorkstationID = :remoteWorkstationID";
+		const QString Select_ElementConfigurationByRemoteWorkstationID = "SELECT el.remoteWorkstationID, t.type = type ,el.displayName,el.name,el.groupName, el.function, el.tooltip, el.pin, el.isFeature FROM elementConfiguration el join elementType t on el.elementTypeID = t.idElementType WHERE el.remoteWorkstationID = :remoteWorkstationID";
 		const QString SelectLastID = "SELECT idRemoteWorkstation from remoteWorkstation ORDER BY idRemoteWorkstation DESC LIMIT 1;";
 		class Entity;
 		template<class T>

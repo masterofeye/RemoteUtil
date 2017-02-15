@@ -45,6 +45,8 @@ private slots :
 		elementConfigurationCAN.SetToolTip("HMI CAN");
 		elementConfigurationCAN.SetFunction("CAN");
 		elementConfigurationCAN.SetDisplayName("CAN");
+		elementConfigurationCAN.SetPin(2);
+		elementConfigurationCAN.SetIsFeature(true);
 		t.AddElementCfg(elementConfigurationCAN);
 
 		RW::SQL::ElementType elementTypeKl30;
@@ -155,6 +157,8 @@ private slots :
 		QVERIFY(elementConfiguration->ToolTip() == "HMI CAN");
 		QVERIFY(elementConfiguration->Function() == "CAN");
 		QVERIFY(elementConfiguration->DisplayName() == "CAN");
+		QVERIFY(elementConfiguration->IsFeature() == false);
+		QVERIFY(elementConfiguration->Pin() == 2);
 
 
 		RW::SQL::ElementConfiguration *elementConfiguration2 = ret.ElementCfg().at(1);
