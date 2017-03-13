@@ -157,7 +157,7 @@ private slots :
 		QVERIFY(elementConfiguration->ToolTip() == "HMI CAN");
 		QVERIFY(elementConfiguration->Function() == "CAN");
 		QVERIFY(elementConfiguration->DisplayName() == "CAN");
-		QVERIFY(elementConfiguration->IsFeature() == false);
+		QVERIFY(elementConfiguration->IsFeature() == true);
 		QVERIFY(elementConfiguration->Pin() == 2);
 
 
