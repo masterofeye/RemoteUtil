@@ -1,0 +1,25 @@
+#pragma once
+
+#include <QObject>
+#include "Message.h"
+
+namespace RW{
+	namespace COM{
+		class BasicCommunicationServer :
+			public QObject
+		{
+			Q_OBJECT
+		public:
+			BasicCommunicationServer(QObject* Parent = nullptr);
+			~BasicCommunicationServer();
+
+			virtual bool Listen() = 0;
+		public slots:
+			virtual void OnProcessMessage(Message Msg) = 0;
+			virtual void OnPrepareIncomingConnection() = 0;
+			virtual void OnExternalMessage() = 0;
+		signals:
+			void NewMessage(Message Msg);
+		};
+	}
+}
