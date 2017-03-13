@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 #include <QLocalServer>
 #include <QLocalSocket>
 
@@ -6,7 +7,7 @@
 
 namespace RW{
 	namespace COM{
-		class LocalCommunicationServer :
+		class REMOTECOMMUNICATIONLIBRARY_EXPORT LocalCommunicationServer :
 			public BasicCommunicationServer
 		{
 			Q_OBJECT

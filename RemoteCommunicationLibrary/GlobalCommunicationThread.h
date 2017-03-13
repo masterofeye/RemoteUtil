@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 #include <QObject>
 #include <QTcpSocket>
 #include <QThread>
@@ -7,7 +8,7 @@
 
 namespace RW{
 	namespace COM{
-		class GlobalCommunicationThread :
+		class REMOTECOMMUNICATIONLIBRARY_EXPORT GlobalCommunicationThread :
 			public QThread
 		{
 			Q_OBJECT

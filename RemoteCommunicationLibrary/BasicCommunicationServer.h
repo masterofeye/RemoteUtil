@@ -1,11 +1,11 @@
 #pragma once
-
+#include "stdafx.h"
 #include <QObject>
 #include "Message.h"
 
 namespace RW{
 	namespace COM{
-		class BasicCommunicationServer :
+		class REMOTECOMMUNICATIONLIBRARY_EXPORT BasicCommunicationServer :
 			public QObject
 		{
 			Q_OBJECT

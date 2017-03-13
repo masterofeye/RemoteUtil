@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 #include "qobject.h"
 #include "MessageDescription.h"
 #include <QVariant>
@@ -7,7 +8,7 @@
 namespace RW{
 	namespace COM{
 
-		class Message sealed:
+		class REMOTECOMMUNICATIONLIBRARY_EXPORT Message sealed:
 			public QObject
 		{
 			Q_OBJECT

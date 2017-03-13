@@ -3,14 +3,13 @@
 
 #include "remotecommunicationlibrary_global.h"
 
-class REMOTECOMMUNICATIONLIBRARY_EXPORT RemoteCommunicationLibrary
-{
-public:
-	RemoteCommunicationLibrary();
-	~RemoteCommunicationLibrary();
+		class REMOTECOMMUNICATIONLIBRARY_EXPORT RemoteCommunicationLibrary
+		{
+		public:
+			RemoteCommunicationLibrary();
+			~RemoteCommunicationLibrary();
 
-private:
+		private:
 
-};
-
+		};
 #endif // REMOTECOMMUNICATIONLIBRARY_H

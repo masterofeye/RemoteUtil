@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 #include "qobject.h"
 #include "BasicCommunicationServer.h"
 #include <QUuid>
@@ -8,7 +9,7 @@ namespace RW{
 		class LocalCommunicationServer;
 		class GlobalCommunicationServer;
 
-		class CommunicatonServer :
+		class REMOTECOMMUNICATIONLIBRARY_EXPORT CommunicatonServer :
 			public BasicCommunicationServer
 		{
 			Q_OBJECT

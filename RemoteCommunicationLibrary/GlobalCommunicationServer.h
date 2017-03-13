@@ -1,11 +1,12 @@
 #pragma once
+#include "stdafx.h"
 #include "BasicCommunicationServer.h"
 #include <QTcpsocket>
 #include <QTcpserver>
 
 namespace RW{
 	namespace COM{
-		class GlobalCommunicationServer :
+		class REMOTECOMMUNICATIONLIBRARY_EXPORT GlobalCommunicationServer :
 			public BasicCommunicationServer
 		{
 			Q_OBJECT
