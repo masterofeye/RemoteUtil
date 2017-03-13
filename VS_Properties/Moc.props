@@ -1,41 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<CppCheckDir>"C:\Program Files\Cppcheck"</CppCheckDir>
+		<CppCheckExe>cppcheck.exe</CppCheckExe>
+		<UnitTestDir>UnitTest</UnitTestDir>
+	</PropertyGroup>
 
   <PropertyGroup>
-    <SourceDir>src/</SourceDir>
-    <CppDir>$(SourceDir)main</CppDir>
-    <GenDir>$(SourceDir)gen/cpp</GenDir>
+    <GenDir>gen</GenDir>
+	<PluginsDir>Plugins</PluginsDir>
   </PropertyGroup>
 
   <PropertyGroup>
-    <QTDIR>C:\tool\RemotePkg\Qt\Qt5.7.0\5.7\msvc2013_64\</QTDIR>
+	<OPENCV>C:\tool\RemotePkg\OpenCV\build\</OPENCV>
+    <OPENCV_INSTALL>$(OPENCV)install\</OPENCV_INSTALL>
+	<CUDA>C:\tool\RemotePkg\CUDA\CUDAToolkit\</CUDA>
+    <QTDIR>C:\tool\RemotePkg\Qt\Qt5.6.0\5.6\msvc2013_64\</QTDIR>
     <HppExt>hpp</HppExt>
     <MocExt>cpp</MocExt>
+	<PluginExt>plu</PluginExt>
     <Moc>$(QTDIR)\bin\moc.exe</Moc>
   </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>..\..\RemoteUtil\thirdparty;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include;..\RWPluginInterface;..\OpenVXWrapper;$(IncludePath)</IncludePath>
-    <IgnoreImportLibrary>true</IgnoreImportLibrary>
-    <LibraryPath>$(QTDIR)\lib;..\build\$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
+        <IncludePath>..\..\RemoteUtil\thirdparty;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include;..\RWPluginInterface;..\OpenVXWrapper;$(OPENCV)include;$(IncludePath);$(OPENCV_INSTALL)include;$(IncludePath);..\..\RemoteUtil\thirdparty\Common_NVENC\inc;..\..\RemoteUtil\thirdparty\Intel_common\include;..\..\RemoteUtil\thirdparty\mfx_dispatch\include;..\..\RemoteUtil\thirdparty\live555\include;$(INTELMEDIASDKROOT)\include;$(INTELMEDIASDKROOT)\igfx_s3dcontrol\include;C:\tool\RemotePkg\CUDA\CUDAToolkit\include;$(DXSDK_DIR)\Include;$(CUDA)include</IncludePath>
+        <IgnoreImportLibrary>true</IgnoreImportLibrary>
+        <LibraryPath>$(QTDIR)\lib;..\build\$(Platform)\$(Configuration);$(OPENCV)lib\Debug;$(CUDA)lib\$(Platform);$(LibraryPath);..\..\RemoteUtil\thirdparty\Common_NVENC\lib;..\..\RemoteUtil\thirdparty\Intel_common\$(Platform)\$(Configuration)\lib;..\..\RemoteUtil\thirdparty\live555\libs;..\..\RemoteUtil\thirdparty\mfx_dispatch\$(Platform)\Debug;$(DXSDK_DIR)\Lib\$(Platform);$(INTELMEDIASDKROOT)\lib;$(INTELMEDIASDKROOT)\igfx_s3dcontrol\lib\$(Platform)</LibraryPath>
+        <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)</OutDir>
+	<OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)</OutDir>
+  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Client|x64'">
+        <IncludePath>..\..\RemoteUtil\thirdparty;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include;..\RWPluginInterface;..\OpenVXWrapper;$(OPENCV)include;$(IncludePath);$(OPENCV_INSTALL)include;$(IncludePath);..\..\RemoteUtil\thirdparty\Common_NVENC\inc;..\..\RemoteUtil\thirdparty\Intel_common\include;..\..\RemoteUtil\thirdparty\mfx_dispatch\include;..\..\RemoteUtil\thirdparty\live555\include;$(INTELMEDIASDKROOT)\include;$(INTELMEDIASDKROOT)\igfx_s3dcontrol\include;C:\tool\RemotePkg\CUDA\CUDAToolkit\include;$(DXSDK_DIR)\Include;$(CUDA)include</IncludePath>
+        <IgnoreImportLibrary>true</IgnoreImportLibrary>
+        <LibraryPath>$(QTDIR)\lib;..\build\$(Platform)\$(Configuration);$(OPENCV)lib\Debug;$(CUDA)lib\$(Platform);$(LibraryPath);..\..\RemoteUtil\thirdparty\Common_NVENC\lib;..\..\RemoteUtil\thirdparty\Intel_common\$(Platform)\$(Configuration)\lib;..\..\RemoteUtil\thirdparty\live555\libs;..\..\RemoteUtil\thirdparty\mfx_dispatch\$(Platform)\Debug;$(DXSDK_DIR)\Lib\$(Platform);$(INTELMEDIASDKROOT)\lib;$(INTELMEDIASDKROOT)\igfx_s3dcontrol\lib\$(Platform)</LibraryPath>
+        <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)</OutDir>
+	<OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)</OutDir>
+  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Server|x64'">
+        <IncludePath>..\..\RemoteUtil\thirdparty;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include;..\RWPluginInterface;..\OpenVXWrapper;$(OPENCV)include;$(IncludePath);$(OPENCV_INSTALL)include;$(IncludePath);..\..\RemoteUtil\thirdparty\Common_NVENC\inc;..\..\RemoteUtil\thirdparty\Intel_common\include;..\..\RemoteUtil\thirdparty\mfx_dispatch\include;..\..\RemoteUtil\thirdparty\live555\include;$(INTELMEDIASDKROOT)\include;$(INTELMEDIASDKROOT)\igfx_s3dcontrol\include;C:\tool\RemotePkg\CUDA\CUDAToolkit\include;$(DXSDK_DIR)\Include;$(CUDA)include</IncludePath>
+        <IgnoreImportLibrary>true</IgnoreImportLibrary>
+        <LibraryPath>$(QTDIR)\lib;..\build\$(Platform)\$(Configuration);$(OPENCV)lib\Debug;$(CUDA)lib\$(Platform);$(LibraryPath);..\..\RemoteUtil\thirdparty\Common_NVENC\lib;..\..\RemoteUtil\thirdparty\Intel_common\$(Platform)\$(Configuration)\lib;..\..\RemoteUtil\thirdparty\live555\libs;..\..\RemoteUtil\thirdparty\mfx_dispatch\$(Platform)\Debug;$(DXSDK_DIR)\Lib\$(Platform);$(INTELMEDIASDKROOT)\lib;$(INTELMEDIASDKROOT)\igfx_s3dcontrol\lib\$(Platform)</LibraryPath>
+        <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)</OutDir>
 	<OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)</OutDir>
   </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>..\..\RemoteUtil\thirdparty;$(QTDIR)\mkspecs\winrt-x64-msvc2013;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include;..\RWPluginInterface;..\OpenVXWrapper;$(IncludePath)</IncludePath>
-    <IgnoreImportLibrary>true</IgnoreImportLibrary>
-    <LibraryPath>$(QTDIR)\lib;..\build\$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
-	<OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)</OutDir>
-  </PropertyGroup>
+        <IncludePath>..\..\RemoteUtil\thirdparty;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include;..\RWPluginInterface;..\OpenVXWrapper;$(OPENCV)include;$(IncludePath);$(OPENCV_INSTALL)include;$(IncludePath);..\..\RemoteUtil\thirdparty\Common_NVENC\inc;..\..\RemoteUtil\thirdparty\Intel_common\include;..\..\RemoteUtil\thirdparty\mfx_dispatch\include;..\..\RemoteUtil\thirdparty\live555\include;$(INTELMEDIASDKROOT)\include;$(INTELMEDIASDKROOT)\igfx_s3dcontrol\include;C:\tool\RemotePkg\CUDA\CUDAToolkit\include;$(DXSDK_DIR)\Include;$(CUDA)include</IncludePath>
+        <IgnoreImportLibrary>true</IgnoreImportLibrary>
+        <LibraryPath>"C:\Program Files (x86)\Visual Leak Detector\lib\Win64";$(QTDIR)\lib;..\build\$(Platform)\$(Configuration);$(OPENCV)lib\$(Configuration);$(CUDA)lib\x64;$(LibraryPath);..\..\RemoteUtil\thirdparty\Common_NVENC\lib;..\..\RemoteUtil\thirdparty\Intel_common\x64\$(Configuration)\lib;..\..\RemoteUtil\thirdparty\live555\libs;..\..\RemoteUtil\thirdparty\mfx_dispatch\$(Platform)\$(Configuration);$(DXSDK_DIR)\Lib\x64;$(INTELMEDIASDKROOT)\lib;$(INTELMEDIASDKROOT)\igfx_s3dcontrol\lib\$(Platform)</LibraryPath>
+        <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)</OutDir>
+    </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <MocFlags>-DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -I..\RWPluginInterface -I$(GenDir)/ -I$(QtDir)\include\ -I$(QtDir)\include\Qt -I$(QtDir)\include\QtCore -I$(QtDir)\include\QtDeclarative -I$(QtDir)\include\QtGui</MocFlags>
   </PropertyGroup>
-
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Client|x64'">
+    <MocFlags>-DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -I..\RWPluginInterface -I$(GenDir)/ -I$(QtDir)\include\ -I$(QtDir)\include\Qt -I$(QtDir)\include\QtCore -I$(QtDir)\include\QtDeclarative -I$(QtDir)\include\QtGui</MocFlags>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Server|x64'">
+    <MocFlags>-DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -I..\RWPluginInterface -I$(GenDir)/ -I$(QtDir)\include\ -I$(QtDir)\include\Qt -I$(QtDir)\include\QtCore -I$(QtDir)\include\QtDeclarative -I$(QtDir)\include\QtGui</MocFlags>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <MocFlags>-DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG=1 -DQT_CORE_LIB -IC:\Projekte\RemoteRepros\RemoteStreamClient\RWPluginInterface -I$(GenDir)/ -I$(QtDir)\include\ -I$(QtDir)\include\Qt -I$(QtDir)\include\QtCore -I$(QtDir)\include\QtDeclarative -I$(QtDir)\include\QtGui </MocFlags>
+    <MocFlags>-DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG=1 -DQT_CORE_LIB -IC:..\RWPluginInterface -I$(GenDir)/ -I$(QtDir)\include\ -I$(QtDir)\include\Qt -I$(QtDir)\include\QtCore -I$(QtDir)\include\QtDeclarative -I$(QtDir)\include\QtGui </MocFlags>
   </PropertyGroup>
 
   <ItemGroup>
-    <QtIncludes Include="*.$(HppExt)"/>
+    <QtIncludes Include="**/*.$(HppExt)"/>
   </ItemGroup>
 
   <ItemGroup>
@@ -45,23 +73,103 @@
           Name="Moc" 
           BeforeTargets="ClCompile"
           Outputs="@(QtIncludes->'$(GenDir)/moc_%(Filename).cpp')">
-    <Exec Command = "$(Moc) %(QtIncludes.Identity) -nw -o %(Filename).moc  $(MocFlags) "/>
-
+    <MakeDir Directories="$(GenDir)"/>
+    <Exec Command="$(Moc) %(QtIncludes.Identity) -nw -o $(GenDir)/moc_%(Filename).cpp $(MocFlags)"/>
   </Target>
-  <Target Name="test" BeforeTargets="Moc">
-    <Message Importance="high" Text="$(GenDir)/*.cpp "/>
-  </Target>
-
   <Target Name="AddtoSolution" AfterTargets="Moc">
     <ItemGroup>
       <ClCompile Include="$(GenDir)/*.cpp"/>
     </ItemGroup>
   </Target>
-
-  <Target Name="CreateDirectories" BeforeTargets="Moc">
-    <MakeDir Directories="$(GenDir)"/>
+  <Target Name="CleanGen" AfterTargets="AfterClean">
+    <RemoveDir Directories="$(GenDir)"/>
   </Target>
 
+    <Target Name="CppCheck" AfterTargets="AfterBuild">
+		<Message Importance="High" Text="**************************************" />
+		<Message Importance="High" Text="***************CppCheck***************" />
+		<Message Importance="High" Text="**************************************" />
+		<MakeDir Directories="$(SolutionDir)build\$(Platform)\$(Configuration)\CppCheck"/>
+	</Target>
+
+    <Target Name="CopyPlugins" AfterTargets="CppCheck">
+        <Message Importance="High" Text="**************************************" />
+        <Message Importance="High" Text="***************Plugins****************" />
+        <Message Importance="High" Text="**************************************" />
+        <MakeDir Directories="$(SolutionDir)build\$(Platform)\$(Configuration)\Plugins"/>
+        <Exec Command = "xcopy /Y /q $(SolutionDir)build\$(Platform)\$(Configuration)\*.plu $(SolutionDir)build\$(Platform)\$(Configuration)\Plugins\"/>
+    </Target>
+
+    <Target Name="VideoGrabberSimu" AfterTargets="CopyPlugins">
+        <!--Condition="'$(Configuration)'=='Debug'">-->
+        <Message Importance="High" Text="**************************************" />
+        <Message Importance="High" Text="**********VideoGrabberSimu************" />
+        <Message Importance="High" Text="**************************************" />
+        <Exec Command = "xcopy /Y /q $(OPENCV)bin\Debug\opencv_videoio310d.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+        <Exec Command = "xcopy /Y /q $(OPENCV)bin\Debug\opencv_imgcodecs310d.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+    </Target>
+
+    <Target Name="IMP_openCV" AfterTargets="CopyPlugins">
+        <!--Condition="'$(Configuration)'=='Debug'">-->
+        <Message Importance="High" Text="**************************************" />
+        <Message Importance="High" Text="*************IMP_openCV***************" />
+        <Message Importance="High" Text="**************************************" />
+        <Exec Command = "xcopy /Y /q $(OPENCV)bin\Debug\opencv_core310d.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+        <Exec Command = "xcopy /Y /q $(OPENCV)bin\Debug\opencv_cudaarithm310d.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+        <Exec Command = "xcopy /Y /q $(OPENCV)bin\Debug\opencv_cudafilters310d.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+        <Exec Command = "xcopy /Y /q $(OPENCV)bin\Debug\opencv_cudaimgproc310d.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+        <Exec Command = "xcopy /Y /q $(OPENCV)bin\Debug\opencv_imgproc310d.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+        <Exec Command = "xcopy /Y /q $(CUDA)bin\cudart64_75.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+        <!--</Target>
+    <Target Name="IMP_proj" AfterTargets="CopyPlugins" Condition="'$(Configuration)'=='Release'">
+        <Message Importance="High" Text="**************************************" />
+        <Message Importance="High" Text="***********IMP_openCV|Release***********" />
+        <Message Importance="High" Text="**************************************" />
+        <Exec Command = "xcopy /Y /q $(OPENCV)bin\Release\opencv_core310.dll $(SolutionDir)build\$(Platform)\$(Configuration)\Plugins\"/>
+        <Exec Command = "xcopy /Y /q $(OPENCV)bin\Release\opencv_cudaarithm310.dll $(SolutionDir)build\$(Platform)\$(Configuration)\Plugins\"/>
+        <Exec Command = "xcopy /Y /q $(OPENCV)bin\Release\opencv_cudafilters310.dll $(SolutionDir)build\$(Platform)\$(Configuration)\Plugins\"/>
+        <Exec Command = "xcopy /Y /q $(OPENCV)bin\Release\opencv_cudaimgproc310.dll $(SolutionDir)build\$(Platform)\$(Configuration)\Plugins\"/>
+        <Exec Command = "xcopy /Y /q $(OPENCV)bin\Release\opencv_imgproc310.dll $(SolutionDir)build\$(Platform)\$(Configuration)\Plugins\"/>-->
+    </Target>
+
+    <Target Name="VPL_QT" AfterTargets="CopyPlugins">
+        <!--Condition="'$(Configuration)'=='Debug'">-->
+        <Message Importance="High" Text="**************************************" />
+        <Message Importance="High" Text="***************VPL_QT*****************" />
+        <Message Importance="High" Text="**************************************" />
+        <Exec Command = "xcopy /Y /q $(QTDIR)bin\Qt5Cored.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+        <Exec Command = "xcopy /Y /q $(QTDIR)bin\Qt5Guid.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+        <Exec Command = "xcopy /Y /q $(QTDIR)bin\Qt5Multimediad.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+        <Exec Command = "xcopy /Y /q $(QTDIR)bin\Qt5MultimediaWidgetsd.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+        <Exec Command = "xcopy /Y /q $(QTDIR)bin\Qt5Networkd.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+        <Exec Command = "xcopy /Y /q $(QTDIR)bin\Qt5OpenGLd.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+        <Exec Command = "xcopy /Y /q $(QTDIR)bin\Qt5Widgetsd.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+        <Exec Command = "xcopy /Y /q $(QTDIR)bin\Qt5Xml.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+    </Target>
+
+  <Target Name="ENC_NVENC" AfterTargets="CopyPlugins">
+    <!--Condition="'$(Configuration)'=='Debug'">-->
+    <Message Importance="High" Text="**************************************" />
+    <Message Importance="High" Text="**************ENC_NVENC***************" />
+    <Message Importance="High" Text="**************************************" />
+    <!--<Exec Command = "xcopy /Y /q $(SolutionDir)ENC\NVENC\data\preproc64_cuda.ptx $(SolutionDir)build\$(Platform)\$(Configuration)\"/>-->
+  </Target>
+  
+  <Target Name="Unittest" AfterTargets="CopyPlugins">
+		<Message Importance="High" Text="**************************************" />
+		<Message Importance="High" Text="**************UnitTest****************" />
+		<Message Importance="High" Text="**************************************" />
+		<Exec Command = "xcopy /Y /q $(SolutionDir)Debug\openvx.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+		<Exec Command = "xcopy /Y /q $(SolutionDir)Debug\openvx-c_model.dll $(SolutionDir)build\$(Platform)\$(Configuration)\"/>
+		<MakeDir Directories="$(SolutionDir)build\$(Platform)\$(Configuration)\$(UnitTestDir)"/>
+		<Exec Command = "xcopy /Y /q $(SolutionDir)build\$(Platform)\$(Configuration)\openvx.dll $(SolutionDir)build\$(Platform)\$(Configuration)\$(UnitTestDir)\"/>
+		<Exec Command = "xcopy /Y /q $(SolutionDir)build\$(Platform)\$(Configuration)\OpenVXWrapper.dll $(SolutionDir)build\$(Platform)\$(Configuration)\$(UnitTestDir)\"/>
+		<Exec Command = "xcopy /Y /q $(SolutionDir)build\$(Platform)\$(Configuration)\openvx-c_model.dll $(SolutionDir)build\$(Platform)\$(Configuration)\$(UnitTestDir)\"/>
+		<!-- <Exec Command = "xcopy /Y /q $(SolutionDir)build\$(Platform)\$(Configuration)\RWUnitTest.exe $(SolutionDir)build\$(Platform)\$(Configuration)\$(UnitTestDir)\"/> -->
+		<Exec Command = "xcopy /Y /q $(QTDIR)\bin\Qt5Core.dll $(SolutionDir)build\$(Platform)\$(Configuration)\$(UnitTestDir)\"/>
+		<Exec Command = "xcopy /Y /q $(QTDIR)\bin\Qt5Test.dll $(SolutionDir)build\$(Platform)\$(Configuration)\$(UnitTestDir)\"/>
+	</Target>
+  
   <Target Inputs="@(CopyToOutput)"
           Name="CopytoOut"
           Outputs="@(CopyToOutput->'%(DestinationFolder)/%(RecursiveDir)%(Filename)%(Extension)')"
