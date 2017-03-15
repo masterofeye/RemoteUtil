@@ -25,17 +25,29 @@ namespace RW{
         {
         }
 
-        Device::Device(const Device& other) : d_ptr(new DevicePrivate(this))
+        Device::Device(const Device& other)
         {
-            //d_ptr->m_Name = other.d_ptr->m_Name;
-
+			if (&other != nullptr)
+			{
+				d_ptr = new DevicePrivate(this);
+				d_ptr->m_Description = other.d_ptr->m_Description;
+				d_ptr->m_DeviceName = other.d_ptr->m_DeviceName;
+				d_ptr->m_ProductID = other.d_ptr->m_ProductID;
+				d_ptr->m_VendorID = other.d_ptr->m_VendorID;
+				d_ptr->m_Serial = other.d_ptr->m_Serial;
+			}
         }
 
         Device& Device::operator=(Device& other)
         {
            if (&other != nullptr)
             {
-                d_ptr = new DevicePrivate(this);
+				d_ptr = new DevicePrivate(this);
+				d_ptr->m_Description = other.d_ptr->m_Description;
+				d_ptr->m_DeviceName = other.d_ptr->m_DeviceName;
+				d_ptr->m_ProductID = other.d_ptr->m_ProductID;
+				d_ptr->m_VendorID = other.d_ptr->m_VendorID;
+				d_ptr->m_Serial = other.d_ptr->m_Serial;
             }
             return *this;
         }
@@ -79,7 +91,7 @@ namespace RW{
         void Device::SetDescription(QString Description)
         {
             Q_D(Device);
-            d->m_DeviceName = Description;
+            d->m_Description = Description;
             emit DeviceNameChanged();
         }
 

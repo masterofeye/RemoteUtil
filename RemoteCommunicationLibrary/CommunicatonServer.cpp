@@ -11,7 +11,8 @@ namespace RW{
 		CommunicatonServer::CommunicatonServer(QString LocalServerName, quint16 Port,  std::shared_ptr<spdlog::logger> Logger, QObject* Parent) : BasicCommunicationServer(Parent),
 			m_LocalServer(new LocalCommunicationServer("Server", Logger, this)),
 			m_GlobalServer(new GlobalCommunicationServer(1234,Logger,this)),
-			m_ReceiverList(new QList<QObject*>())
+			m_ReceiverList(new QList<QObject*>()),
+			m_Logger(Logger)
 		{
 			connect(m_GlobalServer, &GlobalCommunicationServer::NewMessage, this, &CommunicatonServer::OnProcessMessage);
 			connect(m_LocalServer, &LocalCommunicationServer::NewMessage, this, &CommunicatonServer::OnProcessMessage);

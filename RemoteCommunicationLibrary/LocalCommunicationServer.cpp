@@ -6,7 +6,8 @@ namespace RW{
 	namespace COM{
 		LocalCommunicationServer::LocalCommunicationServer(QString ServerName, std::shared_ptr<spdlog::logger> Logger, QObject* Parent) : BasicCommunicationServer(Parent),
 			m_ServerName(ServerName),
-			m_Logger(Logger)
+			m_Logger(Logger),
+			m_LocalServer(new QLocalServer(this))
 		{
 			m_SocketList = new QMap<QString, QLocalSocket*>();
 

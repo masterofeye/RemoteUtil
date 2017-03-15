@@ -21,6 +21,7 @@ namespace RW{
 		const QString Insert_Product = "INSERT INTO product (productName,part,receptID) VALUES (:productName,:part,:receptID)";
 		const QString Insert_LogEntry = "INSERT INTO log (date,message,loglevel,threadId,errorId,type,computerName) VALUES (:datetime,:message,:loglevel,:threadId,:errorId,:type,:computerName)";
 		const QString Insert_Project = "INSERT INTO project (name) VALUES (:name)";
+		const QString Insert_Device = "INSERT INTO device( description, vendorId, productId, serial, deviceName) VALUES (:description, :vendorId, :productId, :serial, :deviceName)";
 
 		const QString Update_RemoteWorkstation = "UPDATE remoteWorkstation SET userID=( SELECT idUser FROM user WHERE user=:user),hostname=:hostname,mac=:mac,ip=:ip,powerstripeIp=:powerstripeIp,powerstripeId=:powerstripeId,remoteboxComPort=:remoteboxComPort,remoteboxHwId=:remoteboxHwId,remoteboxSwVersion=:remoteboxSwVersion, state=:state, projectID=( SELECT idProject FROM project WHERE name=:name) WHERE idRemoteWorkstation=:id";
 		const QString Update_User = "UPDATE user SET username=:username,password=:password,mksUsername=:mksUsername,mksPassword=:mksPassword,initials=:intitials,notifiyRemoteDesktop=:notifiyRemoteDesktop,notifiyDesktop=:notifiyDesktop, role=:role";
@@ -31,6 +32,7 @@ namespace RW{
 		const QString Update_Product = "UPDATE product SET productName=:productName,part=:part,receptID=:receptID";
 		const QString Update_LogEntry = "UPDATE log SET datetime=:datetime,message=:message,loglevel=:loglevel,threadId=:threadId,errorId=:errorId,type=:type,computerName=:computerName";
 		const QString Update_Project = "UPDATE project SET name=:name";
+		const QString Update_Device = "UPDATE device SET description=:description, vendorId=vendorId, productId=productId, serial=serial, deviceName=deviceName";
 
 		const QString Delete_RemoteWorkstattion = "DELETE FROM remoteWorkstation WHERE idRemoteWorkstation=:idRemoteWorkstation";
 		const QString Delete_User = "DELETE FROM user WHERE idUser=:idUser";
@@ -41,6 +43,7 @@ namespace RW{
 		const QString Delete_Product = "DELETE FROM product WHERE idProduct=:idProduct";
 		const QString Delele_LogEntry = "DELETE FROM log WHERE idLogEntry=:idLogEntry";
 		const QString Delele_Project = "DELETE FROM project WHERE idProject=:idProject";
+		const QString Delele_Device = "DELETE FROM device WHERE idDevice=:idDevice";
 
 		const QString SelectById_RemoteWorkstation = "SELECT * FROM remoteWorkstation WHERE idRemoteWorkstation = :idRemoteWorkstation";
 		const QString SelectById_User = "SELECT * FROM user WHERE idUser = :idUser";
@@ -51,6 +54,7 @@ namespace RW{
 		const QString SelectById_Product = "SELECT * FROM product WHERE idProduct = :idProduct";
 		const QString SelectById_LogEntry = "SELECT * FROM log WHERE idLogEntry=:idLogEntry";
 		const QString SelectById_Project = "SELECT * FROM project WHERE idProject=:idProject";
+		const QString SelectById_Device = "SELECT * FROM device WHERE idDevice=:idDevice";
 
 		const QString SelectAll_RemoteWorkstation = "SELECT * FROM remoteWorkstation";
 		const QString SelectAll_User = "SELECT * FROM user";
@@ -61,6 +65,7 @@ namespace RW{
 		const QString SelectAll_Product = "SELECT * FROM product";
 		const QString SelectAll_LogEntry = "SELECT * FROM log";
 		const QString SelectAll_Project = "SELECT * FROM project";
+		const QString SelectAll_Device = "SELECT * FROM device";
 
 		const QString Select_ElementConfigurationByRemoteWorkstationID = "SELECT el.remoteWorkstationID, t.type = type ,el.displayName,el.name,el.groupName, el.function, el.tooltip, el.pin, el.isFeature FROM elementConfiguration el join elementType t on el.elementTypeID = t.idElementType WHERE el.remoteWorkstationID = :remoteWorkstationID";
 		const QString SelectLastID = "SELECT idRemoteWorkstation from remoteWorkstation ORDER BY idRemoteWorkstation DESC LIMIT 1;";
@@ -330,6 +335,26 @@ namespace RW{
 			return res;
 		}
 
+		template<> bool MySqlMapper<Device>::Insert(const Device &Data)
+		{
+			Device d = Data;
+
+			QSqlQuery query;
+			query.prepare(Insert_Device);
+			query.bindValue(":description", d.Description());
+			query.bindValue(":vendorId", d.VendorID());
+			query.bindValue(":productId", d.ProductID());
+			query.bindValue(":serial", d.Serial());
+			query.bindValue(":deviceName", d.DeviceName());
+
+			bool res = query.exec();
+			if (!res)
+			{
+				m_logger->error("Tbl Device insert failed. Error: {}", query.lastError().text().toUtf8().constData());
+			}
+			return res;
+		}
+
 
 		template<> bool MySqlMapper<RemoteWorkstation>::Update(const RemoteWorkstation &Data)
 		{
@@ -444,7 +469,7 @@ namespace RW{
 			bool res = query.exec();
 			if (!res)
 			{
-				m_logger->error("Tbl instruction update failed. Error:{}", query.lastError().text().toUtf8().constData());
+				m_logger->error("Tbl recept update failed. Error:{}", query.lastError().text().toUtf8().constData());
 			}
 			return res;
 		}
@@ -467,7 +492,26 @@ namespace RW{
 			bool res = query.exec();
 			if (!res)
 			{
-				m_logger->error("Tbl instruction update failed. Error:{}", query.lastError().text().toUtf8().constData());
+				m_logger->error("Tbl user update failed. Error:{}", query.lastError().text().toUtf8().constData());
+			}
+			return res;
+		}
+
+		template<> bool MySqlMapper<Device>::Update(const Device &Data)
+		{
+			Device d = Data;
+			QSqlQuery query;
+			query.prepare(Update_Device);
+			query.bindValue(":description", d.Description());
+			query.bindValue(":vendorId", d.VendorID());
+			query.bindValue(":productId", d.ProductID());
+			query.bindValue(":serial", d.Serial());
+			query.bindValue(":deviceName", d.DeviceName());
+
+			bool res = query.exec();
+			if (!res)
+			{
+				m_logger->error("Tbl device update failed. Error:{}", query.lastError().text().toUtf8().constData());
 			}
 			return res;
 		}
@@ -719,6 +763,31 @@ namespace RW{
 			return d;
 		}
 
+		template<> Device MySqlMapper<Device>::FindByID(const quint64 ID, bool Flag)
+		{
+			Device d;
+			QSqlQuery query;
+			query.prepare(SelectById_Device);
+			query.bindValue(":idDevice", ID);
+			bool res = query.exec();
+
+			while (query.next())
+			{
+				// \!todo unschöne Konvertierung
+				d.SetDescription(query.value("description").toString());
+				d.SetVendorID(query.value("vendorId").toByteArray());
+				d.SetProductID(query.value("productId").toByteArray());
+				d.SetSerial(query.value("serial").toByteArray());
+				d.SetDeviceName(query.value("deviceName").toString());
+			}
+
+			if (!res)
+			{
+				m_logger->error("Tbl device FindByID failed. Error:{}", query.lastError().text().toUtf8().constData());
+			}
+			return d;
+		}
+
 		template<> QList<RemoteWorkstation> MySqlMapper<RemoteWorkstation>::FindAll()
 		{
 			QList<RemoteWorkstation> list;
@@ -962,6 +1031,31 @@ namespace RW{
 			if (!res)
 			{
 				m_logger->error("Tbl logEntry FindAll failed. Error:{}", query.lastError().text().toUtf8().constData());
+			}
+			return list;
+		}
+
+		template<> QList<Device> MySqlMapper<Device>::FindAll()
+		{
+			QList<Device> list;
+			QSqlQuery query;
+			query.prepare(SelectAll_Device);
+			bool res = query.exec();
+			while (query.next())
+			{
+				Device d;
+				// \!todo unschöne Konvertierung
+				d.SetDescription(query.value("description").toString());
+				d.SetVendorID(query.value("vendorId").toByteArray());
+				d.SetProductID(query.value("productId").toByteArray());
+				d.SetSerial(query.value("serial").toByteArray());
+				d.SetDeviceName(query.value("deviceName").toString());
+				list << d;
+			}
+
+			if (!res)
+			{
+				m_logger->error("Tbl device FindAll failed. Error:{}", query.lastError().text().toUtf8().constData());
 			}
 			return list;
 		}

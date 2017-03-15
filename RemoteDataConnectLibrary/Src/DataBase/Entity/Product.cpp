@@ -29,15 +29,28 @@ namespace RW{
 		{
 		}
 
-		Product::Product(const Product& other) : d_ptr(const_cast<ProductPrivate*>(other.d_ptr))
+		Product::Product(const Product& other)
 		{
-			d_ptr->setParent(this);
+			if (&other != nullptr)
+			{
+				d_ptr = new ProductPrivate(this);
+				d_ptr->m_Part = other.d_ptr->m_Part;
+				d_ptr->m_ProductName = other.d_ptr->m_ProductName;
+				d_ptr->m_Recept = other.d_ptr->m_Recept;
+
+			}
 		}
 
 		Product& Product::operator=(Product& other)
 		{
-			std::swap(d_ptr, const_cast<ProductPrivate*>(other.d_ptr));
-			d_ptr->setParent(this);
+			if (&other != nullptr)
+			{
+				d_ptr = new ProductPrivate(this);
+				d_ptr->m_Part = other.d_ptr->m_Part;
+				d_ptr->m_ProductName = other.d_ptr->m_ProductName;
+				d_ptr->m_Recept = other.d_ptr->m_Recept;
+
+			}
 			return *this;
 		}
 

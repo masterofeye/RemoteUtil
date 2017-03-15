@@ -3,7 +3,7 @@
 namespace RW{
     namespace SQL{
         class DevicePrivate;
-        class Device :
+		class REMOTE_DATA_CONNECT_API Device :
             public Entity
         {
            Q_OBJECT

@@ -30,6 +30,8 @@ namespace RW{
 			bool res = false;
 			DataFactory d(m_logger);
 			DataMapper<RemoteWorkstation> *dm = d.GetMapper<RemoteWorkstation>(m_Source);
+			if (dm == nullptr)
+				return false;
 			res = dm->Insert(R);
 			delete dm;
 			return res;
@@ -40,6 +42,8 @@ namespace RW{
 			bool res = false;
 			DataFactory d(m_logger);
 			DataMapper<LogEntry> *dm = d.GetMapper<LogEntry>(m_Source);
+			if (dm == nullptr)
+				return false;
 			res = dm->Insert(E);
 			delete dm;
 			return res;
@@ -50,6 +54,8 @@ namespace RW{
 			bool res = false;
 			DataFactory d(m_logger);
 			DataMapper<User> *dm = d.GetMapper<User>(m_Source);
+			if (dm == nullptr)
+				return false;
 			res = dm->Insert(U);
 			delete dm;
 			return res;
@@ -60,6 +66,8 @@ namespace RW{
 			bool res = false;
 			DataFactory d(m_logger);
 			DataMapper<ElementType> *dm = d.GetMapper<ElementType>(m_Source);
+			if (dm == nullptr)
+				return false;
 			res = dm->Insert(E);
 			delete dm;
 			return res;
@@ -70,6 +78,8 @@ namespace RW{
 			bool res = false;
 			DataFactory d(m_logger);
 			DataMapper<ElementConfiguration> *dm = d.GetMapper<ElementConfiguration>(m_Source);
+			if (dm == nullptr)
+				return false;
 			res = dm->Insert(E);
 			delete dm;
 			return res;
@@ -80,6 +90,8 @@ namespace RW{
 			bool res = false;
 			DataFactory d(m_logger);
 			DataMapper<Product> *dm = d.GetMapper<Product>(m_Source);
+			if (dm == nullptr)
+				return false;
 			res = dm->Insert(P);
 			delete dm;
 			return res;
@@ -90,6 +102,8 @@ namespace RW{
 			bool res = false;
 			DataFactory d(m_logger);
 			DataMapper<Instruction> *dm = d.GetMapper<Instruction>(m_Source);
+			if (dm == nullptr)
+				return false;
 			res = dm->Insert(I);
 			delete dm;
 			return res;
@@ -100,6 +114,8 @@ namespace RW{
 			bool res = false;
 			DataFactory d(m_logger);
 			DataMapper<Recept> *dm = d.GetMapper<Recept>(m_Source);
+			if (dm == nullptr)
+				return false;
 			res = dm->Insert(R);
 			delete dm;
 			return res;
@@ -110,6 +126,20 @@ namespace RW{
 			bool res = false;
 			DataFactory d(m_logger);
 			DataMapper<Project> *dm = d.GetMapper<Project>(m_Source);
+			if (dm == nullptr)
+				return false;
+			res = dm->Insert(P);
+			delete dm;
+			return res;
+		}
+
+		bool Repository::InsertDevice(Device &P)
+		{
+			bool res = false;
+			DataFactory d(m_logger);
+			DataMapper<Device> *dm = d.GetMapper<Device>(m_Source);
+			if (dm == nullptr)
+				return false;
 			res = dm->Insert(P);
 			delete dm;
 			return res;
@@ -168,6 +198,8 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<ElementType> *dm = d.GetMapper<ElementType>(m_Source);
+				if (dm == nullptr)
+					return false;
 				E = dm->FindByID(ID, false);
 				delete dm;
 			}
@@ -184,6 +216,8 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<Product> *dm = d.GetMapper<Product>(m_Source);
+				if (dm == nullptr)
+					return false;
 				P = dm->FindByID(ID, false);
 				delete dm;
 			}
@@ -200,6 +234,8 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<Instruction> *dm = d.GetMapper<Instruction>(m_Source);
+				if (dm == nullptr)
+					return false;
 				I = dm->FindByID(ID, false);
 				delete dm;
 			}
@@ -216,6 +252,8 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<Recept> *dm = d.GetMapper<Recept>(m_Source);
+				if (dm == nullptr)
+					return false;
 				R = dm->FindByID(ID, false);
 				delete dm;
 			}
@@ -232,6 +270,8 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<LogEntry> *dm = d.GetMapper<LogEntry>(m_Source);
+				if (dm == nullptr)
+					return false;
 				L = dm->FindByID(ID, false);
 				delete dm;
 			}
@@ -248,6 +288,8 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<Project> *dm = d.GetMapper<Project>(m_Source);
+				if (dm == nullptr)
+					return false;
 				P = dm->FindByID(ID, false);
 				delete dm;
 			}
@@ -259,11 +301,31 @@ namespace RW{
 			return true;
 		}
 
+		bool Repository::GetDeviceByID(quint64 ID, Device& P)
+		{
+			try{
+				DataFactory d(m_logger);
+				DataMapper<Device> *dm = d.GetMapper<Device>(m_Source);
+				if (dm == nullptr)
+					return false;
+				P = dm->FindByID(ID, false);
+				delete dm;
+			}
+			catch (...)
+			{
+				m_logger->error("GetDeviceByID throwed a exception");
+				return false;
+			}
+			return true;
+		}
+
 		bool Repository::GetAllRemoteWorkstation(QList<RemoteWorkstation> &AllR)
 		{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<RemoteWorkstation> *dm = d.GetMapper<RemoteWorkstation>(m_Source);
+				if (dm == nullptr)
+					return false;
 				AllR = dm->FindAll();
 				delete dm;
 			}
@@ -280,6 +342,8 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<User> *dm = d.GetMapper<User>(m_Source);
+				if (dm == nullptr)
+					return false;
 				AllR = dm->FindAll();
 				delete dm;
 			}
@@ -296,6 +360,8 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<ElementConfiguration> *dm = d.GetMapper<ElementConfiguration>(m_Source);
+				if (dm == nullptr)
+					return false;
 				AllR = dm->FindAll();
 				delete dm;
 			}
@@ -313,6 +379,8 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<ElementType> *dm = d.GetMapper<ElementType>(m_Source);
+				if (dm == nullptr)
+					return false;
 				AllR = dm->FindAll();
 				delete dm;
 			}
@@ -329,6 +397,8 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<Instruction> *dm = d.GetMapper<Instruction>(m_Source);
+				if (dm == nullptr)
+					return false;
 				AllR = dm->FindAll();
 				delete dm;
 			}
@@ -345,6 +415,8 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<Recept> *dm = d.GetMapper<Recept>(m_Source);
+				if (dm == nullptr)
+					return false;
 				AllR = dm->FindAll();
 				delete dm;
 			}
@@ -361,6 +433,8 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<Product> *dm = d.GetMapper<Product>(m_Source);
+				if (dm == nullptr)
+					return false;
 				AllR = dm->FindAll();
 				delete dm;
 			}
@@ -377,6 +451,8 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<LogEntry> *dm = d.GetMapper<LogEntry>(m_Source);
+				if (dm == nullptr)
+					return false;
 				AllR = dm->FindAll();
 				delete dm;
 			}
@@ -393,12 +469,32 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<Project> *dm = d.GetMapper<Project>(m_Source);
+				if (dm == nullptr)
+					return false;
 				AllR = dm->FindAll();
 				delete dm;
 			}
 			catch (...)
 			{
 				m_logger->error("GetAllProject throwed a exception");
+				return false;
+			}
+			return true;
+		}
+
+		bool Repository::GetAllDevice(QList<Device> & AllR)
+		{
+			try{
+				DataFactory d(m_logger);
+				DataMapper<Device> *dm = d.GetMapper<Device>(m_Source);
+				if (dm != nullptr)
+					return false;
+				AllR = dm->FindAll();
+				delete dm;
+			}
+			catch (...)
+			{
+				m_logger->error("GetAllDevice throwed a exception");
 				return false;
 			}
 			return true;
@@ -411,6 +507,8 @@ namespace RW{
 			try{
 				DataFactory d(m_logger);
 				DataMapper<User> *dm = d.GetMapper<User>(m_Source);
+				if (dm == nullptr)
+					return false;
 				list = dm->FindAll();
 				for each (auto var in list)
 				{

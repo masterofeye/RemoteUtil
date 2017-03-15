@@ -9,6 +9,7 @@
 #include "LogEntry.h"
 #include "GeneralSettings.h"
 #include "Project.h"
+#include "Device.h"
 
 namespace RW{
 	namespace SQL{
@@ -28,6 +29,9 @@ namespace RW{
 
 				qRegisterMetaType<RW::SQL::LogEntry*>("RW::SQL::LogEntry*");
 				qRegisterMetaType<RW::SQL::LogEntry*>("LogEntry*");
+
+				qRegisterMetaType<RW::SQL::Device*>("RW::SQL::Device*");
+				qRegisterMetaType<RW::SQL::Device*>("Device*");
 
 
                 qRegisterMetaType<RW::SQL::ElementConfiguration*>("RW::SQL::ElementConfiguration*");

@@ -17,6 +17,7 @@ namespace RW{
 		class ElementConfiguration;
 		class Recept;
 		class Project;
+		class Device;
 
 		/*
 		@brief Schnittstelle zwischen dem Datenzugriff von Clienten und externen Datenquellen. Jeder Zugriff auf externe Datenquellen
@@ -90,7 +91,7 @@ namespace RW{
 			bool InsertLogEntry(LogEntry &E);
 
 			bool InsertProject(Project &P);
-
+			bool InsertDevice(Device &P);
 
 			/*
 			@brief Liefert eine Instanz zurück die der übergebenen ID entspricht. 
@@ -107,6 +108,7 @@ namespace RW{
 			bool GetReceptByID(quint64 ID, Recept& R);
 			bool GetLogEntryByID(quint64 ID, LogEntry& L);
 			bool GetProjectByID(quint64 ID, Project& P);
+			bool GetDeviceByID(quint64 ID, Device& P);
 
 			bool GetAllRemoteWorkstation(QList<RemoteWorkstation> & AllR);
 			bool GetAllUser(QList<User> & AllR);
@@ -117,6 +119,7 @@ namespace RW{
 			bool GetAllProduct(QList<Product> & AllR);
 			bool GetAllLogEntry(QList<LogEntry> & AllR);
 			bool GetAllProject(QList<Project> & AllR);
+			bool GetAllDevice(QList<Device> & AllR);
 
 			bool GetUserByName(QString Name, User& U);
 

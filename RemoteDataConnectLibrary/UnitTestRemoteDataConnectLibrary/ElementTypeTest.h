@@ -71,10 +71,10 @@ private slots :
 		bool on = true;
 		RW::SQL::ElementType t;
 		t.SetType(RW::TypeOfElement::USB);
-		QVERIFY(!m_Repository->InsertElementType(t));
+		QVERIFY(m_Repository->InsertElementType(t));
 
 		RW::SQL::ElementType ret;
-		QVERIFY(!(m_Repository->GetElementTypeByID(1, ret)));
+		QVERIFY((m_Repository->GetElementTypeByID(1, ret)));
 	}
 
     void cleanupTestCase()
