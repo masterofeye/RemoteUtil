@@ -116,6 +116,12 @@
     <CustomBuild Include="Src\DataBase\Entity\Project_p.h">
       <Filter>Entity</Filter>
     </CustomBuild>
+    <CustomBuild Include="Src\DataBase\Entity\Device_p.h">
+      <Filter>Entity</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Src\DataBase\Entity\Device.h">
+      <Filter>Entity</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\DataBase\Entity\AllEntities.h">
@@ -325,6 +331,21 @@
       <Filter>Generierte Dateien\Debug</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_Project_p.cpp">
+      <Filter>Generierte Dateien\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\DataBase\Entity\Device.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Device_p.cpp">
+      <Filter>Generierte Dateien\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Device_p.cpp">
+      <Filter>Generierte Dateien\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Device.cpp">
+      <Filter>Generierte Dateien\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Device.cpp">
       <Filter>Generierte Dateien\Release</Filter>
     </ClCompile>
   </ItemGroup>

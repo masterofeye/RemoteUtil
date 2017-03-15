@@ -34,12 +34,14 @@ namespace RW{
 			~ElementConfiguration();
 
 			/*
+            @autor Ivo Kunadt
 			@brief Copy Konstruktor
 			@param [in]  Other
 			*/
 			ElementConfiguration(const ElementConfiguration& other);
 
 			/*
+            @autor Ivo Kunadt
 			@brief Copy Operator
 			@param [in] Other
 			@return ElementConfiguration
@@ -47,12 +49,14 @@ namespace RW{
 			ElementConfiguration& ElementConfiguration::operator=(ElementConfiguration& other);
 
 			/*
+            @autor Ivo Kunadt
 			@brief Move Konstruktor
 			@param [in] Other
 			*/
 			ElementConfiguration(ElementConfiguration&& other);
 
 			/*
+            @autor Ivo Kunadt
 			@brief Move Operator 
 			@param Other 
 			@return ElementConfiguration
@@ -60,6 +64,7 @@ namespace RW{
 			ElementConfiguration& ElementConfiguration::operator=(ElementConfiguration&& other);
 
 			/*
+            @autor Ivo Kunadt
 			@brief Gibt den Type des Konfigurationselementes zurück
 			*/
 			ElementType* Type() const;
@@ -71,108 +76,126 @@ namespace RW{
 			void SetType(ElementType *Type);
 
 			/*
+            @autor Ivo Kunadt
 			@brief Entspricht dem anzeigten Namen in der RemoteApp
 			@return QStríng Der Name der Anzeigt wird für die Funktionalität in der RemoteApp
 			*/
 			QString DisplayName() const;
 
 			/*
+            @autor Ivo Kunadt
 			@brief Setzt den Anzeigename für die RemoteApp
 			@param [in] DisplayName 
 			*/
 			void SetDisplayName(QString DisplayName);
 
 			/*
+            @autor Ivo Kunadt
 			@brief Name der Funktionalität. Kann intern genutzt werden um bestimmte Ereignisse zu triggern.
 			@return QString Gibt den Namen der Funktionaliät zurück. 
 			*/
 			QString Name() const;
 
 			/*
+            @autor Ivo Kunadt
 			@brief Setzt den Namen der Funktionalität.
 			@param [in] Name Name der Funktionalität.
 			*/
 			void SetName(QString Name);
 
 			/*
+            @autor Ivo Kunadt
 			@brief Name der Gruppe unter der die Funktionalität gelistet werden soll.
 			@oaram GroupName Name der Gruppe
 			*/
 			QString GroupName() const;
 
 			/*
+            @autor Ivo Kunadt
 			@brief Setzt den Gruppennamen in der die Funktionalität in der RemoteAPP gelistet werden soll.
 			@param [in] GroupName Name der Gruppe.
 			*/
 			void SetGroupName(QString GroupName);
 
 			/*
+            @autor Ivo Kunadt
 			@brief Funktion die hinter der Funktionalität steckt.
 			@return QString
 			*/
 			QString Function() const;
 
 			/*
+            @autor Ivo Kunadt
 			@brief Setzt die Funkktion die hinter der Funtinionalität steckt.
 			@param Function 
 			*/
 			void SetFunction(QString Function);
 
 			/*
+            @autor Ivo Kunadt
 			@brief ToolTip die hinter der Funktionalität steckt.
 			@return QString
 			*/
 			QString ToolTip() const;
 
 			/*
+            @autor Ivo Kunadt
 			@brief Setzt den ToolTip die hinter der Funtinionalität steckt.
 			@param ToolTip
 			*/
 			void SetToolTip(QString ToolTip);
 
 			/*
+            @autor Ivo Kunadt
 			@brief RemoteWorkstationID die hinter der Funktionalität steckt.
 			@return QString
 			*/
 			quint64 RemoteWorkstationID() const;
 
 			/*
+            @autor Ivo Kunadt
 			@brief Setzt den RemoteWorkstationID die hinter der Funtinionalität steckt.
 			@param ToolTip
 			*/
 			void SetRemoteWorkstationID(quint64 RemoteWorkstationID);
 
 			/*
+            @autor Ivo Kunadt
 			@brief Zeigt an ob die Funktioninalität auf für die RemoteView wichtig ist und auch dort angezeigt werden muss.
 			@return bool
 			*/
 			bool RemoteViewRelevant() const;
 
 			/*
+            @autor Ivo Kunadt
 			@brief
 			@param ToolTip
 			*/
 			void SetRemoteViewRelevant(bool RemoteViewRelevant);
 
 			/*
+            @autor Ivo Kunadt
 			@brief 
 			@return bool
 			*/
 			bool IsFeature() const;
 
 			/*
+            @autor Ivo Kunadt
 			@brief
 			@param 
 			*/
 			void SetIsFeature(bool Feature);
 
 			/*
+            @autor Ivo Kunadt
 			@brief
 			@return bool
 			*/
 			quint8 Pin() const;
 
 			/*
+            @autor Ivo Kunadt
 			@brief
 			@param
 			*/
@@ -180,51 +203,61 @@ namespace RW{
 
 		signals:
 			/*
+            @autor Ivo Kunadt
 			@brief Signalisiert wenn sich der Type geändert hat.
 			*/
 			void TypeChanged();
 
 			/*
+            @autor Ivo Kunadt
 			@brief Wird ausgelöst wenn sich der Displayname geändert hat. 
 			*/
 			void DisplayNameChanged();
 
 			/*
+            @autor Ivo Kunadt
 			@brief Wird ausgelöst wenn sich der Name geändert hat. 
 			*/
 			void NameChanged();
 
 			/*
+            @autor Ivo Kunadt
 			@brief Wird ausgelöst wenn sich der Gruppenname geändert hat.
 			*/
 			void GroupNameChanged();
 
 			/*
+            @autor Ivo Kunadt
 			@brief Wird ausgelöst wenn sich die Funktion geändert hat.
 			*/
 			void FunctionChanged();
 
 			/*
+            @autor Ivo Kunadt
 			@brief Wird ausgelöst wenn sich der ToolTip geändert hat.
 			*/
 			void ToolTipChanged();
 
 			/*
+            @autor Ivo Kunadt
 			@brief Wird ausgelöst wenn sich der RemoteWorkstationID geändert hat.
 			*/
 			void RemoteWorkstationIDChanged();
 
 			/*
+            @autor Ivo Kunadt
 			@brief Wird ausgelöst wenn sich der RemoteViewRelevant geändert hat.
 			*/
 			void RemoteViewRelevantChanged();
 
 			/*
+            @autor Ivo Kunadt
 			@brief Wird ausgelöst wenn sich IsFeature geändert hat.
 			*/
 			void IsFeatureChanged();
 
 			/*
+            @autor Ivo Kunadt
 			@brief Wird ausgelöst wenn sich Pin geändert hat.
 			*/
 			void PinChanged();
