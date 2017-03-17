@@ -14,7 +14,7 @@ namespace RW{
 		private:
 			QString m_ServerName;
 			std::shared_ptr<spdlog::logger> m_Logger;
-			QLocalServer* m_LocalServer;
+			QLocalServer* m_LocalComObj;
 			QMap<QString, QLocalSocket*>* m_SocketList;
 		public:
 			LocalCommunicationServer(QString ServerName, std::shared_ptr<spdlog::logger> Logger, QObject* Parent = nullptr);

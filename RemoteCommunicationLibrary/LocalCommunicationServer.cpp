@@ -7,21 +7,21 @@ namespace RW{
 		LocalCommunicationServer::LocalCommunicationServer(QString ServerName, std::shared_ptr<spdlog::logger> Logger, QObject* Parent) : BasicCommunicationServer(Parent),
 			m_ServerName(ServerName),
 			m_Logger(Logger),
-			m_LocalServer(new QLocalServer(this))
+			m_LocalComObj(new QLocalServer(this))
 		{
 			m_SocketList = new QMap<QString, QLocalSocket*>();
 
 			//Jeder hat Zugriff auf den Server.
-			m_LocalServer->setSocketOptions(QLocalServer::WorldAccessOption);
-			m_LocalServer->setMaxPendingConnections(2);
+			m_LocalComObj->setSocketOptions(QLocalServer::WorldAccessOption);
+			m_LocalComObj->setMaxPendingConnections(2);
 
-			connect(m_LocalServer, &QLocalServer::newConnection, this, &LocalCommunicationServer::OnPrepareIncomingConnection);
+			connect(m_LocalComObj, &QLocalServer::newConnection, this, &LocalCommunicationServer::OnPrepareIncomingConnection);
 		}
 
 
 		LocalCommunicationServer::~LocalCommunicationServer()
 		{
-			m_LocalServer->close();
+			m_LocalComObj->close();
 			qDeleteAll(*m_SocketList);
 			delete m_SocketList;
 		}
@@ -29,7 +29,7 @@ namespace RW{
 
 		bool LocalCommunicationServer::Listen()
 		{
-			if (m_LocalServer->listen(m_ServerName))
+			if (m_LocalComObj->listen(m_ServerName))
 			{
 				m_Logger->debug("LocalCommunicationServer is started on ChannelName {}", m_ServerName.toStdString());
 				return true;
@@ -43,7 +43,7 @@ namespace RW{
 
 		void LocalCommunicationServer::OnPrepareIncomingConnection()
 		{
-			QLocalSocket* socket = m_LocalServer->nextPendingConnection();
+			QLocalSocket* socket = m_LocalComObj->nextPendingConnection();
 
 			if (socket->isValid())
 			{

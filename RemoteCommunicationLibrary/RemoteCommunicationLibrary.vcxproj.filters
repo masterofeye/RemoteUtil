@@ -95,6 +95,24 @@
     <ClCompile Include="GeneratedFiles\Release\moc_GlobalCommunicationServer.cpp">
       <Filter>Generierte Dateien\Release</Filter>
     </ClCompile>
+    <ClCompile Include="GlobalCommunicationClient.cpp">
+      <Filter>Source Dateien</Filter>
+    </ClCompile>
+    <ClCompile Include="LocalCommunicationClient.cpp">
+      <Filter>Source Dateien</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GlobalCommunicationClient.cpp">
+      <Filter>Generierte Dateien\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GlobalCommunicationClient.cpp">
+      <Filter>Generierte Dateien\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_LocalCommunicationClient.cpp">
+      <Filter>Generierte Dateien\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_LocalCommunicationClient.cpp">
+      <Filter>Generierte Dateien\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="BasicCommunicationServer.h">
@@ -122,6 +140,12 @@
       <Filter>Header Dateien</Filter>
     </CustomBuild>
     <CustomBuild Include="Message.h">
+      <Filter>Header Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GlobalCommunicationClient.h">
+      <Filter>Header Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="LocalCommunicationClient.h">
       <Filter>Header Dateien</Filter>
     </CustomBuild>
   </ItemGroup>

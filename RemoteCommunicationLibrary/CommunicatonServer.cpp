@@ -1,23 +1,37 @@
 #include "CommunicatonServer.h"
 #include "LocalCommunicationServer.h"
 #include "GlobalCommunicationServer.h"
+#include "LocalCommunicationClient.h"
+#include "GlobalCommunicationClient.h"
 #include "Message.h"
 
 #include <QMetaobject>
 #include <QMetaMethod>
 
+
 namespace RW{
 	namespace COM{
-		CommunicatonServer::CommunicatonServer(QString LocalServerName, quint16 Port,  std::shared_ptr<spdlog::logger> Logger, QObject* Parent) : BasicCommunicationServer(Parent),
-			m_LocalServer(new LocalCommunicationServer("Server", Logger, this)),
-			m_GlobalServer(new GlobalCommunicationServer(1234,Logger,this)),
+		CommunicatonServer::CommunicatonServer(bool IsServer, QString LocalServerName, quint16 Port,  std::shared_ptr<spdlog::logger> Logger, QObject* Parent) : BasicCommunicationServer(Parent),
 			m_ReceiverList(new QList<QObject*>()),
-			m_Logger(Logger)
+			m_Logger(Logger),
+            m_IsServer(IsServer)
 		{
-			connect(m_GlobalServer, &GlobalCommunicationServer::NewMessage, this, &CommunicatonServer::OnProcessMessage);
-			connect(m_LocalServer, &LocalCommunicationServer::NewMessage, this, &CommunicatonServer::OnProcessMessage);
-			connect(this, &CommunicatonServer::SendExtMessage, m_GlobalServer, &GlobalCommunicationServer::OnProcessMessage);
-			connect(this, &CommunicatonServer::SendExtMessage, m_LocalServer, &LocalCommunicationServer::OnProcessMessage);
+            if (IsServer)
+            {
+                m_LocalComObj = new LocalCommunicationServer("Server", Logger, this);
+                m_GlobalComObj = new GlobalCommunicationServer(1234, Logger, this);
+            }
+            else
+            {
+                m_LocalComObj = new LocalCommunicationClient("Server", Logger, this);
+                m_GlobalComObj = new GlobalCommunicationClient(1234, Logger, this);
+            }
+
+
+			connect(m_GlobalComObj, &GlobalCommunicationServer::NewMessage, this, &CommunicatonServer::OnProcessMessage);
+			connect(m_LocalComObj, &LocalCommunicationServer::NewMessage, this, &CommunicatonServer::OnProcessMessage);
+            connect(this, &CommunicatonServer::SendExtMessage, (GlobalCommunicationServer*)m_GlobalComObj, &GlobalCommunicationServer::OnProcessMessage);
+            connect(this, &CommunicatonServer::SendExtMessage, (LocalCommunicationServer*)m_LocalComObj, &LocalCommunicationServer::OnProcessMessage);
 
 			m_UUID = QUuid::createUuid();
 		}
@@ -32,12 +46,12 @@ namespace RW{
 
 		bool CommunicatonServer::Listen()
 		{
-			if (!m_LocalServer->Listen())
+			if (!m_LocalComObj->Listen())
 			{
 				return false;
 			}
 
-			if (!m_GlobalServer->Listen())
+			if (!m_GlobalComObj->Listen())
 			{
 				return false;
 			}
@@ -156,6 +170,10 @@ namespace RW{
 				return;
 			if (qobject_cast<LocalCommunicationServer*>(obj) != nullptr)
 				return;
+            if (qobject_cast<LocalCommunicationClient*>(obj) != nullptr)
+                return;
+            if (qobject_cast<GlobalCommunicationClient*>(obj) != nullptr)
+                return;
 
 			if (Msg.IsExternal())
 			{

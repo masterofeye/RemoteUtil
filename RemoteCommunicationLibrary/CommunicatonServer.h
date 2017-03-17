@@ -15,12 +15,13 @@ namespace RW{
 			Q_OBJECT
 		private:
 			std::shared_ptr<spdlog::logger> m_Logger;
-			LocalCommunicationServer* m_LocalServer;
-			GlobalCommunicationServer* m_GlobalServer;
+			BasicCommunicationServer* m_LocalComObj;
+            BasicCommunicationServer* m_GlobalComObj;
 			QList<QObject*>* m_ReceiverList;
 			QUuid m_UUID;
+            bool m_IsServer = true;
 		public:
-			CommunicatonServer(QString LocalServerName = "Server", quint16 Port = 1234,std::shared_ptr<spdlog::logger> Logger = nullptr, QObject* Parent = nullptr);
+            CommunicatonServer(bool IsServer,QString LocalServerName = "Server", quint16 Port = 1234, std::shared_ptr<spdlog::logger> Logger = nullptr, QObject* Parent = nullptr);
 			~CommunicatonServer();
 
 			void Register(QObject* Client);
