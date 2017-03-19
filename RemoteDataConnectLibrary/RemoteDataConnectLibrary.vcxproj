@@ -497,8 +497,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y $(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName)d.dll $(SolutionDir)Bin 
+      <Command>xcopy /y $(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName)d.dll $(SolutionDir)Bin
+
 xcopy/y  $(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName)d.lib $(SolutionDir)Lib
+xcopy /y $(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName)d.dll ..\..\RemoteHiddenHelper\build\x64\Debug
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

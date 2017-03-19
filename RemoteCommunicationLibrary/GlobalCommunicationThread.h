@@ -23,6 +23,7 @@ namespace RW{
 			void OnDisconnect();
 			void OnProcessMessage(Message Msg);
 			void OnExternalMessage();
+			void OnSocketError(QAbstractSocket::SocketError socketError);
 		signals:
 			void error(QTcpSocket::SocketError socketerror);
 			void NewMessage(Message Msg);

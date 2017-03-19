@@ -76,11 +76,11 @@ namespace RW{
 				}
 
 				//Prüfen ob im Receiver Objekt die OnMessage Methode existiert
-				int clientMethodIndex = ClientMetaObject->indexOfSlot(QMetaObject::normalizedSignature("OnProcessMessage(Message Message)"));
+				int clientMethodIndex = ClientMetaObject->indexOfSlot(QMetaObject::normalizedSignature("OnProcessMessage(Message Msg)"));
 				//TODO MagicNumber
 				if (clientMethodIndex == -1)
 				{
-					m_Logger->warn("There is no function called OnProcessMessage for Object {}", Client->objectName().toStdString());
+					m_Logger->warn("There is no function called OnProcessMessage for Object {}", Client->metaObject()->className());
 					return;
 				}
 
@@ -89,15 +89,15 @@ namespace RW{
 				const QMetaObject* ServerMetaObject = this->metaObject();
 				if (ServerMetaObject == nullptr)
 				{
-					m_Logger->error("Meta object is null for Object {}", this->objectName().toStdString());
+					m_Logger->error("Meta object is null for Object {}", this->metaObject()->className());
 					return;
 				}
 
-				int ServerSignalIndex = ServerMetaObject->indexOfSignal(QMetaObject::normalizedSignature("NewMessage(Message Message)"));
+				int ServerSignalIndex = ServerMetaObject->indexOfSignal(QMetaObject::normalizedSignature("NewMessage(COM::Message Msg)"));
 				//TODO MagicNumber
 				if (ServerSignalIndex == -1)
 				{
-					m_Logger->warn("No Signal found with name NewCommand for Object {}", this->objectName().toStdString());
+					m_Logger->warn("No Signal found with name NewCommand for Object {}", this->metaObject()->className());
 					return;
 				}
 
@@ -106,17 +106,17 @@ namespace RW{
 				QMetaObject::Connection connectionServerClient = QObject::connect(this, serverSignal, Client, clientOnProcessMessageMethod);
 				if (((bool)connectionServerClient) == false)
 				{
-					m_Logger->error("Connection couldn't established for Object:{}", Client->objectName().toStdString());
+					m_Logger->error("Connection couldn't established for Object:{}", Client->metaObject()->className());
 				}
 				else
 				{
-					m_Logger->debug("Receiver was successfully connected to the signal. {}", Client->objectName().toStdString());
+					m_Logger->debug("Receiver was successfully connected to the signal. {}", Client->metaObject()->className());
 				}
 
 				int serverMethodIndex = ServerMetaObject->indexOfSlot(QMetaObject::normalizedSignature("OnProcessMessage(Message Message)"));
 				if (serverMethodIndex == -1)
 				{
-					m_Logger->warn("There is no function called OnProcessMessage for Object {}", this->objectName().toStdString());
+					m_Logger->warn("There is no function called OnProcessMessage for Object {}", this->metaObject()->className());
 					return;
 				}
 
@@ -126,7 +126,7 @@ namespace RW{
 				//TODO MagicNumber
 				if (clientSignalIndex == -1)
 				{
-					m_Logger->warn("No Signal found with name NewCommand for Object {}", this->objectName().toStdString());
+					m_Logger->warn("No Signal found with name NewCommand for Object {}", this->metaObject()->className());
 					return;
 				}
 
@@ -135,11 +135,11 @@ namespace RW{
 				QMetaObject::Connection connectionClientServer = QObject::connect(Client, clientSignal, this, serverOnProcessMessageMethod);
 				if (((bool)connectionClientServer) == false)
 				{
-					m_Logger->error("Connection couldn't established for Object:{}", this->objectName().toStdString());
+					m_Logger->error("Connection couldn't established for Object:{}", this->metaObject()->className());
 				}
 				else
 				{
-					m_Logger->debug("Receiver was successfully connected to the signal. {}", this->objectName().toStdString());
+					m_Logger->debug("Receiver was successfully connected to the signal. {}", this->metaObject()->className());
 				}
 
 				m_ReceiverList->append(Client);

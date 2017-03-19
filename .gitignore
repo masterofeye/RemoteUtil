@@ -251,3 +251,9 @@ paket-files/
 .idea/
 *.sln.iml
 RemoteCommunicationLibrary/Lib/RemoteCommunicationLibraryd.lib
+RemoteDataConnectLibrary/UnitTestRemoteDataConnectLibrary/results/Devicetest.xml
+RemoteDataConnectLibrary/UnitTestRemoteDataConnectLibrary/results/ElementConfigurationTest.xml
+RemoteDataConnectLibrary/UnitTestRemoteDataConnectLibrary/results/ElementTypeTest.xml
+RemoteDataConnectLibrary/UnitTestRemoteDataConnectLibrary/results/ProjectTest.xml
+RemoteDataConnectLibrary/UnitTestRemoteDataConnectLibrary/results/RemoteWorkstationTest.xml
+RemoteDataConnectLibrary/UnitTestRemoteDataConnectLibrary/results/UserTest.xml

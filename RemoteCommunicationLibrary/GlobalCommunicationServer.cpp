@@ -35,7 +35,7 @@ namespace RW{
 		{
 			QTcpSocket *socket = m_TcpServer->nextPendingConnection();
 			// We have a new connection
-			m_Logger->debug(" Connecting...");
+			m_Logger->debug("A new client {} has connected ", socket->peerAddress().toString().toStdString());
 			
 			// Every new connection will be run in a newly created thread
 			GlobalCommunicationThread *thread = new GlobalCommunicationThread(socket, m_Logger,this);

@@ -35,7 +35,7 @@ namespace RW{
 
 				connect(m_Socket, SIGNAL(readyRead()), this, SLOT(OnExternalMessage()), Qt::DirectConnection);
 				connect(m_Socket, SIGNAL(disconnected()), this, SLOT(OnDisconnect()));
-
+				connect(m_Socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(OnSocketError(QAbstractSocket::SocketError)));
 
 				// We'll have multiple clients, we want to know which is which
 				m_Logger->debug("Client connected to GlobalServer {}",m_Socket->localAddress().toString().toStdString());
@@ -64,7 +64,10 @@ namespace RW{
 			void GlobalCommunicationThread::OnExternalMessage()
 			{
 				if (m_Socket->bytesAvailable() <= 0)
+				{
+					m_Logger->warn("TcpSocket don't have any data received but was triggered.");
 					return;
+				}
 
 				Message msg;
 				QDataStream sizeStream(m_Socket->readAll());
@@ -76,8 +79,88 @@ namespace RW{
 			
 			void GlobalCommunicationThread::OnDisconnect()
 			{
-				if (qobject_cast<QAbstractSocket*>(sender())) {
-					sender()->deleteLater();
+				QTcpSocket *socket = (QTcpSocket*)qobject_cast<QAbstractSocket*>(sender());
+				if (socket) {
+					m_Logger->debug("Client {} disconnected from the server.", socket->peerAddress().toString().toStdString());
+					socket->deleteLater();
+				}
+			}
+
+			void GlobalCommunicationThread::OnSocketError(QAbstractSocket::SocketError socketError)
+			{
+				switch (socketError)
+				{
+				case QAbstractSocket::ConnectionRefusedError:
+					m_Logger->error("A GlobalCommunicationClient socket error occoured: {}", "ConnectionRefusedError");
+					break;
+				case QAbstractSocket::AddressInUseError:
+					m_Logger->error("A GlobalCommunicationClient socket error occoured: {}", "AddressInUseError");
+					break;
+				case QAbstractSocket::TemporaryError:
+					m_Logger->error("A GlobalCommunicationClient socket error occoured: {}", "ServerNotFoundError");
+					break;
+				case QAbstractSocket::SocketAccessError:
+					m_Logger->error("A GlobalCommunicationClient socket error occoured: {}", "SocketAccessError");
+					break;
+				case QAbstractSocket::SocketResourceError:
+					m_Logger->error("A GlobalCommunicationClient socket error occoured:  {}", "SocketResourceError");
+					break;
+				case QAbstractSocket::SocketTimeoutError:
+					m_Logger->error("A GlobalCommunicationClient socket error occoured:  {}", "SocketTimeoutError");
+					break;
+				case QAbstractSocket::DatagramTooLargeError:
+					m_Logger->error("A GlobalCommunicationClient socket error occoured:  {}", "DatagramTooLargeError");
+					break;
+				case QAbstractSocket::UnsupportedSocketOperationError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "UnsupportedSocketOperationError");
+					break;
+				case QAbstractSocket::UnknownSocketError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "UnknownSocketError");
+					break;
+				case QAbstractSocket::OperationError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "OperationError");
+					break;
+				case QAbstractSocket::UnfinishedSocketOperationError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "UnfinishedSocketOperationError");
+					break;
+				case QAbstractSocket::NetworkError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "NetworkError");
+					break;
+				case QAbstractSocket::HostNotFoundError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "HostNotFoundError");
+					break;
+				case QAbstractSocket::RemoteHostClosedError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "RemoteHostClosedError");
+					break;
+				case QAbstractSocket::ProxyAuthenticationRequiredError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "ProxyAuthenticationRequiredError");
+					break;
+				case QAbstractSocket::SslHandshakeFailedError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "SslHandshakeFailedError");
+					break;
+				case QAbstractSocket::ProxyConnectionRefusedError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "UnfinishedSocketOperationError");
+					break;
+				case QAbstractSocket::ProxyConnectionClosedError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "ProxyConnectionClosedError");
+					break;
+				case QAbstractSocket::ProxyConnectionTimeoutError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "ProxyConnectionTimeoutError");
+					break;
+				case QAbstractSocket::ProxyNotFoundError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "ProxyNotFoundError");
+					break;
+				case QAbstractSocket::ProxyProtocolError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "ProxyProtocolError");
+					break;
+				case QAbstractSocket::SslInternalError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "SslInternalError");
+					break;
+				case QAbstractSocket::SslInvalidUserDataError:
+					m_Logger->error("A LocalCommunicationServer socket error occoured:  {}", "SslInvalidUserDataError");
+					break;
+				default:
+					break;
 				}
 			}
 	}

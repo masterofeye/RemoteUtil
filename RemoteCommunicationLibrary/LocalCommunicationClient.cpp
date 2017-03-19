@@ -108,7 +108,7 @@ namespace RW{
 
         void LocalCommunicationClient::OnDisconnected()
         {
-        
+			m_Client->deleteLater();
         }
 
     }

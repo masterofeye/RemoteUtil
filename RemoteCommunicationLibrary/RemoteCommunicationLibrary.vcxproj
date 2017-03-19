@@ -63,7 +63,11 @@
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y $(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName)d.dll $(SolutionDir)Bin 
+
 xcopy/y  $(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName)d.lib $(SolutionDir)Lib
+
+xcopy /y $(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName)d.dll ..\..\RemoteService\build\x64\Debug
+xcopy /y $(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName)d.dll ..\..\RemoteHiddenHelper\build\x64\Debug
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
