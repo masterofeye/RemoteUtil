@@ -1,6 +1,7 @@
 #pragma once
 
 #include <qobject.h>
+#include <QMetaType>
 namespace RW{
 	namespace COM{
 //#ifdef Q_MOC_RUN
@@ -47,13 +48,62 @@ namespace RW{
 				IN_PowerStripe,
 				Amount
 			};
+
+
 //#ifdef Q_MOC_RUN
 //			Q_ENUM(MessageDescription)
 //#endif
 
 			enum class ErrorDecscription
 			{
-
+                Success,
+                Error,
+                Busy,
+                ErrorCanEasyComServerMissing,
+                ErrorCanEasyStartSimulation,
+                ErrorCanEasySimulationIsRunningFailed,
+                ErrorCanEasyStopSimulation,
+                ErrorCanEasyWorkspaceNotFound,
+                ErrorCanEasyWorkspaceNotLoaded,
+                ErrorCanEasyApplicationError,
+                ErrorCanEasyDeInitError,
+                ErrorMKSLogin,
+                ErrorMKSLocationMissing,
+                ErrorMKSError,
+                ErrorMKSSandBoxCreation,
+                ErrorMKSSanbBoxDrop,
+                ErrorMKSCloseFailed,
+                ErrorMKSMissingParameter,
+                ErrorFHostSPStartApplication,
+                ErrorFHostSPSequenceStop,
+                ErrorFHostSPSequenceStart,
+                ErrorFHostSPLoadFlashfileStatusFailed,
+                ErrorFHostSPLoadFlashfileFailed,
+                ErrorFHostSPFlashfileNotExits,
+                ErrorFHostSPGetProgress,
+                ErrorFHostSPCloseApplication,
+                ErrorFHostSPGetStateFailed,
+                ErrorFHostSPAbortFailed,
+                ErrorPortalInfoFinalRegexCheck,
+                ErrorPortalInfoProjectnameCount,
+                ErrorPortalInfoProjectCount,
+                ErrorPortalInfoSamplePhaseAndReleaseCount,
+                ErrorPortalInfoSamplePhaseCount,
+                ErrorPortalInfoPrepareReleaseInformation,
+                ErrorPortalInfoReleaseCount,
+                ErrorFileUtilMissingZipFile,
+                ErrorFileUtilNoSevenZip,
+                ErrorFileUtilFailed,
+                ErrorFileUtilDirectoryDontExists,
+                ErrorFileUtilDeleteFailed,
+                ErrorFileUsbHidLoaderFileDontExists,
+                ErrorFileUsbHidLoaderFailed,
+                ErrorFileUsbHidLoaderHIDState,
+                ErrorFileUsbHidLoaderTimeOut,
+                ErrorFileUsbHidLoaderChecksum,
+                ErrorFileUsbHidLiaderUnknownError,
+                ErrorLogOutNotPossible,
+                ErrorLogOutQuerySessionFailed,
 			};
 //#ifdef Q_MOC_RUN
 //			Q_ENUM(ErrorDecscription)
@@ -71,3 +121,5 @@ namespace RW{
 	}
 
 }
+Q_DECLARE_METATYPE(RW::COM::MessageDescription);
+Q_DECLARE_METATYPE(RW::COM::ErrorDecscription);
