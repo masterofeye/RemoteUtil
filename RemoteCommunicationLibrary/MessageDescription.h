@@ -111,7 +111,7 @@ namespace RW{
 //#ifdef Q_MOC_RUN
 //		};
 //#endif
-			enum class Identifier
+			enum class IdentifierFlag
 			{
 				RemoteService,
 				RemoteApp,

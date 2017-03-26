@@ -35,10 +35,10 @@ namespace RW{
             dataStream << Msg;
             quint64 size = m_Client->write(arr);
             if (size < arr.size())
-                m_Logger->warn("Uncomplete message was send to {}", Msg.Identifier().toStdString());
+                m_Logger->warn("Uncomplete message was send to {}", Msg.identifier().toStdString());
 
             if (!m_Client->flush())
-                m_Logger->error("Message couldn't send to {}", Msg.Identifier().toStdString());
+                m_Logger->error("Message couldn't send to {}", Msg.identifier().toStdString());
         }
 
         void LocalCommunicationClient::OnPrepareIncomingConnection()

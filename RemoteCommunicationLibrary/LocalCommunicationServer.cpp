@@ -116,16 +116,16 @@ namespace RW{
 
 		void LocalCommunicationServer::OnProcessMessage(Message Msg)
 		{
-			QLocalSocket* localSocket = m_SocketList->find(Msg.Identifier()).value();
+			QLocalSocket* localSocket = m_SocketList->find(Msg.identifier()).value();
 			QByteArray arr;
 			QDataStream dataStream(&arr, QIODevice::OpenModeFlag::WriteOnly);
 			dataStream << Msg;
 			quint64 size = localSocket->write(arr);
 			if (size < arr.size())
-				m_Logger->warn("Uncomplete message was send to {}", Msg.Identifier().toStdString());
+				m_Logger->warn("Uncomplete message was send to {}", Msg.identifier().toStdString());
 
 			if (!localSocket->flush())
-				m_Logger->error("Message couldn't send to {}", Msg.Identifier().toStdString());
+				m_Logger->error("Message couldn't send to {}", Msg.identifier().toStdString());
 		}
 
 		void LocalCommunicationServer::OnExternalMessage()
@@ -144,8 +144,8 @@ namespace RW{
 				return;
 			}
 
-			if (!m_SocketList->contains(msg.Identifier()))
-				m_SocketList->insert(msg.Identifier(), localSocket);
+			if (!m_SocketList->contains(msg.identifier()))
+				m_SocketList->insert(msg.identifier(), localSocket);
 
 			emit NewMessage(msg);
 		}

@@ -2,3 +2,4 @@
 
 
 #include "..\CommunicatonServer.h"
+#include "..\Message.h"

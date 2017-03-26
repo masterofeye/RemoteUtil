@@ -11,6 +11,7 @@
 #include "Project.h"
 #include "Device.h"
 
+#include <QQmlEngine>
 namespace RW{
 	namespace SQL{
 		class Register
@@ -33,16 +34,20 @@ namespace RW{
 				qRegisterMetaType<RW::SQL::Device*>("RW::SQL::Device*");
 				qRegisterMetaType<RW::SQL::Device*>("Device*");
 
-
-                qRegisterMetaType<RW::SQL::ElementConfiguration*>("RW::SQL::ElementConfiguration*");
-                qRegisterMetaType<RW::SQL::ElementConfiguration*>("ElementConfiguration*");
-                qRegisterMetaType<RW::SQL::ElementConfiguration>("RW::SQL::ElementConfiguration");
-                qRegisterMetaType<RW::SQL::ElementConfiguration>("ElementConfiguration");
-
 				qRegisterMetaType<RW::SQL::Project*>("RW::SQL::Project*");
 				qRegisterMetaType<RW::SQL::Project*>("Project*");
-                qRegisterMetaType<RW::SQL::ElementType*>("RW::SQL::ElementType*");
+				qRegisterMetaType<RW::SQL::ElementType*>("RW::SQL::ElementType*");
 				qRegisterMetaType<RW::SQL::ElementType*>("ElementType*");
+
+                                //qRegisterMetaType<RW::SQL::ElementConfiguration*>("RW::SQL::ElementConfiguration*");
+                                //qRegisterMetaType<RW::SQL::ElementConfiguration*>("ElementConfiguration*");
+                                //qRegisterMetaType<RW::SQL::ElementConfiguration>("RW::SQL::ElementConfiguration");
+                                //qRegisterMetaType<RW::SQL::ElementConfiguration>("ElementConfiguration");
+				
+				qmlRegisterType<RW::SQL::RemoteWorkstation>();
+				qmlRegisterType<RW::SQL::Project>();
+				qmlRegisterType<RW::SQL::ElementConfiguration>();
+
 			}
 		};
 	}

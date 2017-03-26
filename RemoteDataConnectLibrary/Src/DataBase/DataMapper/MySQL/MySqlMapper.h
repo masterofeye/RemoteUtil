@@ -747,7 +747,7 @@ namespace RW{
 			while (query.next())
 			{
 				// \!todo unschöne Konvertierung
-				d.SetComputerNameRW(query.value("setComputerName").toString());
+				d.SetComputerNameRW(query.value("computerName").toString());
 				d.SetType(query.value("type").toString());
 				d.SetDate(query.value("date").toDateTime());
 				d.SetThreadID(query.value("threadId").toInt());
@@ -1018,7 +1018,7 @@ namespace RW{
 			{
 				LogEntry d;
 				// \!todo unschöne Konvertierung
-				d.SetComputerNameRW(query.value("setComputerName").toString());
+				d.SetComputerNameRW(query.value("computerName").toString());
 				d.SetType(query.value("type").toString());
 				d.SetDate(query.value("date").toDateTime());
 				d.SetThreadID(query.value("threadId").toInt());

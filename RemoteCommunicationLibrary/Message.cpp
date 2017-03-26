@@ -5,21 +5,19 @@
 
 namespace RW{
 	namespace COM{
-		Message::Message(QObject* Parent) : QObject(Parent)
-		{
-		
-		}
+		//Message::Message() : QObject(nullptr)
+		//{
+		//
+		//}
 
 
 		Message::Message(QString Identifier,
 			COM::MessageDescription MessageID,
-			QByteArray Data,
 			ExecutionVariant ExcVariant,
 			QList<QVariant> ParameterListe,
 			QObject* Parent) : QObject(Parent),
 			m_Identifier(Identifier),
 			m_MessageID(MessageID),
-			m_Data(Data),
 			m_ExecutionVariant(ExcVariant),
 			m_ParameterListe(ParameterListe)
 		{
@@ -27,7 +25,6 @@ namespace RW{
 
 		Message::Message(QString Identifier, 
 			COM::MessageDescription MessageID,
-			QByteArray Data,
 			ExecutionVariant ExcVariant,
 			QList<QVariant> ParameterListe,
 			QVariant Result,
@@ -35,7 +32,6 @@ namespace RW{
 			QObject* Parent) : QObject(Parent),
 			m_Identifier(Identifier),
 			m_MessageID(MessageID),
-			m_Data(Data),
 			m_ExecutionVariant(ExcVariant),
 			m_ParameterListe(ParameterListe),
 			m_Result(Result),
@@ -50,7 +46,6 @@ namespace RW{
 
 		Message::Message(const Message &obj)
 		{
-			m_Data.setRawData(obj.m_Data.data(), obj.m_Data.size());
 			m_ExecutionVariant = obj.m_ExecutionVariant;
 			m_ParameterListe = obj.m_ParameterListe;
 			m_MessageID = obj.m_MessageID;
@@ -64,19 +59,14 @@ namespace RW{
 		}
 
 		Message::Message(Message&& other):
-		m_Data(other.m_Data),
 		m_MessageID(other.m_MessageID),
 		m_ExecutionVariant(other.m_ExecutionVariant),
 		m_ParameterListe(other.m_ParameterListe)
 		{
-			other.m_Data.clear();
 		}
 
 		Message& Message::operator = (Message&& other)
 		{
-			m_Data.clear();
-			m_Data = other.m_Data;
-			other.m_Data.clear();
 			return *this;
 		}
 
@@ -114,8 +104,6 @@ namespace RW{
 			out.startTransaction();
 			out << dataStruct.m_Identifier;
 			out << dataStruct.m_MessageID;
-			out << dataStruct.m_Data.size();
-			out.writeRawData(dataStruct.m_Data, dataStruct.m_Data.size());
 			out << dataStruct.m_ExecutionVariant;
 			out << dataStruct.m_ParameterListe;
 			out << dataStruct.m_Result;
@@ -128,8 +116,6 @@ namespace RW{
 		{
 			RW::COM::Message::ExecutionVariant var;
 			RW::COM::MessageDescription id;
-			quint64 size;
-			QByteArray data;
 			QList<QVariant> parameterList;
 			QVariant result;
 			bool success;
@@ -137,15 +123,12 @@ namespace RW{
 
 			in >> Identifier;
 			in >> id;
-			in >> size;
-			in.readRawData(data.data(), size);
 			in >> var;
 			in >> parameterList;
 			in >> result;
 			in >> success;
 
 			dataStruct.m_Identifier;
-			dataStruct.m_Data = data;
 			dataStruct.m_ParameterListe = parameterList;
 			dataStruct.m_MessageID = id;
 			dataStruct.m_Result = result;

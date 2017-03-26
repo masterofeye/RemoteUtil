@@ -177,7 +177,7 @@ namespace RW{
 
 			if (Msg.IsExternal())
 			{
-				Msg.SetIdentifier(m_UUID.toString());
+				Msg.setIdentifier(m_UUID.toString());
 				emit SendExtMessage(Msg);
 			}
 			emit NewMessage(Msg);
